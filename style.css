@@ -49,11 +49,14 @@ header {
 }
 
 footer {
-    height: 15rem;
-    background-color: hsl(205, 100%, 19%);
+    display: flex;
+    height: 10rem;
+    background-color: hsl(205, 100%, 24%);
     margin: 3rem;
+    padding-inline: 11rem;
+    align-items: center;
+    justify-content: space-around;
 }
-
 
 .flex {
     display: flex;
@@ -176,8 +179,6 @@ footer {
     color: hsl(var(--clr-light));
 }
 
-
-
 .bar {
     height: 2px;
     transform: skew(-45deg);
@@ -273,3 +274,17 @@ footer {
 .nav-menu[data-visible="true"] {
     transform: translateX(0);
 }
+.footer-pic{
+    width: 5rem;
+    min-width: 4rem;
+    object-fit: cover;
+}
+
+footer > a {
+    color: hsl( var(--clr-dark));
+}
+
+footer > * {
+    margin-inline: 1rem;
+}
+
