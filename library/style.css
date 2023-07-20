@@ -6,6 +6,7 @@
     /* colors */
     --clr-warm-veneer: 35 40% 55%;
     --clr-dark: 240 8% 5%;
+    --clr-light-dark: 0 0% 56%;
     --clr-white: 0 0% 100%;
 
     /* font-sizes */
@@ -110,6 +111,11 @@ h3::after {
 
 }
 
+footer {
+    height: 250px;
+    background-color: hsl( var(--clr-dark) );
+}
+
 /* ------------------- */
 /* Utility classes     */
 /* ------------------- */
@@ -151,6 +157,10 @@ h3::after {
     color: hsl( var(--clr-warm-veneer) );
 }
 
+.text-light-dark {
+    color: hsl( var(--clr-light-dark) );
+}
+
 /* typography */
 
 .ff-forum {
@@ -162,7 +172,7 @@ h3::after {
 }
 
 .fs-30 {
-    font-size: var(--fs-40);
+    font-size: var(--fs-30);
 }
 
 .fs-15 {
@@ -193,6 +203,10 @@ h3::after {
     text-align: center;
 }
 
+.text-end {
+    text-align: end;
+}
+
 .uppercase {
     text-transform: uppercase;
 }
@@ -221,9 +235,24 @@ h3::after {
     justify-self: end;
 }
 
+.align-self-center {
+    align-self: center;
+}
+
 /* Margins */
 .mx-20 {
     margin-inline: 20px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+.mt-3 {
+    margin-top: 1.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem;
 }
 
 .mr-2{
@@ -236,6 +265,12 @@ h3::after {
 
 .mr-20{
     margin-right: 20px;
+}
+
+/* Paddings */
+
+.px-20 {
+    padding-inline: 20px;
 }
 
 .navigation-bar {
@@ -325,9 +360,6 @@ h3::after {
     height: 387px;
     width: 600px;
     background-color: hsl( var(--clr-warm-veneer) );
-    background-clip: content-box;
-    box-shadow: inset 0 0 0 15px #FF7A59;
-
 }
 
 
@@ -350,5 +382,42 @@ h3::after {
     height: 1px;
     width: 100px;
     background-color: hsl( var(--clr-warm-veneer) );
+}
+
+/* Contacts */
+/* ************ */
+
+.contacts-container > picture {
+    height: 414px;
+
+}
+
+/* Library cards */
+/* ************* */
+
+.member-card-border{
+    height: 387px;
+    width: 600px;
+    background-color: hsl( var(--clr-white) );
+    border: 1px solid hsl( var(--clr-warm-veneer) );
+}
+
+.member-card {
+    height: 272px;
+    width: 560px;
+}
+
+.member-card input {
+    flex: 1;
+
+}
+
+.member-card-border button{
+
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1px solid hsl( var(--clr-dark) );
+    border-radius: 2px;
+
 }
 
