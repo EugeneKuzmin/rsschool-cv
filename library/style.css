@@ -1,0 +1,354 @@
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+
+:root {
+    /* colors */
+    --clr-warm-veneer: 35 40% 55%;
+    --clr-dark: 240 8% 5%;
+    --clr-white: 0 0% 100%;
+
+    /* font-sizes */
+    --fs-40: 40px;
+    --fs-30: 30px;
+    --fs-20: 20px;
+    --fs-15: 15px;
+    --fs-10: 10px;
+
+    /* font-families */
+    --ff-forum: 'Forum', cursive;
+    --ff-inter: 'Inter', sans-serif;
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+p,
+figure,
+picture {
+    margin: 0; 
+}
+
+h1,
+h2,
+p {
+    font-weight: 400;
+}
+
+/* set up the body */
+body {
+    font-family: var(--ff-inter);
+    font-size: var(--fs-20);
+    line-height: 40px;
+    color: hsl( var(--clr-dark) );
+    background-color: hsl( var(--clr-white) );
+}
+
+header {
+    height: 690px;
+    color: hsl( var(--clr-white) );
+}
+
+h2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-family: var(--ff-forum);
+    font-size: var(--fs-40);
+
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 1px;
+    background-color: hsl( var(--clr-dark) );
+    bottom: -9px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+h2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-family: var(--ff-forum);
+    font-size: var(--fs-40);
+
+}
+
+h3 {
+    position: relative;
+    font-family: var(--ff-forum);
+    font-size: var(--fs-20);
+    font-weight: 100;
+}
+
+h3::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 1px;
+    background-color: hsl( var(--clr-warm-veneer) );
+    bottom: -9px;
+    margin: 0 auto;
+    left: 0;
+
+}
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+
+/* general */
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.block {
+    display: block;
+}
+
+.grid {
+    display: grid;
+}
+
+.flow > *:where(:not(:first-child)) {
+    margin-top: var(--flow-space, 1rem);
+}
+
+/* colors */
+
+.bg-dark {
+    background-color: hsl( var(--clr-dark) );
+}
+
+.text-white {
+    color: hsl( var(--clr-white) );
+}
+
+.text-veneer {
+    color: hsl( var(--clr-warm-veneer) );
+}
+
+/* typography */
+
+.ff-forum {
+    font-family: var(--ff-forum);
+}
+
+.fs-40 {
+    font-size: var(--fs-40);
+}
+
+.fs-30 {
+    font-size: var(--fs-40);
+}
+
+.fs-15 {
+    font-size: var(--fs-15);
+}
+
+.fs-10 {
+    font-size: var(--fs-15);
+}
+
+.fw-200 {
+    font-weight: 200;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.fw-800 {
+    font-weight: 700;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.letter-spacing-2 { 
+    letter-spacing: 2px; 
+} 
+
+.letter-spacing-1 { 
+    letter-spacing: 1px; 
+} 
+
+/* Flexbox */
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-self-center {
+    justify-self: center;
+}
+.justify-self-end {
+    justify-self: end;
+}
+
+/* Margins */
+.mx-20 {
+    margin-inline: 20px;
+}
+
+.mr-2{
+    margin-right: 1rem;
+}
+
+.mr-10{
+    margin-right: 10px;
+}
+
+.mr-20{
+    margin-right: 20px;
+}
+
+.navigation-bar {
+    height: 90px;
+}
+
+.lib-pic-container {
+    background-image: url("./img/header-library.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.intro {
+    width: 600px;
+    height: 220px;
+}
+
+
+/* About section */
+/* ************ */
+
+.about-pic-container {
+    gap: 25px;
+}
+
+.about-pic-container > picture{
+    height: 560px;
+}
+
+.dot-buttons > *{
+    padding: 0.6rem;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: hsl( var(--clr-dark) );
+}
+
+.dot-buttons :nth-child(1) {
+    background-color: hsl( var(--clr-warm-veneer) );
+}
+
+
+/* Favorites section */
+/* ***************** */
+
+.favorites > input {
+    appearance: none;
+    border: 1px solid hsl( var(--clr-dark) );
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+}
+
+
+.grid-favorites{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 220px;
+}
+.grid-favorites > div{
+    border: 1px solid hsl( var(--clr-dark) );
+    padding: 20px;
+}
+
+.grid-favorites  p {
+    width: 70%;
+}
+
+.grid-favorites  button {
+    width: 75px;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid hsl( var(--clr-dark) );
+    align-self: self-end;
+}
+
+.grid-favorites  img {
+    position: absolute;
+    bottom: 0;
+    right: -30px;
+    width: 200px;
+    height: 300px;
+}
+.member-card {
+    height: 387px;
+    width: 600px;
+    background-color: hsl( var(--clr-warm-veneer) );
+    background-clip: content-box;
+    box-shadow: inset 0 0 0 15px #FF7A59;
+
+}
+
+
+/* Coffee shop */
+/* ************ */
+
+
+.grid-coffeeshop-menu {
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr;
+}
+
+.grid-coffeeshop-menu :nth-child(1) {
+    grid-column: 1 / span 3;
+}
+
+.line {
+    align-self: center;
+    justify-self: center;
+    height: 1px;
+    width: 100px;
+    background-color: hsl( var(--clr-warm-veneer) );
+}
+
