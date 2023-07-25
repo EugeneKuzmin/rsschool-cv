@@ -114,6 +114,7 @@ h3::after {
 footer {
     height: 250px;
     background-color: hsl( var(--clr-dark) );
+    color: hsl( var(--clr-white) );
 }
 
 /* ------------------- */
@@ -147,6 +148,14 @@ footer {
 
 .bg-dark {
     background-color: hsl( var(--clr-dark) );
+}
+
+.bg-white {
+    background-color: hsl( var(--clr-white) );
+}
+
+.bg-veneer {
+    background-color: hsl( var(--clr-warm-veneer) );
 }
 
 .text-white {
@@ -220,6 +229,10 @@ footer {
 } 
 
 /* Flexbox */
+
+.flex-1 {
+    flex: 1;
+}
 .justify-content-between {
     justify-content: space-between;
 }
@@ -228,6 +241,7 @@ footer {
     justify-content: center;
 }
 
+
 .justify-self-center {
     justify-self: center;
 }
@@ -235,8 +249,20 @@ footer {
     justify-self: end;
 }
 
+.align-items-center {
+    align-items: center;
+}
+
+.align-content-center {
+    align-content: center;
+}
+
 .align-self-center {
     align-self: center;
+}
+
+.place-content-center {
+    place-content: center center;
 }
 
 /* Margins */
@@ -274,14 +300,33 @@ footer {
 }
 
 .navigation-bar {
+    position: relative;
     height: 90px;
+    box-shadow: 0px 63px 65px 58px rgba(0, 0, 0, 0.5),0px 63px 65px 58px rgba(0, 0, 0, 0.5);
+    z-index: 3000;
+}
+
+.navigation-bar ul {
+    list-style: none;
+    gap: 30px;
 }
 
 .lib-pic-container {
+    position: relative;
+    z-index: 100;
+    height: 600px;
+    
     background-image: url("./img/header-library.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.overlay {
+    align-self: start;
+    height: 300px;
+    background: linear-gradient(to bottom, hsla(240, 8%, 5%, 1), hsla(240, 8%, 5%, 1),hsla(240, 7%, 8%, 0.1));
+
 }
 
 .intro {
@@ -380,8 +425,7 @@ footer {
     align-self: center;
     justify-self: center;
     height: 1px;
-    width: 100px;
-    background-color: hsl( var(--clr-warm-veneer) );
+    width: 100%;
 }
 
 /* Contacts */
@@ -400,6 +444,7 @@ footer {
     width: 600px;
     background-color: hsl( var(--clr-white) );
     border: 1px solid hsl( var(--clr-warm-veneer) );
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .member-card {
@@ -418,6 +463,20 @@ footer {
     background-color: transparent;
     border: 1px solid hsl( var(--clr-dark) );
     border-radius: 2px;
+
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-info > div {
+    flex:1 ;
+
+    display: flex;
+  justify-content: center;
+  flex-direction: column;
 
 }
 
