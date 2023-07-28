@@ -6,6 +6,7 @@
     /* colors */
     --clr-warm-veneer: 35 40% 55%;
     --clr-dark: 240 8% 5%;
+    --clr-black: 0 0% 0%;
     --clr-light-dark: 0 0% 56%;
     --clr-white: 0 0% 100%;
 
@@ -362,22 +363,40 @@ footer {
 /* Favorites section */
 /* ***************** */
 
-.favorites > input {
+.favorites {
+    gap: 90px;
+
+}
+
+.favorites input {
     appearance: none;
-    border: 1px solid hsl( var(--clr-dark) );
+    border: 1px solid hsl( var(--clr-black) );
     border-radius: 50%;
     width: 16px;
     height: 16px;
+  
 }
+
+input:checked {
+    border: 3px solid white;
+    outline: 2px solid hsl( var(--clr-black) );
+    background-color: hsl( var(--clr-black) );
+    color: hsl( var(--clr-white) );
+  }
+
+
 
 
 .grid-favorites{
-    position: relative;
+    
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    gap: 220px;
+    column-gap: 220px;
+    row-gap: 80px;
 }
 .grid-favorites > div{
+    width: 550px;
+    position: relative;
     border: 1px solid hsl( var(--clr-dark) );
     padding: 20px;
 }
@@ -394,10 +413,10 @@ footer {
     align-self: self-end;
 }
 
-.grid-favorites  img {
+.grid-favorites > div > img {
     position: absolute;
-    bottom: 0;
-    right: -30px;
+    bottom: -1px;
+    right: -45px;
     width: 200px;
     height: 300px;
 }
@@ -405,6 +424,17 @@ footer {
     height: 387px;
     width: 600px;
     background-color: hsl( var(--clr-warm-veneer) );
+}
+
+.grid-favorites button:hover:not(:disabled) {
+    background-color: hsl( var(--clr-warm-veneer) );
+    border: 1px solid hsl( var(--clr-warm-veneer) );
+    color: hsl( var(--clr-dark) );
+}
+
+.grid-favorites button:disabled {
+    border: 1px solid hsl( var(--clr-warm-veneer) );
+    color: hsl( var(--clr-warm-veneer) );
 }
 
 
