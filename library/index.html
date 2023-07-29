@@ -14,16 +14,19 @@
         <div class="navigation-bar flex justify-content-between bg-dark text-white px-20">
 
             <h1 class="flex align-items-center ff-forum fs-30">Brooklyn Public Library</h1>
-            <nav>
-                <ul class="flex text-white">
-                    <li>About</li>
-                    <li>Favorites</li>
-                    <li>Coffee shop</li>
-                    <li>Contacts</li>
-                    <li>Library Card</li>
-                    <li class="flex align-items-center"><img src="./img/icon_profile.svg" alt="icon profile" ></li>
-                </ul>
-            </nav>
+            <div class="flex align-items-center">
+                <nav class="mr-4">
+                    <ul class="flex text-white">
+                        <li>About</li>
+                        <li>Favorites</li>
+                        <li>Coffee shop</li>
+                        <li>Contacts</li>
+                        <li>Library Card</li>
+                    </ul>
+                </nav>
+                <div class="flex align-items-center account-icon"><img src="./img/icon_profile.svg" alt="icon profile" ></div>
+            </div>
+            
         </div>
         <div class="lib-pic-container flex ">
             <!-- <div class="overlay"></div> -->
@@ -56,15 +59,18 @@
             </picture>
         </div>
         <div class="dot-buttons flex justify-content-center">
-            <button class="mr-10"></button>
-            <button class="mr-10"></button>
-            <button ></button>
+            <div class="flex align-items-center">
+                <button class="mr-10"></button>
+                <button class="mr-10"></button>
+                <button ></button>
+            </div>
+            
         </div>
 
     </section>
     <section>
         <h2>Favorites</h2>
-        <div class="favorites flex align-items-center">
+        <div class="favorites flex align-items-center mx-20">
             <div>
                 <input class="mr-20" type="radio" id="winter" name="seasons" value="winter" checked>
                 <label for="winter">Winter</label>
@@ -484,19 +490,28 @@
         
     </section>
     <footer>
-        <div class="flex justify-content-between fs-15 mx-20">
-            <div>
-                <p>286 Cadman Plaza, New York,</p>
-                <p>NY 11238, United States</p>
-                <img src="./img/u_twitter-alt.svg" alt="twitter link">
-                <img src="./img/u_instagram.svg" alt="">
-                <img src="./img/u_facebook-f.svg" alt="">
+        <div class=" fs-15 mx-20">
+            <div class="flex justify-content-between my-10">
+                <div class="address">
+                    <p>286 Cadman Plaza, New York,</p>
+                    <p>NY 11238, United States</p>
+                </div>
+                <div class="schedule text-end">
+                    <p>Mon - Fri</p> 
+                    <p>08:00 am - 07:00 pm</p>
+                </div>
             </div>
-            <div>
-                <div>Mon - Fri 08:00 am - 07:00 pm</div>
-                <div>Sat - Sun 10:00 am - 06:00 pm</div>
+            <div class="flex justify-content-between mt-10 mb-1">
+                <div class="flex">
+                    <img src="./img/u_twitter-alt.svg" class="mr-2" alt="twitter link">
+                    <img src="./img/u_instagram.svg"  class="mr-2" alt="instagram link">
+                    <img src="./img/u_facebook-f.svg"  alt="facebook link">
+                </div>
+                <div class="schedule text-end">
+                    <p>Sat - Sun</p>
+                    <p>10:00 am - 06:00 pm</p>
+                </div>
             </div>
-
         </div>
         <div class="line bg-white mx-20">
 
@@ -509,6 +524,5 @@
         
         
     </footer>
-    
 </body>
 </html>

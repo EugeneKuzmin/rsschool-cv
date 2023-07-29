@@ -58,10 +58,20 @@ body {
     background-color: hsl( var(--clr-white) );
 }
 
+body > *:where(:not(:last-child)){
+    margin-bottom: 20px;
+}
+
+/* set up the header */
+
 header {
     height: 690px;
     color: hsl( var(--clr-white) );
 }
+
+nav > ul > li {
+    cursor: pointer;
+} 
 
 h2 {
     position: relative;
@@ -88,9 +98,9 @@ h2 {
     position: relative;
     display: flex;
     justify-content: center;
+    margin-bottom: 40px;
     font-family: var(--ff-forum);
     font-size: var(--fs-40);
-
 }
 
 h3 {
@@ -112,12 +122,15 @@ h3::after {
 
 }
 
+/* set up the footer */
+
 footer {
     display: grid;
     grid-auto-rows: min-content;
     height: 250px;
     background-color: hsl( var(--clr-dark) );
     color: hsl( var(--clr-white) );
+    line-height: 25px;
 }
 
 /* ------------------- */
@@ -285,11 +298,24 @@ footer {
     margin-inline: 20px;
 }
 
+.my-10 {
+    margin-block: 10px;
+}
+
 .mt-20 {
     margin-top: 20px;
 }
+
+.mt-10 {
+    margin-top: 10px;
+}
+
 .mt-3 {
     margin-top: 1.5rem;
+}
+
+.mb-1 {
+    margin-bottom: 0.5rem;
 }
 
 .mb-3 {
@@ -302,6 +328,10 @@ footer {
 
 .mr-2{
     margin-right: 1rem;
+}
+
+.mr-4{
+    margin-right: 2rem;
 }
 
 .mr-10{
@@ -365,6 +395,11 @@ footer {
     height: 220px;
 }
 
+/*   header    */
+.account-icon {
+    cursor: pointer;
+}
+
 
 /* About section */
 /* ************ */
@@ -377,7 +412,13 @@ footer {
     height: 560px;
 }
 
-.dot-buttons > *{
+.dot-buttons {
+    height: 96px;
+}
+
+.dot-buttons > div > *{
+    height: 1rem;
+    aspect-ratio: 1;
     padding: 0.6rem;
     border: 0;
     border-radius: 50%;
@@ -385,7 +426,7 @@ footer {
     background-color: hsl( var(--clr-dark) );
 }
 
-.dot-buttons :nth-child(1) {
+.dot-buttons > div :nth-child(1) {
     background-color: hsl( var(--clr-warm-veneer) );
 }
 
@@ -412,6 +453,10 @@ input:checked {
     outline: 2px solid hsl( var(--clr-black) );
     background-color: hsl( var(--clr-black) );
     color: hsl( var(--clr-white) );
+  }
+
+  input:checked + label {
+    font-weight: 600;
   }
 
 
@@ -541,9 +586,17 @@ input:checked {
 /*     Footer    */
 /* ************* */
 .third-row{
-    min-height: 110px;
+    min-height: 120px;
 }
 
 footer:nth-child(2) {
     max-height: 2px;
+}
+
+.addres {
+    width: 229px;
+}
+
+.schedule {
+    width: 149px;
 }
