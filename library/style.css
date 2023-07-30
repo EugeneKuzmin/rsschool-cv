@@ -72,6 +72,10 @@ nav > ul > li > a {
     text-decoration: none;
 } 
 
+nav > ul > li > a:hover {
+    border-bottom: 2px solid hsl( var(--clr-white) );
+}
+
 h2 {
     position: relative;
     display: flex;
@@ -328,8 +332,8 @@ footer {
     margin-right: 1rem;
 }
 
-.mr-4{
-    margin-right: 2rem;
+.mr-40{
+    margin-right: 40px;
 }
 
 .mr-10{
@@ -349,6 +353,11 @@ footer {
 .px-20 {
     padding-inline: 20px;
 }
+
+.p-5px {
+    padding: 5px;
+}
+
 .p-2 {
     padding: 1rem;
 }
@@ -415,10 +424,9 @@ footer {
 }
 
 .dot-buttons > div > *{
-    height: 1rem;
+    height: 26px;
     aspect-ratio: 1;
-    padding: 0.6rem;
-    border: 0;
+    border: 5px solid hsl( var(--clr-white) );
     border-radius: 50%;
     cursor: pointer;
     background-color: hsl( var(--clr-dark) );
@@ -434,11 +442,11 @@ footer {
 
 .favorites {
     gap: 90px;
-
 }
 
 .favorites input {
     appearance: none;
+    cursor: pointer;
     border: 1px solid hsl( var(--clr-black) );
     border-radius: 50%;
     width: 16px;
@@ -482,6 +490,7 @@ input:checked {
     background-color: transparent;
     border: 1px solid hsl( var(--clr-dark) );
     align-self: self-end;
+    border-radius: 2px;
 }
 
 .grid-favorites > div > img {
@@ -493,9 +502,9 @@ input:checked {
 }
 
 .grid-favorites button:hover:not(:disabled) {
+    cursor: pointer;
     background-color: hsl( var(--clr-warm-veneer) );
     border: 1px solid hsl( var(--clr-warm-veneer) );
-    color: hsl( var(--clr-dark) );
 }
 
 .grid-favorites button:disabled {
@@ -506,7 +515,6 @@ input:checked {
 
 /* Coffee shop */
 /* ************ */
-
 
 .grid-coffeeshop-menu {
     display: grid;
@@ -577,8 +585,11 @@ input:checked {
     border-radius: 2px;
 }
 
+.member-card-border button:hover,
 .card-registration button:hover {
     cursor: pointer;
+    background-color: hsl( var(--clr-warm-veneer) );
+    border: 1px solid hsl( var(--clr-warm-veneer) );
 }
 
 /*     Footer    */

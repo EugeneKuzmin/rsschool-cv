@@ -15,13 +15,13 @@
 
             <h1 class="flex align-items-center ff-forum fs-30">Brooklyn Public Library</h1>
             <div class="flex align-items-center">
-                <nav class="mr-4">
+                <nav class="mr-40">
                     <ul class="flex ">
-                        <li><a href="#About" class="text-white">About</a></li>
-                        <li><a href="#Favorites" class="text-white">Favorites</a></li>
-                        <li><a href="#Coffeeshop" class="text-white">Coffee shop</a></li>
-                        <li><a href="#Contacts" class="text-white">Contacts</a></li>
-                        <li><a href="#LibraryCard" class="text-white">Library Card</a></li>
+                        <li><a href="#about" class="text-white">About</a></li>
+                        <li><a href="#favorites" class="text-white">Favorites</a></li>
+                        <li><a href="#coffeeshop" class="text-white">Coffee shop</a></li>
+                        <li><a href="#contacts" class="text-white">Contacts</a></li>
+                        <li><a href="#librarycard" class="text-white">Library Card</a></li>
                     </ul>
                 </nav>
                 <div class="flex align-items-center account-icon"><img src="./img/icon_profile.svg" alt="icon profile" ></div>
@@ -61,14 +61,14 @@
             </div>
             <div class="dot-buttons flex justify-content-center">
                 <div class="flex align-items-center">
-                    <div class="mr-10"></div>
-                    <div class="mr-10"></div>
+                    <div></div>
+                    <div></div>
                     <div ></div>
                 </div>
                 
             </div>
         </section>
-        <section>
+        <section id="favorites">
             <h2>Favorites</h2>
             <div class="favorites flex align-items-center mx-20">
                 <div>
@@ -363,7 +363,7 @@
                 </div>
             </div>
         </section>
-        <section>
+        <section id="coffeeshop">
             <h2>Coffee shop</h2>
             <p class="text-center">
             In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. you can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.  
@@ -433,7 +433,7 @@
             </div>
             
         </section>
-        <section>
+        <section id="contacts">
             <h2>Our Contacts</h2>
             
             <div class="contacts-container flex justify-content-between mx-20">
@@ -446,7 +446,7 @@
                     </div>
                     <div class="mt-3">
                         <p class="fw-600">Senior Staff</p>
-                        <p>Library Director:<span class="fw-600 ml-2">Amanda Hirst</span></p>
+                        <p>Library Director:<a class="fw-600 ml-2" href="mailto:AmandaHirst@gmail.com">Amanda Hirst</a></p>
                     </div>
                 </div>
                 <picture>
@@ -455,7 +455,7 @@
                 </picture>
             </div>
         </section>
-        <section>
+        <section id="librarycard">
             <h2>
                 Digital Library Cards
             </h2>
@@ -477,7 +477,7 @@
                         <button class="align-self-center mt-3"><span class="fw-600">Check the card</span></button>
                     </div>  
                 </div>
-                <div class="text-end card-registration">
+                <div class="card-registration text-end">
                     <span class="ff-forum fs-30">Get a reader card</span>
                     <p class="mt-3">You will be able to see a reader card after logging into account or you can register a new account</p>
                     <div class="flex justify-content-end mt-3">
