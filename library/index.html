@@ -16,479 +16,481 @@
             <h1 class="flex align-items-center ff-forum fs-30">Brooklyn Public Library</h1>
             <div class="flex align-items-center">
                 <nav class="mr-4">
-                    <ul class="flex text-white">
-                        <li>About</li>
-                        <li>Favorites</li>
-                        <li>Coffee shop</li>
-                        <li>Contacts</li>
-                        <li>Library Card</li>
+                    <ul class="flex ">
+                        <li><a href="#About" class="text-white">About</a></li>
+                        <li><a href="#Favorites" class="text-white">Favorites</a></li>
+                        <li><a href="#Coffeeshop" class="text-white">Coffee shop</a></li>
+                        <li><a href="#Contacts" class="text-white">Contacts</a></li>
+                        <li><a href="#LibraryCard" class="text-white">Library Card</a></li>
                     </ul>
                 </nav>
                 <div class="flex align-items-center account-icon"><img src="./img/icon_profile.svg" alt="icon profile" ></div>
             </div>
-            
-        </div>
-        <div class="lib-pic-container flex ">
-            <!-- <div class="overlay"></div> -->
-            <div class="intro align-self-center bg-dark px-20 flex-column place-content-center text-center ff-forum fs-40 text-white">
-                <div>Welcome</div>
-                <div>to the Brooklyn</div>
-                <div>Library</div>
-            </div>
         </div>
     </header>
-    <section>
-        <h2>
-            About
-        </h2>
-        <p class="text-center">
-            The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside
-        </p>
-        <div class="flex about-pic-container mx-20 justify-content-center">
-            <picture>
-                <source srcset="./img/image1.png" type="image/png">
-                <img src="./img/image1.png" alt="library image 1">
-            </picture>
-            <picture>
-                <source srcset="./img/image2.png" type="image/png">
-                <img src="./img/image2.png" alt="library image 2">
-            </picture>
-            <picture>
-                <source srcset="./img/image3.png" type="image/png">
-                <img src="./img/image3.png" alt="library image 3">
-            </picture>
-        </div>
-        <div class="dot-buttons flex justify-content-center">
-            <div class="flex align-items-center">
-                <button class="mr-10"></button>
-                <button class="mr-10"></button>
-                <button ></button>
-            </div>
-            
-        </div>
-
-    </section>
-    <section>
-        <h2>Favorites</h2>
-        <div class="favorites flex align-items-center mx-20">
-            <div>
-                <input class="mr-20" type="radio" id="winter" name="seasons" value="winter" checked>
-                <label for="winter">Winter</label>
-            </div>
-            
-            <div>
-                <input class="mr-20" type="radio" id="spring" name="seasons" value="spring">
-                <label for="spring">Spring</label>
-            </div>
-
-            <div>
-                <input class="mr-20" type="radio" id="summer" name="seasons" value="summer">
-                <label for="summer">Summer<label>
-            </div>
-
-            <div>
-                <input class="mr-20" type="radio" id="autumn" name="seasons" value="autumn">
-                <label for="autumn">Autumn</label>
-            </div>
-
-            
-        </div>
-        <div class="grid-favorites fs-15 letter-spacing-2 mx-20">
-            <div id="winter"  class="grid">
-                <h3>
-                    Staff Picks
-                </h3>
-                <div class="block uppercase fw-600">
-                    The Book Eaters
-                </div> 
-                <span class="fw-600">By Sunyi Dean</span>
-                <p>
-                    An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.   
-                </p>
-                <button class="fs-10 fw-600 letter-spacing-1">
-                    Buy
-                </button>
-                <img src="./img/book1.png" alt="book 'The Book Eaters'">
-            </div>
-            <div class="grid">
-                <h3>
-                    Staff Picks
-                </h3>
-                <div class="block uppercase fw-600">
-                    Cackle
-                </div> 
-                <span class="fw-600">By Rachel Harrison</span>
-                <p>
-                    Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.
-                </p>
-                <button class="fs-10 fw-600 letter-spacing-1">
-                    Buy
-                </button>
-                <img src="./img/book2.png" alt="book 'Cackle'">
-            </div>
-            <div class="grid">
-                <h3>
-                    Staff Picks
-                </h3>
-                <div class="block uppercase fw-600">
-                    Dante: Poet of the Secular World
-                </div> 
-                <span class="fw-600">By Erich Auerbach</span>
-                <p>
-                    Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
-                </p>
-                <button class="fs-10 fw-600 letter-spacing-1">
-                    Buy
-                </button>
-                <img src="./img/book3.png" alt="book 'Dante: Poet of the Secular World'">
-            </div>
-            <div class="grid">
-                <h3>
-                    Staff Picks
-                </h3>
-                <div class="block uppercase fw-600">
-                    The Last Queen
-                </div> 
-                <span class="fw-600">By Clive Irving</span>
-                <p>
-                    A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
-                </p>
-                <button class="fs-10 fw-600 letter-spacing-1" disabled>
-                    Own
-                </button>
-                <img src="./img/book4.png" alt="book 'The Last Queen'">
-            </div>
-
-            <div hidden id="spring">
-                <div  class="grid">
-                    <h3>
-                        Staff Picks
-                    </h3>
-                    <div class="block uppercase fw-600">
-                        The Body 
-                    </div> 
-                    <span class="fw-600">By Stephen King</span>
-                    <p>
-                        Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of innocence that is youth.
-                    </p>
-                    <button class="fs-10 fw-600 letter-spacing-1">
-                        Buy
-                    </button>
-                    <img src="./img/book5.png" alt="book 'The Body'">
+    <main>
+        <section>
+            <div class="lib-pic-container flex ">
+                <div class="intro align-self-center bg-dark px-20 flex-column place-content-center text-center ff-forum fs-40 text-white">
+                    <div>Welcome</div>
+                    <div>to the Brooklyn</div>
+                    <div>Library</div>
                 </div>
-                <div  class="grid">
+            </div>
+        </section>
+        <section id="about">
+            <h2>
+                About
+            </h2>
+            <p class="text-center">
+                The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside
+            </p>
+            <div class="flex about-pic-container mx-20 justify-content-center">
+                <picture>
+                    <source srcset="./img/image1.png" type="image/png">
+                    <img src="./img/image1.png" alt="library image 1">
+                </picture>
+                <picture>
+                    <source srcset="./img/image2.png" type="image/png">
+                    <img src="./img/image2.png" alt="library image 2">
+                </picture>
+                <picture>
+                    <source srcset="./img/image3.png" type="image/png">
+                    <img src="./img/image3.png" alt="library image 3">
+                </picture>
+            </div>
+            <div class="dot-buttons flex justify-content-center">
+                <div class="flex align-items-center">
+                    <div class="mr-10"></div>
+                    <div class="mr-10"></div>
+                    <div ></div>
+                </div>
+                
+            </div>
+        </section>
+        <section>
+            <h2>Favorites</h2>
+            <div class="favorites flex align-items-center mx-20">
+                <div>
+                    <input class="mr-20" type="radio" id="winter" name="seasons" value="winter" checked>
+                    <label for="winter">Winter</label>
+                </div>
+                
+                <div>
+                    <input class="mr-20" type="radio" id="spring" name="seasons" value="spring">
+                    <label for="spring">Spring</label>
+                </div>
+
+                <div>
+                    <input class="mr-20" type="radio" id="summer" name="seasons" value="summer">
+                    <label for="summer">Summer<label>
+                </div>
+
+                <div>
+                    <input class="mr-20" type="radio" id="autumn" name="seasons" value="autumn">
+                    <label for="autumn">Autumn</label>
+                </div>
+
+                
+            </div>
+            <div class="grid-favorites fs-15 letter-spacing-2 mx-20">
+                <div id="winter"  class="grid">
                     <h3>
                         Staff Picks
                     </h3>
                     <div class="block uppercase fw-600">
-                        Carry: A Memoir of Survival on Stolen Land 
+                        The Book Eaters
                     </div> 
-                    <span class="fw-600">By Toni Jenson</span>
+                    <span class="fw-600">By Sunyi Dean</span>
                     <p>
-                        This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting in a lyrical indictment of the way things are.
+                        An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.   
                     </p>
                     <button class="fs-10 fw-600 letter-spacing-1">
                         Buy
                     </button>
-                    <img src="./img/book6.png" alt="book 'Carry: A Memoir of Survival on Stolen Land'">
+                    <img src="./img/book1.png" alt="book 'The Book Eaters'">
                 </div>
                 <div class="grid">
                     <h3>
                         Staff Picks
                     </h3>
                     <div class="block uppercase fw-600">
-                        Days of Distraction 
+                        Cackle
                     </div> 
-                    <span class="fw-600">By Alexandra Chang</span>
+                    <span class="fw-600">By Rachel Harrison</span>
                     <p>
-                        A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and belonging, all in one form-defying package of spare prose.
+                        Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.
                     </p>
                     <button class="fs-10 fw-600 letter-spacing-1">
                         Buy
                     </button>
-                    <img src="./img/book7.png" alt="book 'Days of Distraction'">
+                    <img src="./img/book2.png" alt="book 'Cackle'">
                 </div>
                 <div class="grid">
                     <h3>
                         Staff Picks
                     </h3>
                     <div class="block uppercase fw-600">
-                        Dominicana 
+                        Dante: Poet of the Secular World
                     </div> 
-                    <span class="fw-600">By Angie Cruz</span>
+                    <span class="fw-600">By Erich Auerbach</span>
+                    <p>
+                        Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
+                    </p>
+                    <button class="fs-10 fw-600 letter-spacing-1">
+                        Buy
+                    </button>
+                    <img src="./img/book3.png" alt="book 'Dante: Poet of the Secular World'">
+                </div>
+                <div class="grid">
+                    <h3>
+                        Staff Picks
+                    </h3>
+                    <div class="block uppercase fw-600">
+                        The Last Queen
+                    </div> 
+                    <span class="fw-600">By Clive Irving</span>
                     <p>
                         A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
                     </p>
                     <button class="fs-10 fw-600 letter-spacing-1" disabled>
                         Own
                     </button>
-                    <img src="./img/book8.png" alt="book 'Dominicana'">
-                </div>
-            </div>
-
-            <div hidden id="summer">
-                <div  class="grid">
-                    <h3>
-                        Staff Picks
-                    </h3>
-                    <div class="block uppercase fw-600">
-                        Crude: A Memoir 
-                    </div> 
-                    <span class="fw-600">By Pablo Fajardo & ​​Sophie Tardy-Joubert</span>
-                    <p>
-                        Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and her people
-                    </p>
-                    <button class="fs-10 fw-600 letter-spacing-1">
-                        Buy
-                    </button>
-                    <img src="./img/book9.png" alt="book 'Crude: A Memoir '">
-                </div>
-                <div class="grid">
-                    <h3>
-                        Staff Picks
-                    </h3>
-                    <div class="block uppercase fw-600">
-                        Let My People Go Surfing 
-                    </div> 
-                    <span class="fw-600">By Yvon Chouinard</span>
-                    <p>
-                        Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.
-                    </p>
-                    <button class="fs-10 fw-600 letter-spacing-1">
-                        Buy
-                    </button>
-                    <img src="./img/book10.png" alt="book 'Let My People Go Surfing'">
-                </div>
-                
-                <div class="grid">
-                    <h3>
-                        Staff Picks
-                    </h3>
-                    <div class="block uppercase fw-600">
-                        The Octopus Museum: Poems 
-                    </div> 
-                    <span class="fw-600">By Brenda Shaughnessy</span>
-                    <p>
-                        This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of environmental destruction, racism, sexism, and divisive politics.
-                    </p>
-                    <button class="fs-10 fw-600 letter-spacing-1">
-                        Buy
-                    </button>
-                    <img src="./img/book11.png" alt="book 'The Octopus Museum: Poems'">
-                </div>
-                <div class="grid">
-                    <h3>
-                        Staff Picks
-                    </h3>
-                    <div class="block uppercase fw-600">
-                        Shark Dialogues: A Novel 
-                    </div> 
-                    <span class="fw-600">By Kiana Davenport</span>
-                    <p>
-                        An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.
-                    </p>
-                    <button class="fs-10 fw-600 letter-spacing-1" disabled>
-                        Own
-                    </button>
-                    <img src="./img/book12.png" alt="book 'Shark Dialogues: A Novel'">
-                </div>
-            </div>
-
-            <div hidden id="autumn">
-                <div class="grid">
-                    <h3>
-                        Staff Picks
-                    </h3>
-                    <div class="block uppercase fw-600">
-                        Casual Conversation 
-                    </div> 
-                    <span class="fw-600">By Renia White</span>
-                    <p>
-                        White's impressive debut collection takes readers through and beyond the concepts of conversation and the casual - both what we say to each other and what we don't, examining the possibilities around how we construct and communicate identity.
-                    </p>
-                    <button class="fs-10 fw-600 letter-spacing-1">
-                        Buy
-                    </button>
-                    <img src="./img/book13.png" alt="book 'Casual Conversation'">
-                </div>
-                <div class="grid">
-                    <h3>
-                        Staff Picks
-                    </h3>
-                    <div class="block uppercase fw-600">
-                        The Great Fire  
-                    </div> 
-                    <span class="fw-600">By Lou Ureneck</span>
-                    <p>
-                        The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide
-                    </p>
-                    <button class="fs-10 fw-600 letter-spacing-1">
-                        Own
-                    </button>
-                    <img src="./img/book14.png" alt="book 'Slug: And Other Stories'">
-                </div>
-                <div class="grid">
-                    <h3>
-                        Staff Picks
-                    </h3>
-                    <div class="block uppercase fw-600">
-                        Rickey: The Life and Legend
-                    </div> 
-                    <span class="fw-600">By Howard Bryant</span>
-                    <p>
-                        With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?
-                    </p>
-                    <button class="fs-10 fw-600 letter-spacing-1">
-                        Buy
-                    </button>
-                    <img src="./img/book15.png" alt="book 'Rickey: The Life and Legend'">
-                </div>
-                <div class="grid">
-                    <h3>
-                        Staff Picks
-                    </h3>
-                    <div class="block uppercase fw-600">
-                        Slug: And Other Stories
-                    </div> 
-                    <span class="fw-600">By Megan Milks</span>
-                    <p>
-                        Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.
-                    </p>
-                    <button class="fs-10 fw-600 letter-spacing-1" disabled>
-                        Buy
-                    </button>
-                    <img src="./img/book16.png" alt="book 'Slug: And Other Stories'">
-                </div>
-                
-            </div>
-        </div>
-    </section>
-    <section>
-        <h2>Coffee shop</h2>
-        <p class="text-center">
-          In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. you can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.  
-        </p>
-        
-        
-        <div class="flex justify-content-between letter-spacing-2 mx-20">
-            <div class="grid-coffeeshop-menu ">
-                <div class="ff-forum fs-40 text-veneer">
-                    Coffee & Tea
+                    <img src="./img/book4.png" alt="book 'The Last Queen'">
                 </div>
 
-                <span class="mr-2">Cold Brew Coffee</span>
-                <div class="line bg-veneer maxwidth100"></div>
-                <span>$3</span>
-
-                <span class="mr-2">French Press Pot</span>
-                <div class="line bg-veneer maxwidth100"></div>
-                <span>$5</span>
-
-                <span class="mr-2">Espresso</span>
-                <div class="line bg-veneer maxwidth100"></div>
-                <span>$2</span>
-
-                <span class="mr-2">Cappuccino</span>
-                <div class="line bg-veneer maxwidth100"></div>
-                <span>$4</span>
-                
-                <span class="mr-2">Hot tea</span>
-                <div class="line bg-veneer maxwidth100"></div>
-                <span>$2</span>
-                
-                <span class="mr-2">Cold tea</span>
-                <div class="line bg-veneer maxwidth100"></div>
-                <span>$2</span>
-            </div>
-
-            <div class="grid-coffeeshop-menu ">
-                <div class="ff-forum fs-40 text-veneer">
-                    Desserts & Cakes
-                </div>
-
-                <span class="justify-self-end mr-2">Forest Gateau</span>
-                <div class="line bg-veneer maxwidth100"></div>
-                <span>$16</span>
-                
-                <span class="justify-self-end mr-2">Blue Moon</span>
-                <div class="line bg-veneer maxwidth100"></div>
-                <span>$16</span>
-                
-                <span class="justify-self-end mr-2">Truffle Cake</span>
-                <div class="line bg-veneer maxwidth100"></div>
-                <span>$16</span>
-
-                <span class="justify-self-end mr-2">Chocolate Cake</span>
-                <div class="line bg-veneer maxwidth100"></div>
-                <span>$16</span>
-                
-                <span class="justify-self-end mr-2">Poet’s Dream Cake</span>
-                <div class="line bg-veneer maxwidth100"></div>
-                <span>$16</span>
-                
-                <span class="justify-self-end mr-2">Pineapple Cake</span>
-                <div class="line bg-veneer maxwidth100"></div>
-                <span>$14</span>
-            </div>
-        </div>
-        
-    </section>
-    <section>
-        <h2>Our Contacts</h2>
-        
-        <div class="contacts-container flex justify-content-between mx-20">
-            <div>
-                <p class="fw-600">For all Library inquiries:</p>
-                <div class="mt-3">
-                    <p>Please call <a href="tel:6177302370">(617) 730-2370</a></p>
-                    <p>For TTY service, please call <a href="tel:6177302370">(617) 730-2370</a></p>
-                    <p>Putterham Library: <a href="tel:6177302370">(617) 730-2385</a></p>
-                </div>
-                <div class="mt-3">
-                    <p class="fw-600">Senior Staff</p>
-                    <p>Library Director:<span class="fw-600 ml-2">Amanda Hirst</span></p>
-                </div>
-            </div>
-            <picture>
-                <source srcset="./img/map.png" type="image/png">
-                <img src="./img/map.png" alt="library image 1">
-            </picture>
-        </div>
-    </section>
-    <section>
-        <h2>
-            Digital Library Cards
-        </h2>
-        <div class="flex justify-content-between mb-3 mx-20">
-            <div>
-                <span class="fs-30">
-                    Find your Library card
-                </span>
-                <div class="member-card-border flex-column">
-                    <div class="member-card flex-column mt-20 px-20 align-self-center justify-content-evenly">
-                        <span class="fs-30 ff-forum">Brooklyn Public Library</span>
-                        <div class="flex">
-                            <input type="text" class="fs-30 ff-forum text-light-dark p-2" value="Reader's name">
-                        </div>
-                        <div class="flex">
-                            <input type="text" class="fs-30 ff-forum text-light-dark p-2" value="Card number">
-                        </div>
+                <div hidden id="spring">
+                    <div  class="grid">
+                        <h3>
+                            Staff Picks
+                        </h3>
+                        <div class="block uppercase fw-600">
+                            The Body 
+                        </div> 
+                        <span class="fw-600">By Stephen King</span>
+                        <p>
+                            Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of innocence that is youth.
+                        </p>
+                        <button class="fs-10 fw-600 letter-spacing-1">
+                            Buy
+                        </button>
+                        <img src="./img/book5.png" alt="book 'The Body'">
                     </div>
-                    <button class="align-self-center mt-3"><span class="fw-600">Check the card</span></button>
-                </div>  
-            </div>
-            <div class="text-end card-registration">
-                <span class="ff-forum fs-30">Get a reader card</span>
-                <p class="mt-3">You will be able to see a reader card after logging into account or you can register a new account</p>
-                <div class="flex justify-content-end mt-3">
-                    <button class="fs-10 fw-600 mr-2">Sign Up</button>
-                    <button class="fs-10 fw-600">Log in</button>
+                    <div  class="grid">
+                        <h3>
+                            Staff Picks
+                        </h3>
+                        <div class="block uppercase fw-600">
+                            Carry: A Memoir of Survival on Stolen Land 
+                        </div> 
+                        <span class="fw-600">By Toni Jenson</span>
+                        <p>
+                            This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting in a lyrical indictment of the way things are.
+                        </p>
+                        <button class="fs-10 fw-600 letter-spacing-1">
+                            Buy
+                        </button>
+                        <img src="./img/book6.png" alt="book 'Carry: A Memoir of Survival on Stolen Land'">
+                    </div>
+                    <div class="grid">
+                        <h3>
+                            Staff Picks
+                        </h3>
+                        <div class="block uppercase fw-600">
+                            Days of Distraction 
+                        </div> 
+                        <span class="fw-600">By Alexandra Chang</span>
+                        <p>
+                            A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and belonging, all in one form-defying package of spare prose.
+                        </p>
+                        <button class="fs-10 fw-600 letter-spacing-1">
+                            Buy
+                        </button>
+                        <img src="./img/book7.png" alt="book 'Days of Distraction'">
+                    </div>
+                    <div class="grid">
+                        <h3>
+                            Staff Picks
+                        </h3>
+                        <div class="block uppercase fw-600">
+                            Dominicana 
+                        </div> 
+                        <span class="fw-600">By Angie Cruz</span>
+                        <p>
+                            A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
+                        </p>
+                        <button class="fs-10 fw-600 letter-spacing-1" disabled>
+                            Own
+                        </button>
+                        <img src="./img/book8.png" alt="book 'Dominicana'">
+                    </div>
+                </div>
+
+                <div hidden id="summer">
+                    <div  class="grid">
+                        <h3>
+                            Staff Picks
+                        </h3>
+                        <div class="block uppercase fw-600">
+                            Crude: A Memoir 
+                        </div> 
+                        <span class="fw-600">By Pablo Fajardo & ​​Sophie Tardy-Joubert</span>
+                        <p>
+                            Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and her people
+                        </p>
+                        <button class="fs-10 fw-600 letter-spacing-1">
+                            Buy
+                        </button>
+                        <img src="./img/book9.png" alt="book 'Crude: A Memoir '">
+                    </div>
+                    <div class="grid">
+                        <h3>
+                            Staff Picks
+                        </h3>
+                        <div class="block uppercase fw-600">
+                            Let My People Go Surfing 
+                        </div> 
+                        <span class="fw-600">By Yvon Chouinard</span>
+                        <p>
+                            Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.
+                        </p>
+                        <button class="fs-10 fw-600 letter-spacing-1">
+                            Buy
+                        </button>
+                        <img src="./img/book10.png" alt="book 'Let My People Go Surfing'">
+                    </div>
+                    
+                    <div class="grid">
+                        <h3>
+                            Staff Picks
+                        </h3>
+                        <div class="block uppercase fw-600">
+                            The Octopus Museum: Poems 
+                        </div> 
+                        <span class="fw-600">By Brenda Shaughnessy</span>
+                        <p>
+                            This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of environmental destruction, racism, sexism, and divisive politics.
+                        </p>
+                        <button class="fs-10 fw-600 letter-spacing-1">
+                            Buy
+                        </button>
+                        <img src="./img/book11.png" alt="book 'The Octopus Museum: Poems'">
+                    </div>
+                    <div class="grid">
+                        <h3>
+                            Staff Picks
+                        </h3>
+                        <div class="block uppercase fw-600">
+                            Shark Dialogues: A Novel 
+                        </div> 
+                        <span class="fw-600">By Kiana Davenport</span>
+                        <p>
+                            An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.
+                        </p>
+                        <button class="fs-10 fw-600 letter-spacing-1" disabled>
+                            Own
+                        </button>
+                        <img src="./img/book12.png" alt="book 'Shark Dialogues: A Novel'">
+                    </div>
+                </div>
+
+                <div hidden id="autumn">
+                    <div class="grid">
+                        <h3>
+                            Staff Picks
+                        </h3>
+                        <div class="block uppercase fw-600">
+                            Casual Conversation 
+                        </div> 
+                        <span class="fw-600">By Renia White</span>
+                        <p>
+                            White's impressive debut collection takes readers through and beyond the concepts of conversation and the casual - both what we say to each other and what we don't, examining the possibilities around how we construct and communicate identity.
+                        </p>
+                        <button class="fs-10 fw-600 letter-spacing-1">
+                            Buy
+                        </button>
+                        <img src="./img/book13.png" alt="book 'Casual Conversation'">
+                    </div>
+                    <div class="grid">
+                        <h3>
+                            Staff Picks
+                        </h3>
+                        <div class="block uppercase fw-600">
+                            The Great Fire  
+                        </div> 
+                        <span class="fw-600">By Lou Ureneck</span>
+                        <p>
+                            The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide
+                        </p>
+                        <button class="fs-10 fw-600 letter-spacing-1">
+                            Own
+                        </button>
+                        <img src="./img/book14.png" alt="book 'Slug: And Other Stories'">
+                    </div>
+                    <div class="grid">
+                        <h3>
+                            Staff Picks
+                        </h3>
+                        <div class="block uppercase fw-600">
+                            Rickey: The Life and Legend
+                        </div> 
+                        <span class="fw-600">By Howard Bryant</span>
+                        <p>
+                            With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?
+                        </p>
+                        <button class="fs-10 fw-600 letter-spacing-1">
+                            Buy
+                        </button>
+                        <img src="./img/book15.png" alt="book 'Rickey: The Life and Legend'">
+                    </div>
+                    <div class="grid">
+                        <h3>
+                            Staff Picks
+                        </h3>
+                        <div class="block uppercase fw-600">
+                            Slug: And Other Stories
+                        </div> 
+                        <span class="fw-600">By Megan Milks</span>
+                        <p>
+                            Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.
+                        </p>
+                        <button class="fs-10 fw-600 letter-spacing-1" disabled>
+                            Buy
+                        </button>
+                        <img src="./img/book16.png" alt="book 'Slug: And Other Stories'">
+                    </div>
+                    
                 </div>
             </div>
+        </section>
+        <section>
+            <h2>Coffee shop</h2>
+            <p class="text-center">
+            In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. you can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.  
+            </p>
+            
+            
+            <div class="flex justify-content-between letter-spacing-2 mx-20">
+                <div class="grid-coffeeshop-menu ">
+                    <div class="ff-forum fs-40 text-veneer">
+                        Coffee & Tea
+                    </div>
 
-        </div>
-        
-    </section>
+                    <span class="mr-2">Cold Brew Coffee</span>
+                    <div class="line bg-veneer maxwidth100"></div>
+                    <span>$3</span>
+
+                    <span class="mr-2">French Press Pot</span>
+                    <div class="line bg-veneer maxwidth100"></div>
+                    <span>$5</span>
+
+                    <span class="mr-2">Espresso</span>
+                    <div class="line bg-veneer maxwidth100"></div>
+                    <span>$2</span>
+
+                    <span class="mr-2">Cappuccino</span>
+                    <div class="line bg-veneer maxwidth100"></div>
+                    <span>$4</span>
+                    
+                    <span class="mr-2">Hot tea</span>
+                    <div class="line bg-veneer maxwidth100"></div>
+                    <span>$2</span>
+                    
+                    <span class="mr-2">Cold tea</span>
+                    <div class="line bg-veneer maxwidth100"></div>
+                    <span>$2</span>
+                </div>
+
+                <div class="grid-coffeeshop-menu ">
+                    <div class="ff-forum fs-40 text-veneer">
+                        Desserts & Cakes
+                    </div>
+
+                    <span class="justify-self-end mr-2">Forest Gateau</span>
+                    <div class="line bg-veneer maxwidth100"></div>
+                    <span>$16</span>
+                    
+                    <span class="justify-self-end mr-2">Blue Moon</span>
+                    <div class="line bg-veneer maxwidth100"></div>
+                    <span>$16</span>
+                    
+                    <span class="justify-self-end mr-2">Truffle Cake</span>
+                    <div class="line bg-veneer maxwidth100"></div>
+                    <span>$16</span>
+
+                    <span class="justify-self-end mr-2">Chocolate Cake</span>
+                    <div class="line bg-veneer maxwidth100"></div>
+                    <span>$16</span>
+                    
+                    <span class="justify-self-end mr-2">Poet’s Dream Cake</span>
+                    <div class="line bg-veneer maxwidth100"></div>
+                    <span>$16</span>
+                    
+                    <span class="justify-self-end mr-2">Pineapple Cake</span>
+                    <div class="line bg-veneer maxwidth100"></div>
+                    <span>$14</span>
+                </div>
+            </div>
+            
+        </section>
+        <section>
+            <h2>Our Contacts</h2>
+            
+            <div class="contacts-container flex justify-content-between mx-20">
+                <div>
+                    <p class="fw-600">For all Library inquiries:</p>
+                    <div class="mt-3">
+                        <p>Please call <a href="tel:6177302370">(617) 730-2370</a></p>
+                        <p>For TTY service, please call <a href="tel:6177302370">(617) 730-2370</a></p>
+                        <p>Putterham Library: <a href="tel:6177302370">(617) 730-2385</a></p>
+                    </div>
+                    <div class="mt-3">
+                        <p class="fw-600">Senior Staff</p>
+                        <p>Library Director:<span class="fw-600 ml-2">Amanda Hirst</span></p>
+                    </div>
+                </div>
+                <picture>
+                    <source srcset="./img/map.png" type="image/png">
+                    <img src="./img/map.png" alt="library image 1">
+                </picture>
+            </div>
+        </section>
+        <section>
+            <h2>
+                Digital Library Cards
+            </h2>
+            <div class="flex justify-content-between mb-3 mx-20">
+                <div>
+                    <span class="fs-30">
+                        Find your Library card
+                    </span>
+                    <div class="member-card-border flex-column">
+                        <div class="member-card flex-column mt-20 px-20 align-self-center justify-content-evenly">
+                            <span class="fs-30 ff-forum">Brooklyn Public Library</span>
+                            <div class="flex">
+                                <input type="text" class="fs-30 ff-forum text-light-dark p-2" value="Reader's name">
+                            </div>
+                            <div class="flex">
+                                <input type="text" class="fs-30 ff-forum text-light-dark p-2" value="Card number">
+                            </div>
+                        </div>
+                        <button class="align-self-center mt-3"><span class="fw-600">Check the card</span></button>
+                    </div>  
+                </div>
+                <div class="text-end card-registration">
+                    <span class="ff-forum fs-30">Get a reader card</span>
+                    <p class="mt-3">You will be able to see a reader card after logging into account or you can register a new account</p>
+                    <div class="flex justify-content-end mt-3">
+                        <button class="fs-10 fw-600 mr-2">Sign Up</button>
+                        <button class="fs-10 fw-600">Log in</button>
+                    </div>
+                </div>
+
+            </div>
+            
+        </section>
+    </main>
+    
     <footer>
         <div class=" fs-15 mx-20">
             <div class="flex justify-content-between my-10">
@@ -502,11 +504,11 @@
                 </div>
             </div>
             <div class="flex justify-content-between mt-10 mb-1">
-                <div class="flex">
-                    <img src="./img/u_twitter-alt.svg" class="mr-2" alt="twitter link">
-                    <img src="./img/u_instagram.svg"  class="mr-2" alt="instagram link">
-                    <img src="./img/u_facebook-f.svg"  alt="facebook link">
-                </div>
+                <ul class="flex">
+                    <li><img src="./img/u_twitter-alt.svg" class="mr-2" alt="twitter link"></li>
+                    <li><img src="./img/u_instagram.svg"  class="mr-2" alt="instagram link"></li>
+                    <li><img src="./img/u_facebook-f.svg"  alt="facebook link"></li>
+                </ul>
                 <div class="schedule text-end">
                     <p>Sat - Sun</p>
                     <p>10:00 am - 06:00 pm</p>

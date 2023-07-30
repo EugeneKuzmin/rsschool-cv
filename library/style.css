@@ -58,19 +58,18 @@ body {
     background-color: hsl( var(--clr-white) );
 }
 
-body > *:where(:not(:last-child)){
+main > *:where(:not(:last-child)){
     margin-bottom: 20px;
 }
 
 /* set up the header */
 
 header {
-    height: 690px;
     color: hsl( var(--clr-white) );
 }
 
-nav > ul > li {
-    cursor: pointer;
+nav > ul > li > a {
+    text-decoration: none;
 } 
 
 h2 {
@@ -119,7 +118,6 @@ h3::after {
     bottom: -9px;
     margin: 0 auto;
     left: 0;
-
 }
 
 /* set up the footer */
@@ -585,6 +583,11 @@ input:checked {
 
 /*     Footer    */
 /* ************* */
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
 .third-row{
     min-height: 120px;
 }
