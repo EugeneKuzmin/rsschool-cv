@@ -410,6 +410,10 @@ button
     background-size: cover;
 }
 
+.lib-pic-container h3::after{
+    display: none;
+}
+
 .overlay {
     align-self: start;
     height: 300px;
