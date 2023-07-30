@@ -410,10 +410,6 @@ button
     background-size: cover;
 }
 
-.lib-pic-container h3::after{
-    display: none;
-}
-
 .overlay {
     align-self: start;
     height: 300px;
@@ -628,6 +624,7 @@ footer ul {
     min-height: 110px;
 }
 
+.address a,
 .bottom-row a {
     text-decoration: none;
     color: hsl( var(--clr-white) );
