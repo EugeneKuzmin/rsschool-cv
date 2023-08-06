@@ -427,6 +427,56 @@ button
     cursor: pointer;
 }
 
+header > button {
+    cursor: pointer;
+}
+
+
+
+.hamburger[aria-expanded="true"]{
+    display: none;
+}
+
+@media (min-width:1024px) {
+    .hamburger {
+        display: none;
+    }
+}
+
+@media (max-width:1024px) {
+    .hamburger {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+    }
+
+    .navigation[data-visible="false"]{
+        display: none;
+    }
+
+    .navigation {
+        width: 332px;
+        height: 570px;
+
+        background-color: hsl(var(--clr-black ));
+        position: fixed;
+        z-index: 5000;
+        inset: 10% 30% 30% 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+    }
+
+    .navigation > ul {
+        flex-direction: column;
+
+    }
+
+    
+    
+}
+
 
 /* About section */
 /* ************ */
@@ -455,6 +505,15 @@ button
 .dot-buttons > div :nth-child(1) {
     background-color: hsl( var(--clr-warm-veneer) );
 }
+
+@media (max-width:1024px){
+
+.about-pic-container picture:nth-child(n+2){
+    display: none;
+}
+}
+
+
 
 
 /* Favorites section */
@@ -532,9 +591,22 @@ input:checked {
     color: hsl( var(--clr-warm-veneer) );
 }
 
+@media (max-width:1024px) {
+    .grid-favorites{
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    
+}
+
 
 /* Coffee shop */
 /* ************ */
+
+.coffeeshop-layout{
+    display: flex;
+    justify-content: space-between;
+}
 
 .grid-coffeeshop-menu {
     display: grid;
@@ -551,6 +623,12 @@ input:checked {
     justify-self: center;
     height: 1px;
     width: 100%;
+}
+
+@media (max-width:1024px){
+    .coffeeshop-layout {
+        display: block;
+    }
 }
 
 /* Contacts */
