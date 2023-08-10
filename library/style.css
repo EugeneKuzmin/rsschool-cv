@@ -81,15 +81,7 @@ footer {
 
 /* others setup */
 
-nav > ul > li > a {
-    text-decoration: none;
-    transition: 0.5s;
-} 
 
-nav > ul > li > a:hover {
-    border-bottom: 2px solid hsl( var(--clr-white) );
-    transition: 1s;
-}
 
 h2 {
     position: relative;
@@ -431,15 +423,33 @@ header > button {
     cursor: pointer;
 }
 
-
+.navigation {
+    display: flex;
+    align-items: center;
+}
 
 .hamburger[aria-expanded="true"]{
     display: none;
 }
 
+nav > ul > li > a {
+    text-decoration: none;
+} 
+
+
+
 @media (min-width:1024px) {
     .hamburger {
         display: none;
+    }
+    
+    .close-cross {
+        display: none;
+    }
+    
+    nav > ul > li > a:hover {
+        border-bottom: 2px solid hsl( var(--clr-white) );
+        transition: 1s;
     }
 }
 
@@ -448,10 +458,6 @@ header > button {
         background-color: transparent;
         border: 0;
         cursor: pointer;
-    }
-
-    .navigation[data-visible="false"]{
-        display: none;
     }
 
     .navigation {
@@ -463,14 +469,31 @@ header > button {
         z-index: 5000;
         inset: 10% 30% 30% 30%;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column-reverse;
         padding: 2rem;
     }
 
-    .navigation > ul {
+    .navigation ul {
+        display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
+    .navigation[data-visible="false"] close-cross {
+        display: none;
+    }
+    
+    .navigation[data-visible="false"]{
+        display: none;
+    }
+
+    .munu-btns {
+        align-self: flex-end;
+    }
+
+    nav > ul > li > a {
+        pointer-events: none;
     }
 
     
@@ -634,6 +657,25 @@ input:checked {
 /* Contacts */
 /* ************ */
 
+.contacts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+    
+}
+
+.contacts-container > :first-child {
+    flex-basis: 503px;
+    flex-grow: 1;
+}
+
+.contacts-container > :last-child {
+    flex-basis: 696px;
+    flex-grow: 1;
+}
+
+
 .contacts-container > picture {
     height: 414px;
 }
@@ -674,7 +716,7 @@ input:checked {
 }
 
 .card-registration {
-    max-width: 456px;
+    flex-basis: 456px;
 }
 
 .card-registration button{
@@ -690,6 +732,21 @@ input:checked {
     background-color: hsl( var(--clr-warm-veneer) );
     border: 1px solid hsl( var(--clr-warm-veneer) );
 }
+
+.lib-card {
+    display: flex;
+    flex-wrap: wrap;
+}
+.lib-card > :first-child() {
+    flex-basis: 600px;
+    flex-grow: 1;
+}
+
+.lib-card > :last-child() {
+    flex-basis: 456px;
+    flex-grow: 1;
+}
+
 
 /*     Footer    */
 /* ************* */
