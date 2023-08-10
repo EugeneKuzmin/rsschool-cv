@@ -16,12 +16,10 @@
     <header>
         <div class="navigation-bar flex justify-content-between bg-dark text-white px-20">
 
-            <h1 class="flex align-items-center ff-forum fs-30">Brooklyn Public Library</h1>
-            <button class="hamburger" aria-expanded="false">
-                <img src="./img/burger.svg" alt="menu">
-            </button>
-            <div class="navigation" data-visible="false">
-                <nav class="mr-40">
+            <h1 class="flex align-items-center ff-forum fs-30 letter-spacing-0-6">Brooklyn Public Library</h1>
+            
+            <div class="menu-layout align-items-center">
+                <nav class="mr-40 navigation" data-visible="false">
                     <ul class="flex ">
                         <li><a href="#about" class="text-white">About</a></li>
                         <li><a href="#favorites" class="text-white">Favorites</a></li>
@@ -30,20 +28,23 @@
                         <li><a href="#librarycard" class="text-white">Library Card</a></li>
                     </ul>
                 </nav>
-                <div class="flex  munu-btns">
-                    <div class="flex align-items-center"><img src="./img/icon_profile.svg" alt="icon profile" ></div>
-                    <div class="close-cross"><img src="./img/cross.svg" ></div>
+                <div class="flex  menu-btns align-items-center">
+                    <div class="flex align-items-center icon-profile"><img src="./img/icon_profile.svg" alt="icon profile" ></div>
+                    <button class="hamburger" aria-expanded="false">
+                        <img src="./img/burger.svg" alt="menu">
+                    </button>
+                    <div class="close-cross" data-visible="false"><img src="./img/cross.svg" ></div>
                 </div>
             </div>
         </div>
     </header>
     <main>
         <section>
-            <div class="lib-pic-container flex uppercase">
-                    <div class="intro align-self-center bg-dark px-20 flex-column place-content-center text-center ff-forum fs-40 text-white">
-                        <div class="mb-20">Welcome</div>
-                        <div class="mb-20">to the Brooklyn</div>
-                        <div >Library</div>
+            <div class="lib-pic-container flex">
+                    <div class="intro align-self-center bg-dark px-20 flex-column place-content-center text-center ff-forum fs-40 text-white letter-spacing-3 uppercase">
+                        <p>Welcome</p>
+                        <p>to the Brooklyn</p>
+                        <p >Library</p>
                     </div>
             </div>
         </section>
@@ -51,7 +52,7 @@
             <h2>
                 About
             </h2>
-            <p class="text-center mb-20">
+            <p class="text-center mb-20 mt-3-8 mx-4">
                 The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside
             </p>
             <div class="flex about-pic-container mx-20 justify-content-center">
@@ -70,6 +71,8 @@
             </div>
             <div class="dot-buttons flex justify-content-center">
                 <div class="flex align-items-center">
+                    <div></div>
+                    <div></div>
                     <div></div>
                     <div></div>
                     <div ></div>

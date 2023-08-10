@@ -10,9 +10,11 @@ function switchNavigation(){
 
     if (navigation.getAttribute("data-visible") === "false") {
         navigation.setAttribute("data-visible", true);
+        closeCross.setAttribute("data-visible", true);
         hamburger.setAttribute("aria-expanded", true);
     } else {
         navigation.setAttribute("data-visible", false);
+        closeCross.setAttribute("data-visible", false);
         hamburger.setAttribute("aria-expanded", false);
     }
 

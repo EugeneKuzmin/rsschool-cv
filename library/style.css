@@ -81,14 +81,13 @@ footer {
 
 /* others setup */
 
-
-
 h2 {
     position: relative;
     display: flex;
     justify-content: center;
     font-family: var(--ff-forum);
     font-size: var(--fs-40);
+    letter-spacing: 2px;
 }
 
 h2::after {
@@ -97,7 +96,7 @@ h2::after {
     width: 50px;
     height: 1px;
     background-color: hsl( var(--clr-dark) );
-    bottom: -9px;
+    bottom: -20px;
     margin: 0 auto;
     left: 0;
     right: 0;
@@ -238,6 +237,14 @@ button
     text-transform: uppercase;
 }
 
+.letter-spacing-0-6 { 
+    letter-spacing: 0.6px; 
+} 
+
+.letter-spacing-3 { 
+    letter-spacing: 3px; 
+} 
+
 .letter-spacing-2 { 
     letter-spacing: 2px; 
 } 
@@ -314,6 +321,14 @@ button
 
 .mt-3 {
     margin-top: 1.5rem;
+}
+
+.mt-3-8 {
+    margin-top: 3.8rem;
+}
+
+.mx-4 {
+    margin-inline: 2rem;
 }
 
 .mb-1 {
@@ -412,6 +427,8 @@ button
 .intro {
     width: 600px;
     height: 220px;
+    margin-top: 3.7rem;
+    line-height: 50px;
 }
 
 /*   header    */
@@ -419,7 +436,7 @@ button
     cursor: pointer;
 }
 
-header > button {
+header button {
     cursor: pointer;
 }
 
@@ -435,6 +452,10 @@ header > button {
 nav > ul > li > a {
     text-decoration: none;
 } 
+
+.menu-layout {
+    display: flex;
+}
 
 
 
@@ -458,9 +479,11 @@ nav > ul > li > a {
         background-color: transparent;
         border: 0;
         cursor: pointer;
+        padding: 0;
+        margin-left: 40px;
     }
 
-    .navigation {
+    .menu-layout:has(.navigation[data-visible="true"])  {
         width: 332px;
         height: 570px;
 
@@ -480,7 +503,7 @@ nav > ul > li > a {
         justify-content: center;
     }
 
-    .navigation[data-visible="false"] close-cross {
+    .close-cross[data-visible="false"] {
         display: none;
     }
     
@@ -488,8 +511,9 @@ nav > ul > li > a {
         display: none;
     }
 
-    .munu-btns {
-        align-self: flex-end;
+
+    .menu-btns {
+        /* align-self: flex-end; */
     }
 
     nav > ul > li > a {
@@ -514,6 +538,7 @@ nav > ul > li > a {
 
 .dot-buttons {
     height: 96px;
+    padding: 0 0 1.9rem 0;
 }
 
 .dot-buttons > div > *{
@@ -528,12 +553,21 @@ nav > ul > li > a {
 .dot-buttons > div :nth-child(1) {
     background-color: hsl( var(--clr-warm-veneer) );
 }
+@media (min-width:1024px){
+    .dot-buttons > div > :nth-child(n+2)
+    {
+        display: none;
+    }
+    
+}
 
 @media (max-width:1024px){
 
 .about-pic-container picture:nth-child(n+2){
     display: none;
 }
+
+
 }
 
 
