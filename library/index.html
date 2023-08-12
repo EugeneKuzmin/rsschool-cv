@@ -18,8 +18,8 @@
 
             <h1 class="flex align-items-center ff-forum fs-30 letter-spacing-0-6">Brooklyn Public Library</h1>
             
-            <div class="menu-layout align-items-center">
-                <nav class="mr-40 navigation" data-visible="false">
+            <div class="menu-layout align-items-center">    
+                <nav class="navigation" data-visible="false">
                     <ul class="flex ">
                         <li><a href="#about" class="text-white">About</a></li>
                         <li><a href="#favorites" class="text-white">Favorites</a></li>
@@ -28,12 +28,9 @@
                         <li><a href="#librarycard" class="text-white">Library Card</a></li>
                     </ul>
                 </nav>
-                <div class="flex  menu-btns align-items-center">
+                <div class="flex menu-btns">
                     <div class="flex align-items-center icon-profile"><img src="./img/icon_profile.svg" alt="icon profile" ></div>
-                    <button class="hamburger" aria-expanded="false">
-                        <img src="./img/burger.svg" alt="menu">
-                    </button>
-                    <div class="close-cross" data-visible="false"><img src="./img/cross.svg" ></div>
+                    <button class="nav-toggle" aria-expanded="false"></button>
                 </div>
             </div>
         </div>
@@ -55,20 +52,30 @@
             <p class="text-center mb-20 mt-3-8 mx-4">
                 The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside
             </p>
-            <div class="flex about-pic-container mx-20 justify-content-center">
-                <picture>
-                    <source srcset="./img/image1.png" type="image/png">
-                    <img src="./img/image1.png" alt="library image 1">
-                </picture>
-                <picture>
-                    <source srcset="./img/image2.png" type="image/png">
-                    <img src="./img/image2.png" alt="library image 2">
-                </picture>
-                <picture>
-                    <source srcset="./img/image3.png" type="image/png">
-                    <img src="./img/image3.png" alt="library image 3">
-                </picture>
+            <div class="mx-20">
+                <div class="flex mx-20 about-pic-container  justify-content-center">
+                    <div class="pt-40 flex align-items-center">
+                        <img class="karet" src="./img/VectorLeft.svg" alt="">
+                    </div>
+
+                    <picture>
+                        <source srcset="./img/image1.png" type="image/png">
+                        <img src="./img/image1.png" alt="library image 1">
+                    </picture>
+                    <picture>
+                        <source srcset="./img/image2.png" type="image/png">
+                        <img src="./img/image2.png" alt="library image 2">
+                    </picture>
+                    <picture>
+                        <source srcset="./img/image3.png" type="image/png">
+                        <img src="./img/image3.png" alt="library image 3">
+                    </picture>
+                    <div class="pt-40 flex align-items-center">
+                        <img class="karet" src="./img/VectorRight.svg" alt="">
+                    </div >
+                </div>
             </div>
+           
             <div class="dot-buttons flex justify-content-center">
                 <div class="flex align-items-center">
                     <div></div>
@@ -81,8 +88,8 @@
             </div>
         </section>
         <section id="favorites">
-            <h2>Favorites</h2>
-            <span class="mx-20 mb-20 fw-700">Pick favorites of season</span>
+            <h2 class="mb-50">Favorites</h2>
+            <div class="mx-20 mt-20 fw-700">Pick favorites of season</div>
             <div class="favorites flex align-items-center mx-20 mb-20 mt-20">
                 <div>
                     <input class="mr-20" type="radio" id="winter-label" name="seasons" value="winter" checked>

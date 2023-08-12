@@ -1,21 +1,15 @@
 const navigation = document.querySelector('.navigation')
-const hamburger = document.querySelector('.hamburger')
-hamburger.addEventListener('click',switchNavigation)
-
-
-const closeCross = document.querySelector('.close-cross')
-closeCross.addEventListener('click', switchNavigation)
+const mToggle = document.querySelector('.nav-toggle')
+mToggle.addEventListener('click',switchNavigation)
 
 function switchNavigation(){
 
     if (navigation.getAttribute("data-visible") === "false") {
         navigation.setAttribute("data-visible", true);
-        closeCross.setAttribute("data-visible", true);
-        hamburger.setAttribute("aria-expanded", true);
+        mToggle.setAttribute("aria-expanded", true);
     } else {
         navigation.setAttribute("data-visible", false);
-        closeCross.setAttribute("data-visible", false);
-        hamburger.setAttribute("aria-expanded", false);
+        mToggle.setAttribute("aria-expanded", false);
     }
 
 }

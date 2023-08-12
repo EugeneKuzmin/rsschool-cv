@@ -49,6 +49,10 @@ p {
     font-weight: 400;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* set up the body */
 body {
     font-family: var(--ff-inter);
@@ -56,6 +60,7 @@ body {
     line-height: 40px;
     color: hsl( var(--clr-dark) );
     background-color: hsl( var(--clr-white) );
+    
 }
 
 main > *:where(:not(:last-child)){
@@ -315,6 +320,10 @@ button
     margin-top: 20px;
 }
 
+.mb-50 {
+    margin-bottom: 53px;
+}
+
 .mt-10 {
     margin-top: 10px;
 }
@@ -389,6 +398,10 @@ button
     padding-bottom: 2rem;
 }
 
+.pt-40 {
+    padding-top: 40px;
+}
+
 /* size */
 .maxwidth100 {
     max-width: 100px;
@@ -404,6 +417,8 @@ button
 .navigation-bar ul {
     list-style: none;
     gap: 30px;
+    line-height: 50px;
+    margin: 0;
 }
 
 .lib-pic-container {
@@ -443,28 +458,31 @@ header button {
 .navigation {
     display: flex;
     align-items: center;
+    margin-right: 40px;
 }
 
-.hamburger[aria-expanded="true"]{
-    display: none;
-}
+
 
 nav > ul > li > a {
     text-decoration: none;
+} 
+
+nav > ul > li  {
+    margin: 0;
 } 
 
 .menu-layout {
     display: flex;
 }
 
+.menu-btns {
+    align-items: center;
+}
+
 
 
 @media (min-width:1024px) {
-    .hamburger {
-        display: none;
-    }
-    
-    .close-cross {
+    .nav-toggle {
         display: none;
     }
     
@@ -475,50 +493,55 @@ nav > ul > li > a {
 }
 
 @media (max-width:1024px) {
-    .hamburger {
-        background-color: transparent;
-        border: 0;
+    .nav-toggle {
         cursor: pointer;
-        padding: 0;
+        background: transparent;
+        background-image: url(./img/burger.svg);
+        background-repeat: no-repeat;
+        background-position: center;
         margin-left: 40px;
+        padding: 0;
+        width: 45px;
+        aspect-ratio: 1;
+        border: 0
+        
     }
 
-    .menu-layout:has(.navigation[data-visible="true"])  {
+    .nav-toggle[aria-expanded="true"]{
+        background-image: url(./img/cross.svg);
+    }
+
+    .navigation {
         width: 332px;
         height: 570px;
 
         background-color: hsl(var(--clr-black ));
         position: fixed;
         z-index: 5000;
-        inset: 10% 30% 30% 30%;
+        inset: 15% 0 0 100%;
         display: flex;
-        flex-direction: column-reverse;
-        padding: 2rem;
+        flex-direction: column;
+        padding: 1.7rem 1.9rem;
+        transform: translateX(150%);
+        transition: transform 500ms ease-in-out;
+        
     }
 
     .navigation ul {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        padding: 0;
     }
 
-    .close-cross[data-visible="false"] {
-        display: none;
-    }
-    
-    .navigation[data-visible="false"]{
-        display: none;
+    .navigation[data-visible="true"]{
+        transform: translateX(-100%);
     }
 
 
-    .menu-btns {
-        /* align-self: flex-end; */
-    }
-
-    nav > ul > li > a {
+    /* nav > ul > li > a {
         pointer-events: none;
-    }
+    } */
 
     
     
@@ -538,7 +561,6 @@ nav > ul > li > a {
 
 .dot-buttons {
     height: 96px;
-    padding: 0 0 1.9rem 0;
 }
 
 .dot-buttons > div > *{
@@ -553,7 +575,13 @@ nav > ul > li > a {
 .dot-buttons > div :nth-child(1) {
     background-color: hsl( var(--clr-warm-veneer) );
 }
+
 @media (min-width:1024px){
+
+    .karet {
+        display: none;
+    }
+
     .dot-buttons > div > :nth-child(n+2)
     {
         display: none;
@@ -563,15 +591,21 @@ nav > ul > li > a {
 
 @media (max-width:1024px){
 
-.about-pic-container picture:nth-child(n+2){
-    display: none;
-}
+    .about-pic-container picture:nth-child(n+3){
+        display: none;
+    }
+
+    .dot-buttons {
+        height: 81px;
+        padding-bottom: 0.9rem;
+    }
+
+    .about-pic-container {
+        justify-content: space-evenly;
+    }
 
 
 }
-
-
-
 
 /* Favorites section */
 /* ***************** */
@@ -600,7 +634,6 @@ input:checked {
   input:checked + label {
     font-weight: 600;
   }
-
 
 .grid-favorites{
     
@@ -651,8 +684,9 @@ input:checked {
 @media (max-width:1024px) {
     .grid-favorites{
         grid-template-columns: repeat(1,1fr);
+        justify-items: center;
+        padding-right: 2.4rem;
     }
-
     
 }
 
