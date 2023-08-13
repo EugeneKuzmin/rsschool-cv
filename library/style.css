@@ -82,7 +82,7 @@ footer {
     height: 250px;
     background-color: hsl( var(--clr-dark) );
     color: hsl( var(--clr-white) );
-    line-height: 25px;
+    margin-top: 5px;
 }
 
 /* others setup */
@@ -94,6 +94,7 @@ h2 {
     font-family: var(--ff-forum);
     font-size: var(--fs-40);
     letter-spacing: 2px;
+    text-transform: capitalize;
 }
 
 h2::after {
@@ -244,6 +245,9 @@ button
     text-transform: uppercase;
 }
 
+.letter-spacing-0-4 { 
+    letter-spacing: 0.4px; 
+} 
 .letter-spacing-0-6 { 
     letter-spacing: 0.6px; 
 } 
@@ -260,12 +264,20 @@ button
     letter-spacing: 1px; 
 }
 
+.line-height-20{
+    line-height: 20px;
+}
+
 .line-height-40{
     line-height: 40px;
 }
 
 .text-capitalize {
     text-transform: capitalize;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
 }
 
 /* Flexbox */
@@ -322,8 +334,20 @@ button
     margin-inline: 20px;
 }
 
+.mx-64 {
+    margin-inline: 64px;
+}
+
 .my-10 {
     margin-block: 10px;
+}
+
+.my-20 {
+    margin-block: 20px;
+}
+
+.mt-0 {
+    margin-top: 0px;
 }
 
 .mt-20 {
@@ -334,10 +358,17 @@ button
     margin-top: 25px;
 }
 
+.mt-40 {
+    margin-top: 40px;
+}
+
 .mb-50 {
     margin-bottom: 53px;
 }
 
+.mt-9 {
+    margin-top: 9px;
+}
 .mt-10 {
     margin-top: 10px;
 }
@@ -346,12 +377,32 @@ button
     margin-top: 15px;
 }
 
+.mt-60 {
+    margin-top: 60px;
+}
+
+.mt-100 {
+    margin-top: 60px;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
 .mt-3 {
     margin-top: 1.5rem;
 }
 
 .mt-3-8 {
     margin-top: 3.8rem;
+}
+
+.mt-5 {
+    margin-top: 2.5rem;
+}
+
+.mt-5 {
+    margin-top: 2.5rem;
 }
 
 .mx-4 {
@@ -374,9 +425,14 @@ button
     margin-bottom: 2.5rem;
 }
 
+.mb-15 {
+    margin-bottom: 15px;
+}
+
 .mb-20 {
     margin-bottom: 20px;
 }
+
 
 .mb-40 {
     margin-bottom: 40px;
@@ -398,6 +454,9 @@ button
     margin-right: 20px;
 }
 
+.ml-1{
+    margin-left:0.5rem;
+}
 .ml-2{
     margin-left: 1rem;
 }
@@ -420,9 +479,19 @@ button
     padding-bottom: 2rem;
 }
 
+.pt-12 {
+    padding-top: 12px;
+}
+
+.pt-20 {
+    padding-top: 20px;
+}
+
 .pt-40 {
     padding-top: 40px;
 }
+
+
 
 /* size */
 .maxwidth100 {
@@ -704,6 +773,10 @@ input:checked {
     color: hsl( var(--clr-warm-veneer) );
 }
 
+.book-description {
+    grid-template-rows: 45px 105px 1fr 45px;
+}
+
 @media (max-width:1024px) {
     .grid-favorites{
         grid-template-columns: repeat(1,1fr);
@@ -717,6 +790,10 @@ input:checked {
 /* Coffee shop */
 /* ************ */
 
+#coffeeshop {
+    padding-top: 6px;
+}
+
 .coffeeshop-layout{
     display: flex;
     justify-content: space-between;
@@ -727,6 +804,14 @@ input:checked {
     grid-template-columns: 3fr 2fr 1fr;
     row-gap: 40px;
 }
+
+.coffee-menu {
+    max-width: 438px;
+}
+
+/* .desert-menu {
+    max-width: 482px;
+} */
 
 .grid-coffeeshop-menu :nth-child(1) {
     grid-column: 1 / span 3;
@@ -741,16 +826,28 @@ input:checked {
 
 @media (max-width:1024px){
     .coffeeshop-layout {
-        display: block;
+        flex-direction: column;
+        grid-template-columns: 1fr;
+        width: 100%;
     }
+
+    .desert-menu {
+        display: flex;
+        justify-content: end;
+        padding-right: 45px;
+    }
+    
 }
 
 /* Contacts */
 /* ************ */
 
+#contacts {
+    padding-top: 22px;
+}
+
 .contacts-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: start;
     
@@ -764,20 +861,34 @@ input:checked {
 .contacts-container > :last-child {
     flex-basis: 696px;
     flex-grow: 1;
-}
-
-
-.contacts-container > picture {
     height: 414px;
 }
+
 
 .contacts-container a {
     text-decoration: none;
     color: hsl( var(--clr-dark) );
 }
 
+@media (max-width:1024px) {
+    .contacts-container > picture {
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+        
+    }
+    .contacts-container {
+        flex-wrap: wrap;
+    }
+}
+
 /* Library cards */
 /* ************* */
+
+#librarycard {
+    padding-top: 20px;
+    margin-bottom: 37px;
+}
 
 .member-card-border{
     height: 387px;
@@ -817,6 +928,12 @@ input:checked {
     border-radius: 2px;
 }
 
+.card-registration-buttons {
+    display: flex;
+    justify-content: end;
+
+}
+
 .member-card-border button:hover,
 .card-registration button:hover {
     cursor: pointer;
@@ -826,18 +943,39 @@ input:checked {
 
 .lib-card {
     display: flex;
-    flex-wrap: wrap;
-}
-.lib-card > :first-child() {
-    flex-basis: 600px;
-    flex-grow: 1;
 }
 
-.lib-card > :last-child() {
-    flex-basis: 456px;
-    flex-grow: 1;
+@media(min-width:1024px){
+    .lib-card{
+        justify-content: space-between;
+    }
 }
 
+@media(max-width:1024px){
+    .lib-card {
+        flex-wrap: wrap;
+    }
+
+    .lib-card > :first-child {
+        flex-basis: 600px;
+        flex-grow: 1;
+        justify-content: center;
+    }
+    
+    .lib-card > :last-child {
+        flex-basis: 456px;
+        flex-grow: 1;
+    }
+
+    .card-registration > * {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+
+    }
+   
+
+}
 
 /*     Footer    */
 /* ************* */
