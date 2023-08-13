@@ -13,549 +13,553 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <div class="navigation-bar flex justify-content-between bg-dark text-white px-20">
+    <div class="wrapper">
+        <header>
+            <div class="navigation-bar flex justify-content-between bg-dark text-white px-20">
 
-            <h1 class="flex align-items-center ff-forum fs-30 letter-spacing-0-6">Brooklyn Public Library</h1>
+                <h1 class="flex align-items-center ff-forum fs-30 letter-spacing-0-6">Brooklyn Public Library</h1>
+                
+                <div class="menu-layout align-items-center">    
+                    <nav class="navigation" data-visible="false">
+                        <ul class="flex ">
+                            <li><a href="#about" class="text-white" onclick="switchNavigation()">About</a></li>
+                            <li><a href="#favorites" class="text-white" onclick="switchNavigation()">Favorites</a></li>
+                            <li><a href="#coffeeshop" class="text-white" onclick="switchNavigation()">Coffee shop</a></li>
+                            <li><a href="#contacts" class="text-white" onclick="switchNavigation()">Contacts</a></li>
+                            <li><a href="#librarycard" class="text-white" onclick="switchNavigation()">Library Card</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex menu-btns">
+                        <div class="flex align-items-center icon-profile"><img src="./img/icon_profile.svg" alt="icon profile" ></div>
+                        <button class="nav-toggle" aria-expanded="false"></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <section>
+                <div class="lib-pic-container flex">
+                        <div class="intro align-self-center bg-dark px-20 flex-column place-content-center text-center ff-forum fs-40 text-white letter-spacing-3 uppercase">
+                            <p>Welcome</p>
+                            <p>to the Brooklyn</p>
+                            <p >Library</p>
+                        </div>
+                </div>
+            </section>
+            <section id="about">
+                <h2>
+                    About
+                </h2>
+                <p class="text-center mb-20 mt-3-8 mx-4">
+                    The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside
+                </p>
+                <div class="mx-20">
+                    <div class="flex mx-20 about-pic-container  justify-content-center">
+                        <div class="pt-40 flex align-items-center">
+                            <img class="karet" src="./img/VectorLeft.svg" alt="">
+                        </div>
+
+                        <picture>
+                            <source srcset="./img/image1.png" type="image/png">
+                            <img src="./img/image1.png" alt="library image 1">
+                        </picture>
+                        <picture>
+                            <source srcset="./img/image2.png" type="image/png">
+                            <img src="./img/image2.png" alt="library image 2">
+                        </picture>
+                        <picture>
+                            <source srcset="./img/image3.png" type="image/png">
+                            <img src="./img/image3.png" alt="library image 3">
+                        </picture>
+                        <div class="pt-40 flex align-items-center">
+                            <img class="karet" src="./img/VectorRight.svg" alt="">
+                        </div >
+                    </div>
+                </div>
             
-            <div class="menu-layout align-items-center">    
-                <nav class="navigation" data-visible="false">
-                    <ul class="flex ">
-                        <li><a href="#about" class="text-white">About</a></li>
-                        <li><a href="#favorites" class="text-white">Favorites</a></li>
-                        <li><a href="#coffeeshop" class="text-white">Coffee shop</a></li>
-                        <li><a href="#contacts" class="text-white">Contacts</a></li>
-                        <li><a href="#librarycard" class="text-white">Library Card</a></li>
-                    </ul>
-                </nav>
-                <div class="flex menu-btns">
-                    <div class="flex align-items-center icon-profile"><img src="./img/icon_profile.svg" alt="icon profile" ></div>
-                    <button class="nav-toggle" aria-expanded="false"></button>
-                </div>
-            </div>
-        </div>
-    </header>
-    <main>
-        <section>
-            <div class="lib-pic-container flex">
-                    <div class="intro align-self-center bg-dark px-20 flex-column place-content-center text-center ff-forum fs-40 text-white letter-spacing-3 uppercase">
-                        <p>Welcome</p>
-                        <p>to the Brooklyn</p>
-                        <p >Library</p>
+                <div class="dot-buttons flex justify-content-center">
+                    <div class="flex align-items-center">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div ></div>
                     </div>
-            </div>
-        </section>
-        <section id="about">
-            <h2>
-                About
-            </h2>
-            <p class="text-center mb-20 mt-3-8 mx-4">
-                The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside
-            </p>
-            <div class="mx-20">
-                <div class="flex mx-20 about-pic-container  justify-content-center">
-                    <div class="pt-40 flex align-items-center">
-                        <img class="karet" src="./img/VectorLeft.svg" alt="">
+                    
+                </div>
+            </section>
+            <section id="favorites">
+                <h2 class="mb-50">Favorites</h2>
+                <div class="mx-20 mt-20 fw-700">Pick favorites of season</div>
+                <div class="favorites flex align-items-center mx-20 mb-4 mt-25">
+                    <div>
+                        <input class="mr-20" type="radio" id="winter-label" name="seasons" value="winter" checked>
+                        <label for="winter-label">Winter</label>
+                    </div>
+                    
+                    <div>
+                        <input class="mr-20" type="radio" id="spring-label" name="seasons" value="spring">
+                        <label for="spring-label">Spring</label>
                     </div>
 
-                    <picture>
-                        <source srcset="./img/image1.png" type="image/png">
-                        <img src="./img/image1.png" alt="library image 1">
-                    </picture>
-                    <picture>
-                        <source srcset="./img/image2.png" type="image/png">
-                        <img src="./img/image2.png" alt="library image 2">
-                    </picture>
-                    <picture>
-                        <source srcset="./img/image3.png" type="image/png">
-                        <img src="./img/image3.png" alt="library image 3">
-                    </picture>
-                    <div class="pt-40 flex align-items-center">
-                        <img class="karet" src="./img/VectorRight.svg" alt="">
-                    </div >
-                </div>
-            </div>
-           
-            <div class="dot-buttons flex justify-content-center">
-                <div class="flex align-items-center">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div ></div>
-                </div>
-                
-            </div>
-        </section>
-        <section id="favorites">
-            <h2 class="mb-50">Favorites</h2>
-            <div class="mx-20 mt-20 fw-700">Pick favorites of season</div>
-            <div class="favorites flex align-items-center mx-20 mb-4 mt-25">
-                <div>
-                    <input class="mr-20" type="radio" id="winter-label" name="seasons" value="winter" checked>
-                    <label for="winter-label">Winter</label>
-                </div>
-                
-                <div>
-                    <input class="mr-20" type="radio" id="spring-label" name="seasons" value="spring">
-                    <label for="spring-label">Spring</label>
-                </div>
+                    <div>
+                        <input class="mr-20" type="radio" id="summer-label" name="seasons" value="summer">
+                        <label for="summer-label">Summer</label>
+                    </div>
 
-                <div>
-                    <input class="mr-20" type="radio" id="summer-label" name="seasons" value="summer">
-                    <label for="summer-label">Summer</label>
-                </div>
+                    <div>
+                        <input class="mr-20" type="radio" id="autumn-label" name="seasons" value="autumn">
+                        <label for="autumn-label">Autumn</label>
+                    </div>
 
-                <div>
-                    <input class="mr-20" type="radio" id="autumn-label" name="seasons" value="autumn">
-                    <label for="autumn-label">Autumn</label>
+                    
                 </div>
-
-                
-            </div>
-            <div class="grid-favorites fs-15 letter-spacing-2 mx-20 pb-4  mb-20">
-                <div id="winter"  class="grid book-description">
-                    <h3>
-                        Staff Picks
-                    </h3>
-                    <div class="text-capitalize line-height-40 fw-700 mt-2">
-                        <span class="uppercase">The Book Eaters</span>
-                        <p class="text-capitalize">By Sunyi Dean</p>
-                    </div> 
-                    <p class="line-height-40 text-capitalize mt-9">
-                        An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.   
-                    </p>
-                    <button class="fs-10 fw-600 letter-spacing-1">
-                        Buy
-                    </button>
-                    <img src="./img/book1.png" alt="book 'The Book Eaters'">
-                </div>
-                <div class="grid book-description">
-                    <h3>
-                        Staff Picks
-                    </h3>
-                    <div class="text-capitalize line-height-40 fw-700 mt-2">
-                        <span class="uppercase">Cackle</span>
-                        <p class="text-capitalize">By Rachel Harrison</p>
-                    </div> 
-                    <p class="line-height-40 text-capitalize mt-9">
-                        Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.
-                    </p>
-                    <button class="fs-10 fw-600 letter-spacing-1">
-                        Buy
-                    </button>
-                    <img src="./img/book2.png" alt="book 'Cackle'">
-                </div>
-                <div class="grid book-description">
-                    <h3>
-                        Staff Picks
-                    </h3>
-                    <div class="text-capitalize line-height-40 fw-700 mt-2">
-                        <span class="uppercase">Dante: Poet of the Secular World</span>
-                        <p class="text-capitalize">By Erich Auerbach</p>
-                    </div> 
-                    <p class="line-height-40 text-capitalize mt-9">
-                        Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
-                    </p>
-                    <button class="fs-10 fw-600 letter-spacing-1">
-                        Buy
-                    </button>
-                    <img src="./img/book3.png" alt="book 'Dante: Poet of the Secular World'">
-                </div>
-                <div class="grid book-description">
-                    <h3>
-                        Staff Picks
-                    </h3>
-                    <div class="text-capitalize line-height-40 fw-700 mt-2">
-                        <span class="uppercase">The Last Queen</span>
-                        <p class="text-capitalize">By Clive Irving</p>
-                    </div> 
-                    <p class="line-height-40 text-capitalize mt-9">
-                        A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
-                    </p>
-                    <button class="fs-10 fw-600 letter-spacing-1" disabled>
-                        Own
-                    </button>
-                    <img src="./img/book4.png" alt="book 'The Last Queen'">
-                </div>
-
-                <div hidden id="spring">
-                    <div  class="grid book-description">
+                <div class="grid-favorites fs-15 letter-spacing-2 mx-20 pb-4  mb-20">
+                    <div id="winter"  class="grid book-description">
                         <h3>
                             Staff Picks
                         </h3>
                         <div class="text-capitalize line-height-40 fw-700 mt-2">
-                            <span class="uppercase">The Body</span>
-                            <p class="text-capitalize">By Stephen King</p>
+                            <span class="uppercase">The Book Eaters</span>
+                            <p class="text-capitalize">By Sunyi Dean</p>
                         </div> 
-                        <p>
-                            Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of innocence that is youth.
+                        <p class="line-height-40 text-capitalize mt-9">
+                            An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.   
                         </p>
                         <button class="fs-10 fw-600 letter-spacing-1">
                             Buy
                         </button>
-                        <img src="./img/book5.png" alt="book 'The Body'">
-                    </div>
-                    <div  class="grid book-description">
-                        <h3>
-                            Staff Picks
-                        </h3>
-                        <div class="text-capitalize line-height-40 fw-700 mt-15">
-                            <span class="uppercase">Carry: A Memoir of Survival on Stolen Land</span>
-                            <p class="text-capitalize">By Toni Jenson</p>
-                        </div> 
-                        <p>
-                            This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting in a lyrical indictment of the way things are.
-                        </p>
-                        <button class="fs-10 fw-600 letter-spacing-1">
-                            Buy
-                        </button>
-                        <img src="./img/book6.png" alt="book 'Carry: A Memoir of Survival on Stolen Land'">
+                        <img src="./img/book1.png" alt="book 'The Book Eaters'">
                     </div>
                     <div class="grid book-description">
                         <h3>
                             Staff Picks
                         </h3>
-                        <div class="text-capitalize line-height-40 fw-700 mt-15">
-                            <span class="uppercase">Days of Distraction</span>
-                            <p class="text-capitalize">By Alexandra Chang</p>
+                        <div class="text-capitalize line-height-40 fw-700 mt-2">
+                            <span class="uppercase">Cackle</span>
+                            <p class="text-capitalize">By Rachel Harrison</p>
                         </div> 
-                        <p>
-                            A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and belonging, all in one form-defying package of spare prose.
+                        <p class="line-height-40 text-capitalize mt-9">
+                            Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.
                         </p>
                         <button class="fs-10 fw-600 letter-spacing-1">
                             Buy
                         </button>
-                        <img src="./img/book7.png" alt="book 'Days of Distraction'">
+                        <img src="./img/book2.png" alt="book 'Cackle'">
                     </div>
                     <div class="grid book-description">
                         <h3>
                             Staff Picks
                         </h3>
-                        <div class="text-capitalize line-height-40 fw-700 mt-15">
-                            <span class="uppercase">Dominicana</span>
-                            <p class="text-capitalize">By Angie Cruz</p>
+                        <div class="text-capitalize line-height-40 fw-700 mt-2">
+                            <span class="uppercase">Dante: Poet of the Secular World</span>
+                            <p class="text-capitalize">By Erich Auerbach</p>
                         </div> 
-                        <p>
+                        <p class="line-height-40 text-capitalize mt-9">
+                            Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
+                        </p>
+                        <button class="fs-10 fw-600 letter-spacing-1">
+                            Buy
+                        </button>
+                        <img src="./img/book3.png" alt="book 'Dante: Poet of the Secular World'">
+                    </div>
+                    <div class="grid book-description">
+                        <h3>
+                            Staff Picks
+                        </h3>
+                        <div class="text-capitalize line-height-40 fw-700 mt-2">
+                            <span class="uppercase">The Last Queen</span>
+                            <p class="text-capitalize">By Clive Irving</p>
+                        </div> 
+                        <p class="line-height-40 text-capitalize mt-9">
                             A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
                         </p>
                         <button class="fs-10 fw-600 letter-spacing-1" disabled>
                             Own
                         </button>
-                        <img src="./img/book8.png" alt="book 'Dominicana'">
+                        <img src="./img/book4.png" alt="book 'The Last Queen'">
+                    </div>
+
+                    <div hidden id="spring">
+                        <div  class="grid book-description">
+                            <h3>
+                                Staff Picks
+                            </h3>
+                            <div class="text-capitalize line-height-40 fw-700 mt-2">
+                                <span class="uppercase">The Body</span>
+                                <p class="text-capitalize">By Stephen King</p>
+                            </div> 
+                            <p>
+                                Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of innocence that is youth.
+                            </p>
+                            <button class="fs-10 fw-600 letter-spacing-1">
+                                Buy
+                            </button>
+                            <img src="./img/book5.png" alt="book 'The Body'">
+                        </div>
+                        <div  class="grid book-description">
+                            <h3>
+                                Staff Picks
+                            </h3>
+                            <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                <span class="uppercase">Carry: A Memoir of Survival on Stolen Land</span>
+                                <p class="text-capitalize">By Toni Jenson</p>
+                            </div> 
+                            <p>
+                                This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting in a lyrical indictment of the way things are.
+                            </p>
+                            <button class="fs-10 fw-600 letter-spacing-1">
+                                Buy
+                            </button>
+                            <img src="./img/book6.png" alt="book 'Carry: A Memoir of Survival on Stolen Land'">
+                        </div>
+                        <div class="grid book-description">
+                            <h3>
+                                Staff Picks
+                            </h3>
+                            <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                <span class="uppercase">Days of Distraction</span>
+                                <p class="text-capitalize">By Alexandra Chang</p>
+                            </div> 
+                            <p>
+                                A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and belonging, all in one form-defying package of spare prose.
+                            </p>
+                            <button class="fs-10 fw-600 letter-spacing-1">
+                                Buy
+                            </button>
+                            <img src="./img/book7.png" alt="book 'Days of Distraction'">
+                        </div>
+                        <div class="grid book-description">
+                            <h3>
+                                Staff Picks
+                            </h3>
+                            <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                <span class="uppercase">Dominicana</span>
+                                <p class="text-capitalize">By Angie Cruz</p>
+                            </div> 
+                            <p>
+                                A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
+                            </p>
+                            <button class="fs-10 fw-600 letter-spacing-1" disabled>
+                                Own
+                            </button>
+                            <img src="./img/book8.png" alt="book 'Dominicana'">
+                        </div>
+                    </div>
+
+                    <div hidden id="summer">
+                        <div  class="grid book-description">
+                            <h3>
+                                Staff Picks
+                            </h3>
+                            <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                <span class="uppercase">Crude: A Memoir</span>
+                                <p class="text-capitalize">By Pablo Fajardo & ​​Sophie Tardy-Joubert</p>
+                            </div> 
+                            <p>
+                                Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and her people
+                            </p>
+                            <button class="fs-10 fw-600 letter-spacing-1">
+                                Buy
+                            </button>
+                            <img src="./img/book9.png" alt="book 'Crude: A Memoir '">
+                        </div>
+                        <div class="grid book-description">
+                            <h3>
+                                Staff Picks
+                            </h3>
+                            <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                <span class="uppercase">Let My People Go Surfing</span>
+                                <p class="text-capitalize">By Yvon Chouinard</p>
+                            </div> 
+                            <p>
+                                Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.
+                            </p>
+                            <button class="fs-10 fw-600 letter-spacing-1">
+                                Buy
+                            </button>
+                            <img src="./img/book10.png" alt="book 'Let My People Go Surfing'">
+                        </div>
+                        
+                        <div class="grid book-description">
+                            <h3>
+                                Staff Picks
+                            </h3>
+                            <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                <span class="uppercase">The Octopus Museum: Poems</span>
+                                <p class="text-capitalize">By Brenda Shaughnessy</p>
+                            </div> 
+                            <p>
+                                This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of environmental destruction, racism, sexism, and divisive politics.
+                            </p>
+                            <button class="fs-10 fw-600 letter-spacing-1">
+                                Buy
+                            </button>
+                            <img src="./img/book11.png" alt="book 'The Octopus Museum: Poems'">
+                        </div>
+                        <div class="grid book-description">
+                            <h3>
+                                Staff Picks
+                            </h3>
+                            <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                <span class="uppercase">Shark Dialogues: A Novel</span>
+                                <p class="text-capitalize">By Kiana Davenport</p>
+                            </div> 
+                            <p>
+                                An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.
+                            </p>
+                            <button class="fs-10 fw-600 letter-spacing-1" disabled>
+                                Own
+                            </button>
+                            <img src="./img/book12.png" alt="book 'Shark Dialogues: A Novel'">
+                        </div>
+                    </div>
+
+                    <div hidden id="autumn">
+                        <div class="grid book-description">
+                            <h3>
+                                Staff Picks
+                            </h3>
+                            <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                <span class="uppercase">Casual Conversation</span>
+                                <p class="text-capitalize">By Renia White</p>
+                            </div> 
+                            <p>
+                                White's impressive debut collection takes readers through and beyond the concepts of conversation and the casual - both what we say to each other and what we don't, examining the possibilities around how we construct and communicate identity.
+                            </p>
+                            <button class="fs-10 fw-600 letter-spacing-1">
+                                Buy
+                            </button>
+                            <img src="./img/book13.png" alt="book 'Casual Conversation'">
+                        </div>
+                        <div class="grid book-description">
+                            <h3>
+                                Staff Picks
+                            </h3>
+                            <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                <span class="uppercase">The Great Fire</span>
+                                <p class="text-capitalize">By Lou Ureneck</p>
+                            </div> 
+                            <p>
+                                The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide
+                            </p>
+                            <button class="fs-10 fw-600 letter-spacing-1">
+                                Own
+                            </button>
+                            <img src="./img/book14.png" alt="book 'Slug: And Other Stories'">
+                        </div>
+                        <div class="grid book-description">
+                            <h3>
+                                Staff Picks
+                            </h3>
+                            <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                <span class="uppercase">Rickey: The Life and Legend</span>
+                                <p class="text-capitalize">By Howard Bryant</p>
+                            </div> 
+                            <span class="fw-600"></span>
+                            <p>
+                                With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?
+                            </p>
+                            <button class="fs-10 fw-600 letter-spacing-1">
+                                Buy
+                            </button>
+                            <img src="./img/book15.png" alt="book 'Rickey: The Life and Legend'">
+                        </div>
+                        <div class="grid book-description">
+                            <h3>
+                                Staff Picks
+                            </h3>
+                            <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                <span class="uppercase">Slug: And Other Stories</span>
+                                <p class="text-capitalize">By Megan Milks</p>
+                            </div> 
+                            <p>
+                                Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.
+                            </p>
+                            <button class="fs-10 fw-600 letter-spacing-1" disabled>
+                                Buy
+                            </button>
+                            <img src="./img/book16.png" alt="book 'Slug: And Other Stories'">
+                        </div>
+                        
                     </div>
                 </div>
-
-                <div hidden id="summer">
-                    <div  class="grid book-description">
-                        <h3>
-                            Staff Picks
-                        </h3>
-                        <div class="text-capitalize line-height-40 fw-700 mt-15">
-                            <span class="uppercase">Crude: A Memoir</span>
-                            <p class="text-capitalize">By Pablo Fajardo & ​​Sophie Tardy-Joubert</p>
-                        </div> 
-                        <p>
-                            Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and her people
-                        </p>
-                        <button class="fs-10 fw-600 letter-spacing-1">
-                            Buy
-                        </button>
-                        <img src="./img/book9.png" alt="book 'Crude: A Memoir '">
-                    </div>
-                    <div class="grid book-description">
-                        <h3>
-                            Staff Picks
-                        </h3>
-                        <div class="text-capitalize line-height-40 fw-700 mt-15">
-                            <span class="uppercase">Let My People Go Surfing</span>
-                            <p class="text-capitalize">By Yvon Chouinard</p>
-                        </div> 
-                        <p>
-                            Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.
-                        </p>
-                        <button class="fs-10 fw-600 letter-spacing-1">
-                            Buy
-                        </button>
-                        <img src="./img/book10.png" alt="book 'Let My People Go Surfing'">
-                    </div>
-                    
-                    <div class="grid book-description">
-                        <h3>
-                            Staff Picks
-                        </h3>
-                        <div class="text-capitalize line-height-40 fw-700 mt-15">
-                            <span class="uppercase">The Octopus Museum: Poems</span>
-                            <p class="text-capitalize">By Brenda Shaughnessy</p>
-                        </div> 
-                        <p>
-                            This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of environmental destruction, racism, sexism, and divisive politics.
-                        </p>
-                        <button class="fs-10 fw-600 letter-spacing-1">
-                            Buy
-                        </button>
-                        <img src="./img/book11.png" alt="book 'The Octopus Museum: Poems'">
-                    </div>
-                    <div class="grid book-description">
-                        <h3>
-                            Staff Picks
-                        </h3>
-                        <div class="text-capitalize line-height-40 fw-700 mt-15">
-                            <span class="uppercase">Shark Dialogues: A Novel</span>
-                            <p class="text-capitalize">By Kiana Davenport</p>
-                        </div> 
-                        <p>
-                            An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.
-                        </p>
-                        <button class="fs-10 fw-600 letter-spacing-1" disabled>
-                            Own
-                        </button>
-                        <img src="./img/book12.png" alt="book 'Shark Dialogues: A Novel'">
-                    </div>
-                </div>
-
-                <div hidden id="autumn">
-                    <div class="grid book-description">
-                        <h3>
-                            Staff Picks
-                        </h3>
-                        <div class="text-capitalize line-height-40 fw-700 mt-15">
-                            <span class="uppercase">Casual Conversation</span>
-                            <p class="text-capitalize">By Renia White</p>
-                        </div> 
-                        <p>
-                            White's impressive debut collection takes readers through and beyond the concepts of conversation and the casual - both what we say to each other and what we don't, examining the possibilities around how we construct and communicate identity.
-                        </p>
-                        <button class="fs-10 fw-600 letter-spacing-1">
-                            Buy
-                        </button>
-                        <img src="./img/book13.png" alt="book 'Casual Conversation'">
-                    </div>
-                    <div class="grid book-description">
-                        <h3>
-                            Staff Picks
-                        </h3>
-                        <div class="text-capitalize line-height-40 fw-700 mt-15">
-                            <span class="uppercase">The Great Fire</span>
-                            <p class="text-capitalize">By Lou Ureneck</p>
-                        </div> 
-                        <p>
-                            The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide
-                        </p>
-                        <button class="fs-10 fw-600 letter-spacing-1">
-                            Own
-                        </button>
-                        <img src="./img/book14.png" alt="book 'Slug: And Other Stories'">
-                    </div>
-                    <div class="grid book-description">
-                        <h3>
-                            Staff Picks
-                        </h3>
-                        <div class="text-capitalize line-height-40 fw-700 mt-15">
-                            <span class="uppercase">Rickey: The Life and Legend</span>
-                            <p class="text-capitalize">By Howard Bryant</p>
-                        </div> 
-                        <span class="fw-600"></span>
-                        <p>
-                            With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?
-                        </p>
-                        <button class="fs-10 fw-600 letter-spacing-1">
-                            Buy
-                        </button>
-                        <img src="./img/book15.png" alt="book 'Rickey: The Life and Legend'">
-                    </div>
-                    <div class="grid book-description">
-                        <h3>
-                            Staff Picks
-                        </h3>
-                        <div class="text-capitalize line-height-40 fw-700 mt-15">
-                            <span class="uppercase">Slug: And Other Stories</span>
-                            <p class="text-capitalize">By Megan Milks</p>
-                        </div> 
-                        <p>
-                            Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.
-                        </p>
-                        <button class="fs-10 fw-600 letter-spacing-1" disabled>
-                            Buy
-                        </button>
-                        <img src="./img/book16.png" alt="book 'Slug: And Other Stories'">
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-        <section id="coffeeshop">
-            <h2>Coffee shop</h2>
-            <p class="text-center mt-60 letter-spacing-2 mx-20">
-            In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. <span class="text-capitalize">y</span>ou can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.  
-            </p>
-            
-            
-            <div class="coffeeshop-layout letter-spacing-2 mx-20 mb-40 ">
-                <div class="grid-coffeeshop-menu coffee-menu mt-40 text-capitalize">
-                    <div class="ff-forum fs-40 text-veneer">
-                        Coffee & Tea
-                    </div>
-
-                    <span>Cold Brew Coffee</span>
-                    <div class="line bg-veneer maxwidth100"></div>
-                    <span class="flex justify-content-end letter-spacing-2 line-height-40 ff-forum">$3</span>
-
-                    <span>French Press Pot</span>
-                    <div class="line bg-veneer maxwidth100"></div>
-                    <span class="flex justify-content-end letter-spacing-2 line-height-40 ff-forum">$5</span>
-
-                    <span>Espresso</span>
-                    <div class="line bg-veneer maxwidth100"></div>
-                    <span class="flex justify-content-end letter-spacing-2 line-height-40 ff-forum">$2</span>
-
-                    <span>Cappuccino</span>
-                    <div class="line bg-veneer maxwidth100"></div>
-                    <span class="flex justify-content-end letter-spacing-2 line-height-40 ff-forum">$4</span>
-                    
-                    <span>Hot tea</span>
-                    <div class="line bg-veneer maxwidth100"></div>
-                    <span class="flex justify-content-end letter-spacing-2 line-height-40 ff-forum">$2</span>
-                    
-                    <span>Cold tea</span>
-                    <div class="line bg-veneer maxwidth100"></div>
-                    <span class="flex justify-content-end letter-spacing-2 line-height-40 ff-forum">$2</span>
-                </div>
-
-                <div class="desert-menu mt-40 text-capitalize">
-                    <div class="grid-coffeeshop-menu">
-                        <div class="ff-forum fs-40 text-veneer text-end">
-                            Desserts & Cakes
+            </section>
+            <section id="coffeeshop">
+                <h2>Coffee shop</h2>
+                <p class="text-center mt-60 letter-spacing-2 mx-20">
+                In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. <span class="text-capitalize">y</span>ou can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.  
+                </p>
+                
+                
+                <div class="coffeeshop-layout letter-spacing-2 mx-20 mb-40 ">
+                    <div class="grid-coffeeshop-menu coffee-menu mt-40 text-capitalize">
+                        <div class="ff-forum fs-40 text-veneer">
+                            Coffee & Tea
                         </div>
 
-                        <span class="justify-self-end mr-2">Forest Gateau</span>
-                        <div class="line bg-veneer maxwidth100 justify-self-end"></div>
-                        <span class="justify-self-end">$16</span>
-                        
-                        <span class="justify-self-end mr-2">Blue Moon</span>
-                        <div class="line bg-veneer maxwidth100 justify-self-end"></div>
-                        <span class="justify-self-end">$16</span>
-                        
-                        <span class="justify-self-end mr-2">Truffle Cake</span>
-                        <div class="line bg-veneer maxwidth100 justify-self-end"></div>
-                        <span class="justify-self-end">$16</span>
+                        <span>Cold Brew Coffee</span>
+                        <div class="line bg-veneer maxwidth100"></div>
+                        <span class="flex justify-content-end letter-spacing-2 line-height-40 ff-forum">$3</span>
 
-                        <span class="justify-self-end mr-2">Chocolate Cake</span>
-                        <div class="line bg-veneer maxwidth100 justify-self-end"></div>
-                        <span class="justify-self-end">$16</span>
-                        
-                        <span class="justify-self-end mr-2">Poet’s Dream Cake</span>
-                        <div class="line bg-veneer maxwidth100 justify-self-end"></div>
-                        <span class="justify-self-end">$16</span>
-                        
-                        <span class="justify-self-end mr-2">Pineapple Cake</span>
-                        <div class="line bg-veneer maxwidth100 justify-self-end"></div>
-                        <span class="justify-self-end">$14</span>
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </section>
-        <section id="contacts">
-            <h2>Our Contacts</h2>
-            
-            <div class="contacts-container line-height-40 letter-spacing-2 text-capitalize mx-20 mb-40 pt-20">
-                <div>
-                    <p class="fw-700 ">For all Library inquiries:</p>
-                    <div class="mt-40">
-                        <p class="my-20">Please call <a href="tel:6177302370">(617) 730-2370</a></p>
-                        <p class="my-20">For TTY service, please call <a href="tel:6177302370">(617) 730-2370</a></p>
-                        <p class="my-20">Putterham Library: <a href="tel:6177302370">(617) 730-2385</a></p>
-                    </div>
-                    <div class="mt-5">
-                        <p class="fw-700">Senior Staff</p>
-                        <p class="mt-20">Library Director:<a class="fw-700 ml-1" href="mailto:AmandaHirst@gmail.com">Amanda Hirst</a></p>
-                    </div>
-                </div>
-                <picture>
-                    <source srcset="./img/map.png" type="image/png">
-                    <img src="./img/map.png" alt="library image 1">
-                </picture>
-            </div>
-        </section>
-        <section id="librarycard">
-            <h2>
-                Digital Library Cards
-            </h2>
-            
-            <div class="lib-card mb-3 mx-20 pt-20">
-                <div>
-                    <span class="flex justify-content-center fs-30 mb-20">
-                        Find your Library card
-                    </span>
+                        <span>French Press Pot</span>
+                        <div class="line bg-veneer maxwidth100"></div>
+                        <span class="flex justify-content-end letter-spacing-2 line-height-40 ff-forum">$5</span>
 
-                    <div class="flex justify-content-center">
-                        <div class="member-card-border flex-column mt-10">
-                            <div class="member-card flex-column mt-20 px-20 align-self-center justify-content-evenly">
-                                <span class="fs-30 ff-forum">Brooklyn Public Library</span>
-                                <div class="flex">
-                                    <input type="text" class="fs-30 ff-forum text-light-dark p-2" value="Reader's name">
-                                </div>
-                                <div class="flex">
-                                    <input type="text" class="fs-30 ff-forum text-light-dark p-2" value="Card number">
-                                </div>
+                        <span>Espresso</span>
+                        <div class="line bg-veneer maxwidth100"></div>
+                        <span class="flex justify-content-end letter-spacing-2 line-height-40 ff-forum">$2</span>
+
+                        <span>Cappuccino</span>
+                        <div class="line bg-veneer maxwidth100"></div>
+                        <span class="flex justify-content-end letter-spacing-2 line-height-40 ff-forum">$4</span>
+                        
+                        <span>Hot tea</span>
+                        <div class="line bg-veneer maxwidth100"></div>
+                        <span class="flex justify-content-end letter-spacing-2 line-height-40 ff-forum">$2</span>
+                        
+                        <span>Cold tea</span>
+                        <div class="line bg-veneer maxwidth100"></div>
+                        <span class="flex justify-content-end letter-spacing-2 line-height-40 ff-forum">$2</span>
+                    </div>
+
+                    <div class="desert-menu mt-40 text-capitalize">
+                        <div class="grid-coffeeshop-menu">
+                            <div class="ff-forum fs-40 text-veneer text-end">
+                                Desserts & Cakes
                             </div>
-                            <button class="align-self-center mt-3"><span class="fw-600">Check the card</span></button>
-                        </div> 
-                    </div>
-                    
-                </div>
-                <div class="card-registration text-end mt-15 ">
-                    <span class="ff-forum fs-30 letter-spacing-0-6">Get a reader card</span>
-                    <p class="mt-3 mx-64 letter-spacing-0-4 pt-12">You will be able to see a reader card after logging into account or you can register a new account</p>
-                    <div class="card-registration-buttons mt-5">
-                        <button class="fs-10 fw-600 mr-2">Sign Up</button>
-                        <button class="fs-10 fw-600">Log in</button>
-                    </div>
-                </div>
 
+                            <span class="justify-self-end mr-2">Forest Gateau</span>
+                            <div class="line bg-veneer maxwidth100 justify-self-end"></div>
+                            <span class="justify-self-end">$16</span>
+                            
+                            <span class="justify-self-end mr-2">Blue Moon</span>
+                            <div class="line bg-veneer maxwidth100 justify-self-end"></div>
+                            <span class="justify-self-end">$16</span>
+                            
+                            <span class="justify-self-end mr-2">Truffle Cake</span>
+                            <div class="line bg-veneer maxwidth100 justify-self-end"></div>
+                            <span class="justify-self-end">$16</span>
+
+                            <span class="justify-self-end mr-2">Chocolate Cake</span>
+                            <div class="line bg-veneer maxwidth100 justify-self-end"></div>
+                            <span class="justify-self-end">$16</span>
+                            
+                            <span class="justify-self-end mr-2">Poet’s Dream Cake</span>
+                            <div class="line bg-veneer maxwidth100 justify-self-end"></div>
+                            <span class="justify-self-end">$16</span>
+                            
+                            <span class="justify-self-end mr-2">Pineapple Cake</span>
+                            <div class="line bg-veneer maxwidth100 justify-self-end"></div>
+                            <span class="justify-self-end">$14</span>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </section>
+            <section id="contacts">
+                <h2>Our Contacts</h2>
+                
+                <div class="contacts-container line-height-40 letter-spacing-2 text-capitalize mx-20 mb-40 pt-20">
+                    <div>
+                        <p class="fw-700 ">For all Library inquiries:</p>
+                        <div class="mt-40">
+                            <p class="my-20">Please call <a href="tel:6177302370">(617) 730-2370</a></p>
+                            <p class="my-20">For TTY service, please call <a href="tel:6177302370">(617) 730-2370</a></p>
+                            <p class="my-20">Putterham Library: <a href="tel:6177302370">(617) 730-2385</a></p>
+                        </div>
+                        <div class="mt-5">
+                            <p class="fw-700">Senior Staff</p>
+                            <p class="mt-20">Library Director:<a class="fw-700 ml-1" href="mailto:AmandaHirst@gmail.com">Amanda Hirst</a></p>
+                        </div>
+                    </div>
+                    <picture>
+                        <source srcset="./img/map.png" type="image/png">
+                        <img src="./img/map.png" alt="library image 1">
+                    </picture>
+                </div>
+            </section>
+            <section id="librarycard">
+                <h2>
+                    Digital Library Cards
+                </h2>
+                
+                <div class="lib-card mb-3 mx-20 pt-20">
+                    <div>
+                        <span class="flex justify-content-center fs-30 mb-20 letter-spacing-0-6">
+                            Find your Library card
+                        </span>
+
+                        <div class="flex justify-content-center">
+                            <div class="member-card-border flex-column mt-10">
+                                <div class="member-card flex-column mt-20 px-20 align-self-center justify-content-evenly">
+                                    <span class="fs-30 ff-forum letter-spacing-0-6">Brooklyn Public Library</span>
+                                    <div class="flex">
+                                        <input type="text" class="fs-30 ff-forum text-light-dark p-2" placeholder="Reader's name">
+                                    </div>
+                                    <div class="flex">
+                                        <input type="text" class="fs-30 ff-forum text-light-dark p-2" placeholder="Card number">
+                                    </div>
+                                </div>
+                                <button class="align-self-center mt-3 fs-20 "><span class="fw-700 letter-spacing-1">Check the card</span></button>
+                            </div> 
+                        </div>
+                        
+                    </div>
+                    <div class="card-registration text-end mt-15 ">
+                        <span class="ff-forum fs-30 letter-spacing-0-6">Get a reader card</span>
+                        <p class="mt-3 letter-spacing-0-4 pt-12">You will be able to see a reader card after logging into account or you can register a new account</p>
+                        <div class="card-registration-buttons mt-5">
+                            <button class="fs-10 fw-600 mr-2">Sign Up</button>
+                            <button class="fs-10 fw-600">Log in</button>
+                        </div>
+                    </div>
+
+                </div>
+                
+            </section>
+        </main>
+        
+        <footer>
+            <div class=" fs-15 mx-20 line-height-20 mb-15">
+                <div class="flex justify-content-between mt-20">
+                    <div class="address">
+                        <a href="https://goo.gl/maps/fsqSUDMXvps1UqcB9">
+                            286 Cadman Plaza, New York,
+                            <p>NY 11238, United States</p>
+                        </a>
+                    </div>
+                    <div class="schedule text-end">
+                        <p>Mon - Fri</p> 
+                        <p>08:00 am - 07:00 pm</p>
+                    </div>
+                </div>
+                <div class="flex justify-content-between mt-10">
+                    <ul class="flex mt-10">
+                        <li><a href="https://twitter.com/rollingscopes"><img src="./img/u_twitter-alt.svg" class="mr-2" alt="twitter link"></a></li>
+                        <li><a href="https://www.instagram.com/kuzmin.evgeny_/"><img src="./img/u_instagram.svg"  class="mr-2" alt="instagram link"></a></li>
+                        <li><a href="https://www.facebook.com/evgeny.kuzmin.39"><img src="./img/u_facebook-f.svg"  alt="facebook link"></a></li>
+                    </ul>
+                    <div class="schedule text-end">
+                        <p>Sat - Sun</p>
+                        <p>10:00 am - 06:00 pm</p>
+                    </div>
+                </div>
+            </div>
+            <div class="line bg-white mx-20">
+
+            </div>
+                <div class="bottom-row flex justify-content-between align-items-center mx-20">
+                    <div class="line-height-20 letter-spacing-2">2023</div>
+                    <div class="line-height-20 letter-spacing-2"><a href="https://rs.school/js-stage0/">The Rolling Scopes School</a></div>
+                    <div><a href="https://github.com/EugeneKuzmin">Kuzmin Evgeny</a></div>
             </div>
             
-        </section>
-    </main>
-    
-    <footer>
-        <div class=" fs-15 mx-20 line-height-20 mb-15">
-            <div class="flex justify-content-between mt-20">
-                <div class="address">
-                    <a href="https://goo.gl/maps/fsqSUDMXvps1UqcB9">
-                        286 Cadman Plaza, New York,
-                        <p>NY 11238, United States</p>
-                    </a>
-                </div>
-                <div class="schedule text-end">
-                    <p>Mon - Fri</p> 
-                    <p>08:00 am - 07:00 pm</p>
-                </div>
-            </div>
-            <div class="flex justify-content-between mt-10">
-                <ul class="flex mt-10">
-                    <li><a href="https://twitter.com/rollingscopes"><img src="./img/u_twitter-alt.svg" class="mr-2" alt="twitter link"></a></li>
-                    <li><a href="https://www.instagram.com/kuzmin.evgeny_/"><img src="./img/u_instagram.svg"  class="mr-2" alt="instagram link"></a></li>
-                    <li><a href="https://www.facebook.com/evgeny.kuzmin.39"><img src="./img/u_facebook-f.svg"  alt="facebook link"></a></li>
-                </ul>
-                <div class="schedule text-end">
-                    <p>Sat - Sun</p>
-                    <p>10:00 am - 06:00 pm</p>
-                </div>
-            </div>
-        </div>
-        <div class="line bg-white mx-20">
-
-        </div>
-            <div class="bottom-row flex justify-content-between align-items-center mx-20">
-                <div class="line-height-20 letter-spacing-2">2023</div>
-                <div class="line-height-20 letter-spacing-2"><a href="https://rs.school/js-stage0/">The Rolling Scopes School</a></div>
-                <div><a href="https://github.com/EugeneKuzmin">Kuzmin Evgeny</a></div>
-        </div>
-        
-        
-    </footer>
+            
+        </footer>
+    </div>
+   
 </body>
 </html>

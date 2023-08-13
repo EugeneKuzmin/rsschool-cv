@@ -61,11 +61,17 @@ body {
     line-height: 40px;
     color: hsl( var(--clr-dark) );
     background-color: hsl( var(--clr-white) );
+    max-width: 1440px;
+    margin: 0 auto;
     
 }
 
 main > *:where(:not(:last-child)){
     margin-bottom: 20px;
+}
+
+main > {
+    min-width: 100%;
 }
 
 /* set up the header */
@@ -209,6 +215,9 @@ button
     font-size: var(--fs-30);
 }
 
+.fs-20 {
+    font-size: var(--fs-20);
+}
 .fs-15 {
     font-size: var(--fs-15);
 }
@@ -498,6 +507,12 @@ button
     max-width: 100px;
 }
 
+/* other */
+
+/* .wrapper {
+    min-width: 100%;
+} */
+
 .navigation-bar {
     position: relative;
     height: 90px;
@@ -564,10 +579,14 @@ nav > ul > li  {
 
 .menu-layout {
     display: flex;
+    position: relative;
+    z-index: 100;
 }
 
 .menu-btns {
     align-items: center;
+    z-index: 1000;
+
 }
 
 
@@ -589,7 +608,7 @@ nav > ul > li  {
         background: transparent;
         background-image: url(./img/burger.svg);
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: center center;
         margin-left: 40px;
         padding: 0;
         width: 45px;
@@ -609,7 +628,7 @@ nav > ul > li  {
         background-color: hsl(var(--clr-black ));
         position: fixed;
         z-index: 5000;
-        inset: 15% 0 0 100%;
+        inset: 13% 0 0 100%;
         display: flex;
         flex-direction: column;
         padding: 1.7rem 1.9rem;
@@ -644,10 +663,15 @@ nav > ul > li  {
 
 .about-pic-container {
     gap: 25px;
+    max-width: 100%;
 }
 
 .about-pic-container > picture{
     height: 560px;
+    max-height: 100%;
+    object-fit: cover;
+    background-position: center center;
+    object-position: center;
 }
 
 .dot-buttons {
@@ -673,7 +697,7 @@ nav > ul > li  {
         display: none;
     }
 
-    .dot-buttons > div > :nth-child(n+2)
+    .dot-buttons > div > :nth-child(n+4)
     {
         display: none;
     }
@@ -853,16 +877,14 @@ input:checked {
     
 }
 
-.contacts-container > :first-child {
+/* .contacts-container > :first-child {
     flex-basis: 503px;
     flex-grow: 1;
 }
 
 .contacts-container > :last-child {
-    flex-basis: 696px;
-    flex-grow: 1;
-    height: 414px;
-}
+    max-width: 100%;
+} */
 
 
 .contacts-container a {
@@ -911,7 +933,7 @@ input:checked {
 }
 
 .member-card-border button{
-    padding: 0.5rem 1rem;
+    padding: 10px 40px;
     background-color: transparent;
     border: 1px solid hsl( var(--clr-dark) );
     border-radius: 2px;
@@ -924,7 +946,7 @@ input:checked {
 .card-registration button{
     padding: 0.6rem 1.2rem;
     background-color: transparent;
-    border: 2px solid hsl( var(--clr-dark) );
+    border: 1px solid hsl( var(--clr-dark) );
     border-radius: 2px;
 }
 
@@ -971,9 +993,11 @@ input:checked {
         display: flex;
         justify-content: center;
         text-align: center;
-
     }
    
+    .card-registration > p {
+        margin-inline: 64px;
+    }
 
 }
 
