@@ -54,28 +54,39 @@
                 <p class="text-center mb-20 mt-3-8 mx-4">
                     The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside
                 </p>
-                <div class="mx-20">
-                    <div class="flex mx-20 about-pic-container  justify-content-center">
-                        <div class="pt-40 flex align-items-center">
-                            <img class="karet" src="./img/VectorLeft.svg" alt="">
+                <div class="flex justify-content-center about-flex mx-20">
+                    <div class="pt-40 flex align-items-center">
+                        <img src="./img/VectorLeft.svg" alt="">
+                    </div>
+                    
+                    <div class="about-pic-container">
+
+                        <div class="card-pic">
+                            <picture class="card__img">
+                                <source srcset="./img/image1.png" type="image/png" >
+                                <img src="./img/image1.png" alt="library image 1">
+                            </picture>
+                        </div>
+                        
+                        <div class="card-pic">
+                            <picture class="card__img">
+                                <source srcset="./img/image2.png" type="image/png" >
+                                <img src="./img/image2.png" alt="library image 2">
+                            </picture>
+                        </div>
+                        
+                        <div class="card-pic">
+                            <picture class="card__img">
+                                <source srcset="./img/image3.png" type="image/png" >
+                                <img src="./img/image3.png" alt="library image 3">
+                            </picture>
                         </div>
 
-                        <picture>
-                            <source srcset="./img/image1.png" type="image/png">
-                            <img src="./img/image1.png" alt="library image 1">
-                        </picture>
-                        <picture>
-                            <source srcset="./img/image2.png" type="image/png">
-                            <img src="./img/image2.png" alt="library image 2">
-                        </picture>
-                        <picture>
-                            <source srcset="./img/image3.png" type="image/png">
-                            <img src="./img/image3.png" alt="library image 3">
-                        </picture>
-                        <div class="pt-40 flex align-items-center">
-                            <img class="karet" src="./img/VectorRight.svg" alt="">
-                        </div >
                     </div>
+                    <div class="pt-40 flex align-items-center ">
+                        <img src="./img/VectorRight.svg" alt="">
+                    </div >
+                    
                 </div>
             
                 <div class="dot-buttons flex justify-content-center">
@@ -175,8 +186,11 @@
                         <p class="line-height-40 text-capitalize mt-9">
                             A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
                         </p>
-                        <button class="fs-10 fw-600 letter-spacing-1" disabled>
+                        <button class="btn-own fs-10 fw-600 letter-spacing-1" disabled>
                             Own
+                        </button>
+                        <button class="btn-buy fs-10 fw-600 letter-spacing-1">
+                            Buy
                         </button>
                         <img src="./img/book4.png" alt="book 'The Last Queen'">
                     </div>
@@ -432,27 +446,27 @@
 
                             <span class="justify-self-end mr-2">Forest Gateau</span>
                             <div class="line bg-veneer maxwidth100 justify-self-end"></div>
-                            <span class="justify-self-end">$16</span>
+                            <span class="justify-self-end letter-spacing-2 line-height-40 ff-forum">$16</span>
                             
                             <span class="justify-self-end mr-2">Blue Moon</span>
                             <div class="line bg-veneer maxwidth100 justify-self-end"></div>
-                            <span class="justify-self-end">$16</span>
+                            <span class="justify-self-end letter-spacing-2 line-height-40 ff-forum">$16</span>
                             
                             <span class="justify-self-end mr-2">Truffle Cake</span>
                             <div class="line bg-veneer maxwidth100 justify-self-end"></div>
-                            <span class="justify-self-end">$16</span>
+                            <span class="justify-self-end letter-spacing-2 line-height-40 ff-forum">$15</span>
 
                             <span class="justify-self-end mr-2">Chocolate Cake</span>
                             <div class="line bg-veneer maxwidth100 justify-self-end"></div>
-                            <span class="justify-self-end">$16</span>
+                            <span class="justify-self-end letter-spacing-2 line-height-40 ff-forum">$18</span>
                             
                             <span class="justify-self-end mr-2">Poet’s Dream Cake</span>
                             <div class="line bg-veneer maxwidth100 justify-self-end"></div>
-                            <span class="justify-self-end">$16</span>
+                            <span class="justify-self-end letter-spacing-2 line-height-40 ff-forum">$16</span>
                             
                             <span class="justify-self-end mr-2">Pineapple Cake</span>
                             <div class="line bg-veneer maxwidth100 justify-self-end"></div>
-                            <span class="justify-self-end">$14</span>
+                            <span class="justify-self-end letter-spacing-2 line-height-40 ff-forum">$14</span>
                         </div>
                         
                     </div>
@@ -503,7 +517,7 @@
                                         <input type="text" class="fs-30 ff-forum text-light-dark p-2" placeholder="Card number">
                                     </div>
                                 </div>
-                                <button class="align-self-center mt-3 fs-20 "><span class="fw-700 letter-spacing-1">Check the card</span></button>
+                                <button class="align-self-center mt-2 fs-20 "><span class="fw-700 letter-spacing-1">Check the card</span></button>
                             </div> 
                         </div>
                         
@@ -523,7 +537,7 @@
         </main>
         
         <footer>
-            <div class=" fs-15 mx-20 line-height-20 mb-15">
+            <div class=" fs-15 mx-20 line-height-20 mb-20">
                 <div class="flex justify-content-between mt-20">
                     <div class="address">
                         <a href="https://goo.gl/maps/fsqSUDMXvps1UqcB9">

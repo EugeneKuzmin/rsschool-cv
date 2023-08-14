@@ -54,6 +54,12 @@ html {
     scroll-behavior: smooth;
 }
 
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
 /* set up the body */
 body {
     font-family: var(--ff-inter);
@@ -509,9 +515,9 @@ button
 
 /* other */
 
-/* .wrapper {
-    min-width: 100%;
-} */
+.wrapper {
+    margin-inline: auto;
+}
 
 .navigation-bar {
     position: relative;
@@ -652,8 +658,6 @@ nav > ul > li  {
     /* nav > ul > li > a {
         pointer-events: none;
     } */
-
-    
     
 }
 
@@ -662,16 +666,19 @@ nav > ul > li  {
 /* ************ */
 
 .about-pic-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     gap: 25px;
-    max-width: 100%;
 }
 
-.about-pic-container > picture{
-    height: 560px;
-    max-height: 100%;
+.card-pic {
+    display: grid;
+}
+
+.about-pic-container picture{
+    width: 100%;
+    aspect-ratio: 1 / 1.25;
     object-fit: cover;
-    background-position: center center;
-    object-position: center;
 }
 
 .dot-buttons {
@@ -693,8 +700,13 @@ nav > ul > li  {
 
 @media (min-width:1024px){
 
-    .karet {
+    .about-flex > div:nth-child(1),
+    .about-flex > div:nth-child(3) {
         display: none;
+    }
+
+    .about-flex > div:nth-child(2) {
+        width: 100%;
     }
 
     .dot-buttons > div > :nth-child(n+4)
@@ -705,8 +717,13 @@ nav > ul > li  {
 }
 
 @media (max-width:1024px){
-
-    .about-pic-container picture:nth-child(n+3){
+    .about-pic-container {
+        display: flex;
+        max-width: 100%;
+        justify-content: center;
+    }
+    
+    .about-pic-container .card-pic:nth-child(n+2){
         display: none;
     }
 
@@ -714,11 +731,6 @@ nav > ul > li  {
         height: 81px;
         padding-bottom: 0.9rem;
     }
-
-    .about-pic-container {
-        justify-content: space-evenly;
-    }
-
 
 }
 
@@ -753,13 +765,13 @@ input:checked {
 .grid-favorites{
     
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    column-gap: 220px;
+    grid-template-columns: repeat(2,auto);
+    justify-content: space-between;
     row-gap: 40px;
 }
 .grid-favorites > div{
-    width: 550px;
-    height: 555px;
+    max-width: 550px;
+    min-height: 555px;
     position: relative;
     border: 1px solid hsl( var(--clr-dark) );
     padding: 14px 20px 20px 20px;
@@ -792,22 +804,39 @@ input:checked {
     border: 1px solid hsl( var(--clr-warm-veneer) );
 }
 
-.grid-favorites button:disabled {
-    border: 1px solid hsl( var(--clr-warm-veneer) );
-    color: hsl( var(--clr-warm-veneer) );
+
+@media (max-width:1024px){
+    .grid-favorites button:disabled {
+        display: none;
+    }
 }
+  
+@media (min-width:1024px){
+    .grid-favorites button:disabled {
+        border: 1px solid hsl( var(--clr-warm-veneer) );
+        color: hsl( var(--clr-warm-veneer) );
+    }
+    .btn-buy {
+        display: none;
+    }
+
+}
+
 
 .book-description {
     grid-template-rows: 45px 105px 1fr 45px;
+    margin-right: 44px;
 }
 
 @media (max-width:1024px) {
     .grid-favorites{
         grid-template-columns: repeat(1,1fr);
         justify-items: center;
-        padding-right: 2.4rem;
     }
-    
+    .grid-favorites > div{
+        width: 550px;
+        height: 555px;
+    }
 }
 
 
@@ -833,10 +862,6 @@ input:checked {
     max-width: 438px;
 }
 
-/* .desert-menu {
-    max-width: 482px;
-} */
-
 .grid-coffeeshop-menu :nth-child(1) {
     grid-column: 1 / span 3;
 }
@@ -851,14 +876,11 @@ input:checked {
 @media (max-width:1024px){
     .coffeeshop-layout {
         flex-direction: column;
-        grid-template-columns: 1fr;
-        width: 100%;
     }
 
     .desert-menu {
         display: flex;
         justify-content: end;
-        padding-right: 45px;
     }
     
 }
@@ -877,31 +899,22 @@ input:checked {
     
 }
 
-/* .contacts-container > :first-child {
-    flex-basis: 503px;
-    flex-grow: 1;
-}
-
-.contacts-container > :last-child {
-    max-width: 100%;
-} */
-
-
 .contacts-container a {
     text-decoration: none;
     color: hsl( var(--clr-dark) );
 }
 
 @media (max-width:1024px) {
+   
+    .contacts-container {
+        flex-wrap: wrap;
+    }
     .contacts-container > picture {
         display: flex;
         justify-content: center;
         margin-top: 100px;
-        
     }
-    .contacts-container {
-        flex-wrap: wrap;
-    }
+
 }
 
 /* Library cards */
