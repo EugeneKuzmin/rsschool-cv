@@ -805,23 +805,11 @@ input:checked {
 }
 
 
-@media (max-width:1024px){
-    .grid-favorites button:disabled {
-        display: none;
-    }
-}
-  
-@media (min-width:1024px){
+
     .grid-favorites button:disabled {
         border: 1px solid hsl( var(--clr-warm-veneer) );
         color: hsl( var(--clr-warm-veneer) );
     }
-    .btn-buy {
-        display: none;
-    }
-
-}
-
 
 .book-description {
     grid-template-rows: 45px 105px 1fr 45px;
