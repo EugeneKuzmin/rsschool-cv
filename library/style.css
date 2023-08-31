@@ -154,6 +154,10 @@ button
     transition: 0.3s;
 }
 
+ul {
+    padding: 0;
+}
+
 /* ------------------- */
 /* Utility classes     */
 /* ------------------- */
@@ -205,6 +209,10 @@ button
 
 .text-light-dark {
     color: hsl( var(--clr-light-dark) );
+}
+
+.text-black {
+    color: hsl( var(--clr-black) );
 }
 
 /* typography */
@@ -260,6 +268,9 @@ button
     text-transform: uppercase;
 }
 
+.letter-spacing-0-3 { 
+    letter-spacing: 0.3px; 
+} 
 .letter-spacing-0-4 { 
     letter-spacing: 0.4px; 
 } 
@@ -478,6 +489,10 @@ button
 
 /* Paddings */
 
+.p-0 {
+    padding: 0;
+}
+
 .px-20 {
     padding-inline: 20px;
 }
@@ -494,6 +509,9 @@ button
     padding-bottom: 2rem;
 }
 
+.pt-5 {
+    padding-top: 5px;
+}
 .pt-12 {
     padding-top: 12px;
 }
@@ -595,6 +613,61 @@ nav > ul > li  {
 
 }
 
+.icon-profile {
+    position: relative;
+}
+
+.menuProfileNoAuth {
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    transform: translate(0%, 100%);
+    width: 80px;
+    height: 115px;
+    padding: 6px;
+    
+}
+
+.menuProfileNoAuth >*:where(:not(:first-child)){
+    cursor: pointer;
+}
+
+.menuProfileAuthenticated {
+    width: 80px;
+    height: 115px;
+
+}
+
+.menuProfileNoAuth[data-profileNoAuthVisible="false"]{
+    display: none;
+}
+
+.menuProfileAuthenticated[data-profileAuthenticatedVisible="false"]{
+    display: none;
+}
+
+.profile-header {
+    position: relative;
+}
+
+.profile-header::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 1px;
+    background-color: hsl( var(--clr-warm-veneer) );
+    bottom: -5px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+.modal-input {
+    width: 200px;
+    height: 20px;
+    border: 1px solid hsl( var(--clr-warm-veneer) );
+}
+
 
 
 @media (min-width:1024px) {
@@ -661,31 +734,33 @@ nav > ul > li  {
     
 }
 
-
 /* About section */
 /* ************ */
 
 .about-pic-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    gap: 25px;
-}
-
-.card-pic {
-    display: grid;
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
 }
 
 .about-pic-container picture{
-    width: 100%;
+    
+    height: 560px;
     aspect-ratio: 1 / 1.25;
+    width: calc(100% / 3);
     object-fit: cover;
+    
 }
+
+.margin-right-flow >*:where(:not(:last-child)) {
+    margin-right: 25px;
+} 
 
 .dot-buttons {
     height: 96px;
 }
 
-.dot-buttons > div > *{
+.dot{
     height: 26px;
     aspect-ratio: 1;
     border: 5px solid hsl( var(--clr-white) );
@@ -694,9 +769,63 @@ nav > ul > li  {
     background-color: hsl( var(--clr-dark) );
 }
 
-.dot-buttons > div :nth-child(1) {
+.active {
     background-color: hsl( var(--clr-warm-veneer) );
 }
+
+.registration-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 10;
+    background-color: white;
+    width: 250px;
+    height: 382px;
+  }
+  
+  .registration-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .registration-wrapper {
+    position: relative;
+  }
+
+  .register-close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+  }
+  
+  #overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+ 
+
+  .text-login {
+    text-decoration: underline;
+  }
 
 @media (min-width:1024px){
 
@@ -713,18 +842,15 @@ nav > ul > li  {
     {
         display: none;
     }
-    
 }
 
 @media (max-width:1024px){
     .about-pic-container {
-        display: flex;
-        max-width: 100%;
-        justify-content: center;
+        max-width: 450px;
     }
-    
-    .about-pic-container .card-pic:nth-child(n+2){
-        display: none;
+
+    .about-pic-container picture {
+        width: 100%;
     }
 
     .dot-buttons {
@@ -814,6 +940,16 @@ input:checked {
 .book-description {
     grid-template-rows: 45px 105px 1fr 45px;
     margin-right: 44px;
+}
+
+@keyframes move-right {
+    from {left:-640}
+    to {left:0px}
+}
+
+.transition-right{
+    animation-name: move-right;
+    animation-duration: 1s;
 }
 
 @media (max-width:1024px) {

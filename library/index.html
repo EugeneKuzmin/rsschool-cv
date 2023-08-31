@@ -19,7 +19,7 @@
 
                 <h1 class="flex align-items-center ff-forum fs-30 letter-spacing-0-6">Brooklyn Public Library</h1>
                 
-                <div class="menu-layout align-items-center">    
+                <div class="menu-layout align-items-center">
                     <nav class="navigation" data-visible="false">
                         <ul class="flex ">
                             <li><a href="#about" class="text-white" onclick="switchNavigation()">About</a></li>
@@ -30,11 +30,56 @@
                         </ul>
                     </nav>
                     <div class="flex menu-btns">
-                        <div class="flex align-items-center icon-profile"><img src="./img/icon_profile.svg" alt="icon profile" ></div>
+                        <div class="flex align-items-center icon-profile"><img src="./img/icon_profile.svg" alt="icon profile" >
+                            <div class="menuProfileNoAuth bg-white fs-15 line-height-20 text-black text-center" data-menuNoAuth data-profileNoAuthVisible="false">
+                                <div class="fw-700 profile-header">Profile</div>
+                                <div class="mt-20">Log In</div>
+                                <div class="mt-10" data-modal-target="#registration-modal">Register</div>
+                            </div>
+                            <div class="menuProfileAuthenticated bg-white fs-15 line-height-20 text-black" data-profileAuthenticatedVisible="false">
+                                <span class="fw-700">Profile</span>
+                                <ul>
+                                    <li>My profile</li>
+                                    <li>Log Out</li>
+                                </ul>
+                            </div>
+                            <div class="registration-modal text-black" id="registration-modal">
+                                <div class="registration-wrapper">
+                                    <button register-close-button class="register-close-button">&times;</button>
+                                    <div class="ff-forum uppercase letter-spacing-0-4 text-center">
+                                    Register
+                                    </div>
+                                    <div class="fs-15 letter-spacing-0-3">
+                                        <div>First name</div>
+                                        <Input class="modal-input"></Input>
+                                    </div>
+                                    <div class="fs-15 letter-spacing-0-3">
+                                        <div>Last name</div>
+                                        <Input class="modal-input"></Input>
+                                    </div>
+                                    <div class="fs-15 letter-spacing-0-3">
+                                        <div>E-mail</div>
+                                        <Input class="modal-input"></Input>
+                                    </div>
+                                    <div class="fs-15 letter-spacing-0-3">
+                                        <div>Password</div>
+                                        <Input class="modal-input"></Input>
+                                    </div>
+
+                                    <button class="fs-10 fw-600 mr-2">Sign Up</button>
+
+                                    <div class="fs-10"> < span > Already have an account?</span> <span class="fw-700 text-login"> Login</span> </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
                         <button class="nav-toggle" aria-expanded="false"></button>
+                        
                     </div>
                 </div>
             </div>
+            <div class="activeModal" id="overlay"></div>
         </header>
         
         <main>
@@ -55,47 +100,57 @@
                     The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside
                 </p>
                 <div class="flex justify-content-center about-flex mx-20">
-                    <div class="pt-40 flex align-items-center">
+                    <div class="pt-40 px-20 flex align-items-center" id="arrowleft">
                         <img src="./img/VectorLeft.svg" alt="">
                     </div>
                     
-                    <div class="about-pic-container">
+                    <div class="about-pic-container margin-right-flow" id="carousel">
 
-                        <div class="card-pic">
                             <picture class="card__img">
                                 <source srcset="./img/image1.png" type="image/png" >
                                 <img src="./img/image1.png" alt="library image 1">
                             </picture>
-                        </div>
                         
-                        <div class="card-pic">
                             <picture class="card__img">
                                 <source srcset="./img/image2.png" type="image/png" >
                                 <img src="./img/image2.png" alt="library image 2">
                             </picture>
-                        </div>
-                        
-                        <div class="card-pic">
+
                             <picture class="card__img">
                                 <source srcset="./img/image3.png" type="image/png" >
                                 <img src="./img/image3.png" alt="library image 3">
                             </picture>
-                        </div>
 
+                            <picture class="card__img">
+                                <source srcset="./img/image4.png" type="image/png" >
+                                <img src="./img/image4.png" alt="library image 3">
+                            </picture>
+
+                            <picture class="card__img">
+                                <source srcset="./img/image5.png" type="image/png" >
+                                <img src="./img/image5.png" alt="library image 3">
+                            </picture>
+
+                        
                     </div>
-                    <div class="pt-40 flex align-items-center ">
+                    <div class="pt-40 px-20 flex align-items-center " id="arrowright">
                         <img src="./img/VectorRight.svg" alt="">
-                    </div >
+                    </div>
                     
                 </div>
             
                 <div class="dot-buttons flex justify-content-center">
                     <div class="flex align-items-center">
+                        <!-- <div id="btn-left"></div>
+                        <div id="btn-center"></div>
+                        <div id="btn-right"></div>
                         <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div ></div>
+                        <div ></div> -->
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
                     </div>
                     
                 </div>
@@ -124,276 +179,283 @@
                         <label for="autumn-label">Autumn</label>
                     </div>
 
-                    
                 </div>
-                <div class="grid-favorites fs-15 letter-spacing-2 mx-20 pb-4  mb-20">
-                    <div id="winter"  class="grid book-description">
-                        <h3>
-                            Staff Picks
-                        </h3>
-                        <div class="text-capitalize line-height-40 fw-700 mt-2">
-                            <span class="uppercase">The Book Eaters</span>
-                            <p class="text-capitalize">By Sunyi Dean</p>
-                        </div> 
-                        <p class="line-height-40 text-capitalize mt-9">
-                            An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.   
-                        </p>
-                        <button class="fs-10 fw-600 letter-spacing-1">
-                            Buy
-                        </button>
-                        <img src="./img/book1.png" alt="book 'The Book Eaters'">
-                    </div>
-                    <div class="grid book-description">
-                        <h3>
-                            Staff Picks
-                        </h3>
-                        <div class="text-capitalize line-height-40 fw-700 mt-2">
-                            <span class="uppercase">Cackle</span>
-                            <p class="text-capitalize">By Rachel Harrison</p>
-                        </div> 
-                        <p class="line-height-40 text-capitalize mt-9">
-                            Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.
-                        </p>
-                        <button class="fs-10 fw-600 letter-spacing-1">
-                            Buy
-                        </button>
-                        <img src="./img/book2.png" alt="book 'Cackle'">
-                    </div>
-                    <div class="grid book-description">
-                        <h3>
-                            Staff Picks
-                        </h3>
-                        <div class="text-capitalize line-height-40 fw-700 mt-2">
-                            <span class="uppercase">Dante: Poet of the Secular World</span>
-                            <p class="text-capitalize">By Erich Auerbach</p>
-                        </div> 
-                        <p class="line-height-40 text-capitalize mt-9">
-                            Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
-                        </p>
-                        <button class="fs-10 fw-600 letter-spacing-1">
-                            Buy
-                        </button>
-                        <img src="./img/book3.png" alt="book 'Dante: Poet of the Secular World'">
-                    </div>
-                    <div class="grid book-description">
-                        <h3>
-                            Staff Picks
-                        </h3>
-                        <div class="text-capitalize line-height-40 fw-700 mt-2">
-                            <span class="uppercase">The Last Queen</span>
-                            <p class="text-capitalize">By Clive Irving</p>
-                        </div> 
-                        <p class="line-height-40 text-capitalize mt-9">
-                            A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
-                        </p>
-                        <button class="fs-10 fw-600 letter-spacing-1" disabled>
-                            Own
-                        </button>
-                        <img src="./img/book4.png" alt="book 'The Last Queen'">
-                    </div>
-
-                    <div hidden id="spring">
-                        <div  class="grid book-description">
-                            <h3>
-                                Staff Picks
-                            </h3>
-                            <div class="text-capitalize line-height-40 fw-700 mt-2">
-                                <span class="uppercase">The Body</span>
-                                <p class="text-capitalize">By Stephen King</p>
-                            </div> 
-                            <p>
-                                Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of innocence that is youth.
-                            </p>
-                            <button class="fs-10 fw-600 letter-spacing-1">
-                                Buy
-                            </button>
-                            <img src="./img/book5.png" alt="book 'The Body'">
-                        </div>
-                        <div  class="grid book-description">
-                            <h3>
-                                Staff Picks
-                            </h3>
-                            <div class="text-capitalize line-height-40 fw-700 mt-15">
-                                <span class="uppercase">Carry: A Memoir of Survival on Stolen Land</span>
-                                <p class="text-capitalize">By Toni Jenson</p>
-                            </div> 
-                            <p>
-                                This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting in a lyrical indictment of the way things are.
-                            </p>
-                            <button class="fs-10 fw-600 letter-spacing-1">
-                                Buy
-                            </button>
-                            <img src="./img/book6.png" alt="book 'Carry: A Memoir of Survival on Stolen Land'">
-                        </div>
-                        <div class="grid book-description">
-                            <h3>
-                                Staff Picks
-                            </h3>
-                            <div class="text-capitalize line-height-40 fw-700 mt-15">
-                                <span class="uppercase">Days of Distraction</span>
-                                <p class="text-capitalize">By Alexandra Chang</p>
-                            </div> 
-                            <p>
-                                A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and belonging, all in one form-defying package of spare prose.
-                            </p>
-                            <button class="fs-10 fw-600 letter-spacing-1">
-                                Buy
-                            </button>
-                            <img src="./img/book7.png" alt="book 'Days of Distraction'">
-                        </div>
-                        <div class="grid book-description">
-                            <h3>
-                                Staff Picks
-                            </h3>
-                            <div class="text-capitalize line-height-40 fw-700 mt-15">
-                                <span class="uppercase">Dominicana</span>
-                                <p class="text-capitalize">By Angie Cruz</p>
-                            </div> 
-                            <p>
-                                A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
-                            </p>
-                            <button class="fs-10 fw-600 letter-spacing-1" disabled>
-                                Own
-                            </button>
-                            <img src="./img/book8.png" alt="book 'Dominicana'">
+                <div class="fs-15 letter-spacing-2 mx-20 pb-4  mb-20">
+                    <div id="winter"  role="radioBtnPage">
+                        <div class="grid-favorites">
+                            <div class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-2">
+                                    <span class="uppercase">The Book Eaters</span>
+                                    <p class="text-capitalize">By Sunyi Dean</p>
+                                </div>
+                                <p class="line-height-40 text-capitalize mt-9">
+                                    An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1">
+                                    Buy
+                                </button>
+                                <img src="./img/book1.png" alt="book 'The Book Eaters'">
+                            </div>
+                            <div class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-2">
+                                    <span class="uppercase">Cackle</span>
+                                    <p class="text-capitalize">By Rachel Harrison</p>
+                                </div>
+                                <p class="line-height-40 text-capitalize mt-9">
+                                    Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1">
+                                    Buy
+                                </button>
+                                <img src="./img/book2.png" alt="book 'Cackle'">
+                            </div>
+                            <div class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-2">
+                                    <span class="uppercase">Dante: Poet of the Secular World</span>
+                                    <p class="text-capitalize">By Erich Auerbach</p>
+                                </div>
+                                <p class="line-height-40 text-capitalize mt-9">
+                                    Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1">
+                                    Buy
+                                </button>
+                                <img src="./img/book3.png" alt="book 'Dante: Poet of the Secular World'">
+                            </div>
+                            <div class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-2">
+                                    <span class="uppercase">The Last Queen</span>
+                                    <p class="text-capitalize">By Clive Irving</p>
+                                </div>
+                                <p class="line-height-40 text-capitalize mt-9">
+                                    A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1" disabled>
+                                    Own
+                                </button>
+                                <img src="./img/book4.png" alt="book 'The Last Queen'">
+                            </div>
                         </div>
                     </div>
 
-                    <div hidden id="summer">
-                        <div  class="grid book-description">
-                            <h3>
-                                Staff Picks
-                            </h3>
-                            <div class="text-capitalize line-height-40 fw-700 mt-15">
-                                <span class="uppercase">Crude: A Memoir</span>
-                                <p class="text-capitalize">By Pablo Fajardo & ​​Sophie Tardy-Joubert</p>
-                            </div> 
-                            <p>
-                                Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and her people
-                            </p>
-                            <button class="fs-10 fw-600 letter-spacing-1">
-                                Buy
-                            </button>
-                            <img src="./img/book9.png" alt="book 'Crude: A Memoir '">
-                        </div>
-                        <div class="grid book-description">
-                            <h3>
-                                Staff Picks
-                            </h3>
-                            <div class="text-capitalize line-height-40 fw-700 mt-15">
-                                <span class="uppercase">Let My People Go Surfing</span>
-                                <p class="text-capitalize">By Yvon Chouinard</p>
-                            </div> 
-                            <p>
-                                Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.
-                            </p>
-                            <button class="fs-10 fw-600 letter-spacing-1">
-                                Buy
-                            </button>
-                            <img src="./img/book10.png" alt="book 'Let My People Go Surfing'">
-                        </div>
-                        
-                        <div class="grid book-description">
-                            <h3>
-                                Staff Picks
-                            </h3>
-                            <div class="text-capitalize line-height-40 fw-700 mt-15">
-                                <span class="uppercase">The Octopus Museum: Poems</span>
-                                <p class="text-capitalize">By Brenda Shaughnessy</p>
-                            </div> 
-                            <p>
-                                This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of environmental destruction, racism, sexism, and divisive politics.
-                            </p>
-                            <button class="fs-10 fw-600 letter-spacing-1">
-                                Buy
-                            </button>
-                            <img src="./img/book11.png" alt="book 'The Octopus Museum: Poems'">
-                        </div>
-                        <div class="grid book-description">
-                            <h3>
-                                Staff Picks
-                            </h3>
-                            <div class="text-capitalize line-height-40 fw-700 mt-15">
-                                <span class="uppercase">Shark Dialogues: A Novel</span>
-                                <p class="text-capitalize">By Kiana Davenport</p>
-                            </div> 
-                            <p>
-                                An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.
-                            </p>
-                            <button class="fs-10 fw-600 letter-spacing-1" disabled>
-                                Own
-                            </button>
-                            <img src="./img/book12.png" alt="book 'Shark Dialogues: A Novel'">
+                    <div hidden id="spring" role="radioBtnPage">
+                        <div class="grid-favorites">
+                            <div  class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-2">
+                                    <span class="uppercase">The Body</span>
+                                    <p class="text-capitalize">By Stephen King</p>
+                                </div>
+                                <p>
+                                    Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of innocence that is youth.
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1">
+                                    Buy
+                                </button>
+                                <img src="./img/book5.png" alt="book 'The Body'">
+                            </div>
+                            <div  class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                    <span class="uppercase">Carry: A Memoir of Survival on Stolen Land</span>
+                                    <p class="text-capitalize">By Toni Jenson</p>
+                                </div>
+                                <p>
+                                    This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting in a lyrical indictment of the way things are.
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1">
+                                    Buy
+                                </button>
+                                <img src="./img/book6.png" alt="book 'Carry: A Memoir of Survival on Stolen Land'">
+                            </div>
+                            <div class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                    <span class="uppercase">Days of Distraction</span>
+                                    <p class="text-capitalize">By Alexandra Chang</p>
+                                </div>
+                                <p>
+                                    A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and belonging, all in one form-defying package of spare prose.
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1">
+                                    Buy
+                                </button>
+                                <img src="./img/book7.png" alt="book 'Days of Distraction'">
+                            </div>
+                            <div class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                    <span class="uppercase">Dominicana</span>
+                                    <p class="text-capitalize">By Angie Cruz</p>
+                                </div>
+                                <p>
+                                    A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1" disabled>
+                                    Own
+                                </button>
+                                <img src="./img/book8.png" alt="book 'Dominicana'">
+                            </div>
                         </div>
                     </div>
 
-                    <div hidden id="autumn">
-                        <div class="grid book-description">
-                            <h3>
-                                Staff Picks
-                            </h3>
-                            <div class="text-capitalize line-height-40 fw-700 mt-15">
-                                <span class="uppercase">Casual Conversation</span>
-                                <p class="text-capitalize">By Renia White</p>
-                            </div> 
-                            <p>
-                                White's impressive debut collection takes readers through and beyond the concepts of conversation and the casual - both what we say to each other and what we don't, examining the possibilities around how we construct and communicate identity.
-                            </p>
-                            <button class="fs-10 fw-600 letter-spacing-1">
-                                Buy
-                            </button>
-                            <img src="./img/book13.png" alt="book 'Casual Conversation'">
+                    <div hidden id="summer" role="radioBtnPage">
+                        <div class="grid-favorites">
+                            <div  class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                    <span class="uppercase">Crude: A Memoir</span>
+                                    <p class="text-capitalize">By Pablo Fajardo & ​​Sophie Tardy-Joubert</p>
+                                </div>
+                                <p>
+                                    Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and her people
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1">
+                                    Buy
+                                </button>
+                                <img src="./img/book9.png" alt="book 'Crude: A Memoir '">
+                            </div>
+                            <div class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                    <span class="uppercase">Let My People Go Surfing</span>
+                                    <p class="text-capitalize">By Yvon Chouinard</p>
+                                </div>
+                                <p>
+                                    Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1">
+                                    Buy
+                                </button>
+                                <img src="./img/book10.png" alt="book 'Let My People Go Surfing'">
+                            </div>
+                            
+                            <div class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                    <span class="uppercase">The Octopus Museum: Poems</span>
+                                    <p class="text-capitalize">By Brenda Shaughnessy</p>
+                                </div>
+                                <p>
+                                    This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of environmental destruction, racism, sexism, and divisive politics.
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1">
+                                    Buy
+                                </button>
+                                <img src="./img/book11.png" alt="book 'The Octopus Museum: Poems'">
+                            </div>
+                            <div class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                    <span class="uppercase">Shark Dialogues: A Novel</span>
+                                    <p class="text-capitalize">By Kiana Davenport</p>
+                                </div>
+                                <p>
+                                    An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1" disabled>
+                                    Own
+                                </button>
+                                <img src="./img/book12.png" alt="book 'Shark Dialogues: A Novel'">
+                            </div>
                         </div>
-                        <div class="grid book-description">
-                            <h3>
-                                Staff Picks
-                            </h3>
-                            <div class="text-capitalize line-height-40 fw-700 mt-15">
-                                <span class="uppercase">The Great Fire</span>
-                                <p class="text-capitalize">By Lou Ureneck</p>
-                            </div> 
-                            <p>
-                                The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide
-                            </p>
-                            <button class="fs-10 fw-600 letter-spacing-1">
-                                Own
-                            </button>
-                            <img src="./img/book14.png" alt="book 'Slug: And Other Stories'">
+                    </div>
+
+                    <div hidden id="autumn" role="radioBtnPage">
+                        <div class="grid-favorites">
+                            <div class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                    <span class="uppercase">Casual Conversation</span>
+                                    <p class="text-capitalize">By Renia White</p>
+                                </div>
+                                <p>
+                                    White's impressive debut collection takes readers through and beyond the concepts of conversation and the casual - both what we say to each other and what we don't, examining the possibilities around how we construct and communicate identity.
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1">
+                                    Buy
+                                </button>
+                                <img src="./img/book13.png" alt="book 'Casual Conversation'">
+                            </div>
+                            <div class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                    <span class="uppercase">The Great Fire</span>
+                                    <p class="text-capitalize">By Lou Ureneck</p>
+                                </div>
+                                <p>
+                                    The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1">
+                                    Own
+                                </button>
+                                <img src="./img/book14.png" alt="book 'Slug: And Other Stories'">
+                            </div>
+                            <div class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                    <span class="uppercase">Rickey: The Life and Legend</span>
+                                    <p class="text-capitalize">By Howard Bryant</p>
+                                </div>
+                                <p>
+                                    With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1">
+                                    Buy
+                                </button>
+                                <img src="./img/book15.png" alt="book 'Rickey: The Life and Legend'">
+                            </div>
+                            <div class="grid book-description">
+                                <h3>
+                                    Staff Picks
+                                </h3>
+                                <div class="text-capitalize line-height-40 fw-700 mt-15">
+                                    <span class="uppercase">Slug: And Other Stories</span>
+                                    <p class="text-capitalize">By Megan Milks</p>
+                                </div>
+                                <p>
+                                    Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.
+                                </p>
+                                <button class="fs-10 fw-600 letter-spacing-1" disabled>
+                                    Buy
+                                </button>
+                                <img src="./img/book16.png" alt="book 'Slug: And Other Stories'">
+                            </div>
                         </div>
-                        <div class="grid book-description">
-                            <h3>
-                                Staff Picks
-                            </h3>
-                            <div class="text-capitalize line-height-40 fw-700 mt-15">
-                                <span class="uppercase">Rickey: The Life and Legend</span>
-                                <p class="text-capitalize">By Howard Bryant</p>
-                            </div> 
-                            <span class="fw-600"></span>
-                            <p>
-                                With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?
-                            </p>
-                            <button class="fs-10 fw-600 letter-spacing-1">
-                                Buy
-                            </button>
-                            <img src="./img/book15.png" alt="book 'Rickey: The Life and Legend'">
-                        </div>
-                        <div class="grid book-description">
-                            <h3>
-                                Staff Picks
-                            </h3>
-                            <div class="text-capitalize line-height-40 fw-700 mt-15">
-                                <span class="uppercase">Slug: And Other Stories</span>
-                                <p class="text-capitalize">By Megan Milks</p>
-                            </div> 
-                            <p>
-                                Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.
-                            </p>
-                            <button class="fs-10 fw-600 letter-spacing-1" disabled>
-                                Buy
-                            </button>
-                            <img src="./img/book16.png" alt="book 'Slug: And Other Stories'">
-                        </div>
-                        
                     </div>
                 </div>
             </section>
