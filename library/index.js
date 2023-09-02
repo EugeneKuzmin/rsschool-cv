@@ -186,13 +186,15 @@ function closeNoAuthPopup(){
 
 }
 
-const registerLink = document.querySelector('[data-modal-target]')
+// refistration and login forms
+
+const modalLinks = document.querySelectorAll('[data-modal-target]')
 const overlay = document.getElementById('overlay')
 
-registerLink.addEventListener('click', () => {
-    const modal = document.querySelector(registerLink.dataset.modalTarget)
-    openModal(modal)
-})
+modalLinks.forEach(link=>
+    link.addEventListener('click', () => {
+    openModal(document.querySelector(link.dataset.modalTarget))
+}))
 
 function openModal(modal) {
     if (modal == null) return
@@ -200,4 +202,84 @@ function openModal(modal) {
     overlay.classList.add('active')
     closeNoAuthPopup()
   }
+
+  const validation=()=>{
+    return true
+  }
+
+  const setUserName = (lName) => {
+    document.querySelector('.userName').textContent = lName
+    document.querySelector('[data-show]').setAttribute('data-show','name')
+  }
+
+  const registrationInputs = document.querySelectorAll('.registration-modal-input')
+
+  const registrationButtons = document.querySelectorAll('.card-registration-button')
+  registrationButtons.forEach(button => {
+    button.addEventListener('click',()=>{
+        if(!validation){
+            return
+        }
+
+        let registrationData = {}
+
+        registrationInputs.forEach(e=>{
+            registrationData[e.id] = e.value
+        })
+        registrationInputs.visits = 0
+
+        let users = JSON.parse(localStorage.getItem('users'))
+
+        if(!users){
+            users = []
+        }
+        let email = users.find(x=>x.email === registrationData['email'])
+        if(email == undefined){
+            users.push(registrationData)
+        }else{
+            Object.keys(registrationData).forEach(key=>{
+                email[key] = registrationData[key]
+            }) 
+        }
+        localStorage.setItem('users',JSON.stringify(users))
+        setUserName(registrationData['firstName'][0]+registrationData['lastName'][0])
+
+
+    })
+
+  })
+
+
+  const loginInputs = document.querySelectorAll('.login-modal-input')
+
+  const loginButtons = document.querySelectorAll('.card-registration-button')
+  loginButtons.forEach(button => {
+    button.addEventListener('click',()=>{
+      
+
+        let loginData = {}
+
+        loginInputs.forEach(e=>{
+            loginData[e.id] = e.value
+        })
+
+        let users = JSON.parse(localStorage.getItem('users'))
+
+        if(!users){
+            return
+        }
+        let user = users.find(x=>x.email === loginData['email'])
+        if(user !== undefined&&user.password == loginInputs.loginPassword){
+
+            
+                user['visits']++
+           
+        }
+        localStorage.setItem('users',JSON.stringify(users))
+        setUserName(registrationData['firstName'][0]+registrationData['lastName'][0])
+
+
+    })
+
+  })
 
