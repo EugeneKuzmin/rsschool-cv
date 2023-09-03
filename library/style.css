@@ -688,10 +688,14 @@ nav > ul > li  {
     right: 0;
 }
 
-.registration-modal-input {
+.modal-input {
     width: 200px;
     height: 20px;
     border: 1px solid hsl( var(--clr-warm-veneer) );
+}
+
+.text-link {
+    cursor: pointer;
 }
 
 
@@ -868,8 +872,6 @@ nav > ul > li  {
     opacity: 1;
     pointer-events: all;
   }
-
- 
 
   .text-login {
     text-decoration: underline;
@@ -1129,7 +1131,7 @@ input:checked {
     flex-basis: 456px;
 }
 
-.card-registration-button{
+.authentification-button{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1140,7 +1142,7 @@ input:checked {
     height: 30px;
 }
 
-.card-registration-buttons-layout {
+.authentification-buttons-layout {
     display: flex;
     justify-content: end;
 

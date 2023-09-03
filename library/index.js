@@ -225,11 +225,17 @@ const modalLinks = document.querySelectorAll('[data-modal-target]')
 const overlay = document.getElementById('overlay')
 const closeModalButtons = document.querySelectorAll('[data-close-modal-button]')
 
+
+
 modalLinks.forEach(link=>
     link.addEventListener('click', () => {
-    openModal(document.querySelector(link.dataset.modalTarget))
+    
     closeAuthPopup()
     closeNoAuthPopup()
+    closeAuthModals()
+
+    openModal(document.querySelector(link.dataset.modalTarget))
+
 }))
 
 function openModal(modal) {
@@ -254,15 +260,21 @@ function openModal(modal) {
     })
   })
 
-  overlay.addEventListener('click', () => {
+  function closeAuthModals(){
     const loginModals = document.querySelectorAll('.login-modal.active')
+    
     loginModals.forEach(modal => {
-      closeModal(modal)
+        closeModal(modal)
     })
+    
     const registrationModals = document.querySelectorAll('.registration-modal.active')
     registrationModals.forEach(modal => {
       closeModal(modal)
     })
+  }
+
+  overlay.addEventListener('click', () => {
+    closeAuthModals()
   })
 
   const validation=()=>{
@@ -275,9 +287,9 @@ function openModal(modal) {
   }
 
   const registrationModal = document.querySelector('.registration-modal')
-  const registrationInputs = document.querySelectorAll('.registration-modal-input')
+  const registrationInputs = document.querySelectorAll('[role="registration-input"]')
 
-  const registrationButtons = document.querySelectorAll('.registration-submit')
+  const registrationButtons = document.querySelectorAll('[role="registration-submit"]')
   registrationButtons.forEach(button => {
     button.addEventListener('click',()=>{
         if(!validation){
@@ -312,9 +324,9 @@ function openModal(modal) {
 
 
   const loginModal = document.querySelector('.login-modal')
-  const loginInputs = document.querySelectorAll('.login-modal-input')
+  const loginInputs = document.querySelectorAll('[role="login-input"]')
 
-  const loginButtons = document.querySelectorAll('.login-submit')
+  const loginButtons = document.querySelectorAll('[role="login-submit"]')
   loginButtons.forEach(button => {
     button.addEventListener('click',()=>{
 
