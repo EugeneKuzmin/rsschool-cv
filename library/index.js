@@ -14,11 +14,7 @@ function switchNavigation(){
 
 }
 
-document.addEventListener('click',(e)=>{
-    const dsplayClick = e.composedPath().includes(navigation)
-    const btnClick = e.composedPath().includes(mToggle)
-    if(!dsplayClick&&!btnClick&&navigation.getAttribute("data-visible") === "true") switchNavigation()
-})
+
 
 //******************************************************/
 const sectionSpring = document.getElementById("spring")
@@ -174,26 +170,66 @@ dots.forEach((dot,index)=>{
     })
 })
 
-const authIcon = document.querySelector('.icon-profile')
-const menuNoAuth = document.querySelector('[data-profileNoAuthVisible]')
+const authIcon = document.querySelector('.icon-profile-picture')
+// const menuNoAuth = document.querySelector('[data-profileNoAuthVisible]')
+const menuNoAuth = document.querySelector('.menuProfileNoAuth')
+const menuAuth = document.querySelector('[data-profileAuthenticatedVisible]')
+
+let popupTogled = false
+
+
+document.addEventListener('click',(e)=>{
+    const dsplayClick = e.composedPath().includes(navigation)
+    const btnClick = e.composedPath().includes(mToggle)
+    if(!dsplayClick&&!btnClick&&navigation.getAttribute("data-visible") === "true") switchNavigation()
+
+    if(menuNoAuth.getAttribute('data-profileNoAuthVisible')=='true'){
+        if(!e.composedPath().includes(loginModal)&&popupTogled){
+            closeNoAuthPopup()
+            popupTogled = false
+        }else{
+            popupTogled = true
+        }
+    }
+    if(menuAuth.getAttribute('data-profileNoAuthVisible')=='true'){
+        if(!e.composedPath().includes(registrationModalModal)&&popupTogled){
+            closeAuthPopup()
+            popupTogled = false
+        }else{
+            popupTogled = true
+        }
+    }
+    // if(menuNoAuth.getAttribute('data-profileAuthenticatedVisible')=='true'&&!e.composedPath().includes(registrationModalModal)&&!e.composedPath().includes(menuAuth)){
+    //     closeAuthPopup()
+    // }
+    // if(!e.composedPath().includes(registrationModal)&&!e.composedPath().includes(authIcon)){menuAuth.setAttribute('data-profileAuthenticatedVisible','true')}
+    
+})
+
+
 authIcon.addEventListener('click', ()=>{
     menuNoAuth.setAttribute('data-profileNoAuthVisible','true')
-
 })
 
 function closeNoAuthPopup(){
     menuNoAuth.setAttribute('data-profileNoAuthVisible','false')
+}
 
+function closeAuthPopup(){
+    menuAuth.setAttribute('data-profileAuthenticatedVisible','false')
 }
 
 // refistration and login forms
 
 const modalLinks = document.querySelectorAll('[data-modal-target]')
 const overlay = document.getElementById('overlay')
+const closeModalButtons = document.querySelectorAll('[data-close-modal-button]')
 
 modalLinks.forEach(link=>
     link.addEventListener('click', () => {
     openModal(document.querySelector(link.dataset.modalTarget))
+    closeAuthPopup()
+    closeNoAuthPopup()
 }))
 
 function openModal(modal) {
@@ -202,6 +238,32 @@ function openModal(modal) {
     overlay.classList.add('active')
     closeNoAuthPopup()
   }
+
+  function closeModal(modal) {
+    if (modal == null) return
+    modal.classList.remove('active')
+    overlay.classList.remove('active')
+    popupTogled = false
+
+  }
+
+  closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.modal')
+      closeModal(modal)
+    })
+  })
+
+  overlay.addEventListener('click', () => {
+    const loginModals = document.querySelectorAll('.login-modal.active')
+    loginModals.forEach(modal => {
+      closeModal(modal)
+    })
+    const registrationModals = document.querySelectorAll('.registration-modal.active')
+    registrationModals.forEach(modal => {
+      closeModal(modal)
+    })
+  })
 
   const validation=()=>{
     return true
@@ -212,9 +274,10 @@ function openModal(modal) {
     document.querySelector('[data-show]').setAttribute('data-show','name')
   }
 
+  const registrationModal = document.querySelector('.registration-modal')
   const registrationInputs = document.querySelectorAll('.registration-modal-input')
 
-  const registrationButtons = document.querySelectorAll('.card-registration-button')
+  const registrationButtons = document.querySelectorAll('.registration-submit')
   registrationButtons.forEach(button => {
     button.addEventListener('click',()=>{
         if(!validation){
@@ -226,7 +289,7 @@ function openModal(modal) {
         registrationInputs.forEach(e=>{
             registrationData[e.id] = e.value
         })
-        registrationInputs.visits = 0
+        registrationData.visits = 0
 
         let users = JSON.parse(localStorage.getItem('users'))
 
@@ -243,19 +306,17 @@ function openModal(modal) {
         }
         localStorage.setItem('users',JSON.stringify(users))
         setUserName(registrationData['firstName'][0]+registrationData['lastName'][0])
-
-
     })
 
   })
 
 
+  const loginModal = document.querySelector('.login-modal')
   const loginInputs = document.querySelectorAll('.login-modal-input')
 
-  const loginButtons = document.querySelectorAll('.card-registration-button')
+  const loginButtons = document.querySelectorAll('.login-submit')
   loginButtons.forEach(button => {
     button.addEventListener('click',()=>{
-      
 
         let loginData = {}
 
@@ -268,15 +329,12 @@ function openModal(modal) {
         if(!users){
             return
         }
-        let user = users.find(x=>x.email === loginData['email'])
-        if(user !== undefined&&user.password == loginInputs.loginPassword){
-
-            
-                user['visits']++
-           
+        let user = users.find(x=>x.email === loginData['loginId'])
+        if(user !== undefined&&user.password == loginData.loginPassword){
+            user['visits']++
+            localStorage.setItem('users',JSON.stringify(users))
+            setUserName(user.firstName[0]+user.lastName[0])
         }
-        localStorage.setItem('users',JSON.stringify(users))
-        setUserName(registrationData['firstName'][0]+registrationData['lastName'][0])
 
 
     })
