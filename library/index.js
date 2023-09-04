@@ -170,10 +170,46 @@ dots.forEach((dot,index)=>{
     })
 })
 
-const authIcon = document.querySelector('.icon-profile-picture')
-// const menuNoAuth = document.querySelector('[data-profileNoAuthVisible]')
-const menuNoAuth = document.querySelector('.menuProfileNoAuth')
+const authIcons = document.querySelectorAll('[data-profileiconVisible]')
+const menuNoAuth = document.querySelector('[data-profileNoAuthVisible]')
+// const menuNoAuth = document.querySelector('.menuProfileNoAuth')
 const menuAuth = document.querySelector('[data-profileAuthenticatedVisible]')
+
+const turnonProfileIcon = () => {
+    document.querySelector('[icon-no-logo]').setAttribute('data-profileiconVisible','false')
+    document.querySelector('[icon-with-logo]').setAttribute('data-profileiconVisible','true')
+}
+const turnoffProfileIcon = () => {
+    document.querySelector('[icon-no-logo]').setAttribute('data-profileiconVisible','true')
+    document.querySelector('[icon-with-logo]').setAttribute('data-profileiconVisible','false')
+}
+
+const getUser = () => {
+    let user = JSON.parse(localStorage.getItem('loggedUser'))
+
+    if(Object.keys(user).length){
+        return user
+    }
+
+    return false
+}
+
+const setUserName = (lName) => {
+    document.querySelector('.userName').textContent = lName
+    getUser()?turnonProfileIcon():turnoffProfileIcon()
+  }
+
+const refreshProfileIcon = () => {
+    let user = getUser()
+    
+    if(user)
+    {
+        setUserName(user.firstName[0] + user.lastName[0])
+    }
+}
+
+refreshProfileIcon()
+
 
 let popupTogled = false
 
@@ -191,8 +227,8 @@ document.addEventListener('click',(e)=>{
             popupTogled = true
         }
     }
-    if(menuAuth.getAttribute('data-profileNoAuthVisible')=='true'){
-        if(!e.composedPath().includes(registrationModalModal)&&popupTogled){
+    if(menuAuth.getAttribute('data-profileAuthenticatedVisible')=='true'){
+        if(!e.composedPath().includes(registrationModal)&&popupTogled){
             closeAuthPopup()
             popupTogled = false
         }else{
@@ -207,9 +243,11 @@ document.addEventListener('click',(e)=>{
 })
 
 
-authIcon.addEventListener('click', ()=>{
-    menuNoAuth.setAttribute('data-profileNoAuthVisible','true')
-})
+authIcons.forEach(l=>l.addEventListener('click', ()=>{
+
+    getUser()?menuAuth.setAttribute('data-profileAuthenticatedVisible','true'):menuNoAuth.setAttribute('data-profileNoAuthVisible','true')
+    // menuNoAuth.setAttribute('data-profileNoAuthVisible','true')
+}))
 
 function closeNoAuthPopup(){
     menuNoAuth.setAttribute('data-profileNoAuthVisible','false')
@@ -219,11 +257,12 @@ function closeAuthPopup(){
     menuAuth.setAttribute('data-profileAuthenticatedVisible','false')
 }
 
-// refistration and login forms
+// registration and login forms
 
 const modalLinks = document.querySelectorAll('[data-modal-target]')
 const overlay = document.getElementById('overlay')
 const closeModalButtons = document.querySelectorAll('[data-close-modal-button]')
+
 
 
 
@@ -281,10 +320,9 @@ function openModal(modal) {
     return true
   }
 
-  const setUserName = (lName) => {
-    document.querySelector('.userName').textContent = lName
-    document.querySelector('[data-show]').setAttribute('data-show','name')
-  }
+ 
+
+  const generateHex = () => [...Array(9)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
 
   const registrationModal = document.querySelector('.registration-modal')
   const registrationInputs = document.querySelectorAll('[role="registration-input"]')
@@ -308,16 +346,20 @@ function openModal(modal) {
         if(!users){
             users = []
         }
-        let email = users.find(x=>x.email === registrationData['email'])
-        if(email == undefined){
+        let user = users.find(x=>x.email === registrationData['email'])
+        if(user == undefined){
+            registrationData.cardNumber = generateHex()
             users.push(registrationData)
+            localStorage.setItem('loggedUser',JSON.stringify({cardNumber:registrationData.cardNumber,firstName:registrationData.firstName,lastName:registrationData.lastName}))
         }else{
             Object.keys(registrationData).forEach(key=>{
-                email[key] = registrationData[key]
-            }) 
+                user[key] = registrationData[key]
+            })
+            localStorage.setItem('loggedUser',JSON.stringify({cardNumber:user.cardNumber,firstName:registrationData.firstName,lastName:registrationData.lastName}))
         }
         localStorage.setItem('users',JSON.stringify(users))
         setUserName(registrationData['firstName'][0]+registrationData['lastName'][0])
+        closeAuthModals()
     })
 
   })
@@ -345,11 +387,20 @@ function openModal(modal) {
         if(user !== undefined&&user.password == loginData.loginPassword){
             user['visits']++
             localStorage.setItem('users',JSON.stringify(users))
+            localStorage.setItem('loggedUser',JSON.stringify({cardNumber:user.cardNumber,firstName:user.firstName,lastName:user.lastName}))
             setUserName(user.firstName[0]+user.lastName[0])
+            closeAuthModals()
         }
-
-
     })
 
   })
+
+  const logoutLink = document.getElementById('logout')
+  logoutLink.addEventListener('click',()=>{
+    localStorage.setItem('loggedUser',JSON.stringify({}))
+    setUserName('')
+    closeAuthPopup()
+    popupTogled = false
+  })
+
 

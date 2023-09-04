@@ -633,7 +633,7 @@ nav > ul > li  {
     position: relative;
 }
 
-.icon-profile > img[data-show="name"]{
+.icon-profile > *[data-profileiconVisible="false"]{
     display: none;
 }
 
@@ -643,32 +643,35 @@ nav > ul > li  {
     border-radius: 50%;
 }
 
-.menuProfileNoAuth {
+.profilePopup {
     position: absolute;
     bottom: 0px;
     right: 0;
     transform: translate(0%, 100%);
     width: 80px;
     height: 115px;
-    padding: 6px;
+    padding-block: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
 }
 
-.menuProfileNoAuth >*:where(:not(:first-child)){
+.profilePopup >*:where(:not(:first-child)){
     cursor: pointer;
 }
 
-.menuProfileAuthenticated {
+/* .menuProfileAuthenticated {
     width: 80px;
     height: 115px;
 
-}
+} */
 
-.menuProfileNoAuth[data-profileNoAuthVisible="false"]{
+.profilePopup[data-profileNoAuthVisible="false"]{
     display: none;
 }
 
-.menuProfileAuthenticated[data-profileAuthenticatedVisible="false"]{
+.profilePopup[data-profileAuthenticatedVisible="false"]{
     display: none;
 }
 
