@@ -31,15 +31,18 @@
                     </nav>
                     <div class="flex menu-btns">
                         <div class="flex align-items-center icon-profile">
-                            <img src="./img/icon_profile.svg" class="icon-profile-picture" icon-no-logo data-profileiconVisible="true" alt="icon profile" >
-                            <div class="userName text-veneer bg-white" icon-with-logo data-profileiconVisible="false"></div>
+                            <div class="icon-logo">
+                                <img src="./img/icon_profile.svg" icon-no-logo data-profileiconVisible="true" alt="icon profile" >
+                                <div class="userName text-veneer bg-white" icon-with-logo data-profileiconVisible="false"></div>
+                            </div>
+
                             <div class="profilePopup bg-white fs-15 line-height-20 text-black text-center" data-profileNoAuthVisible="false">
                                 <div class="fw-700 profile-header">Profile</div>
                                 <div class="mt-20" data-modal-target="#login-modal">Log In</div>
                                 <div class="mt-10" data-modal-target="#registration-modal">Register</div>
                             </div>
                             <div class="profilePopup bg-white fs-15 line-height-20 text-black" data-profileAuthenticatedVisible="false">
-                                <div class="fw-700 profile-header">Profile</div>
+                                <div class="fs-10 profile-header profile-card-number" data-cardnumber=""></div>
                                 <div class="mt-20" data-modal-target="#profile-modal">My profile</div>
                                 <div class="mt-10" id="logout">Log Out</div>
                             </div>

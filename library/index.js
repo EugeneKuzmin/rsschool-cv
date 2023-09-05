@@ -174,6 +174,7 @@ const authIcons = document.querySelectorAll('[data-profileiconVisible]')
 const menuNoAuth = document.querySelector('[data-profileNoAuthVisible]')
 // const menuNoAuth = document.querySelector('.menuProfileNoAuth')
 const menuAuth = document.querySelector('[data-profileAuthenticatedVisible]')
+const profileCardNumber = document.querySelector('[data-cardnumber]')
 
 const turnonProfileIcon = () => {
     document.querySelector('[icon-no-logo]').setAttribute('data-profileiconVisible','false')
@@ -195,7 +196,7 @@ const getUser = () => {
 }
 
 const setUserName = (lName) => {
-    document.querySelector('.userName').textContent = lName
+    document.querySelector('.userName').textContent = lName.toUpperCase()
     getUser()?turnonProfileIcon():turnoffProfileIcon()
   }
 
@@ -205,6 +206,7 @@ const refreshProfileIcon = () => {
     if(user)
     {
         setUserName(user.firstName[0] + user.lastName[0])
+        profileCardNumber.setAttribute('data-cardnumber',`ID:${user.cardNumber}`)
     }
 }
 
@@ -359,6 +361,7 @@ function openModal(modal) {
         }
         localStorage.setItem('users',JSON.stringify(users))
         setUserName(registrationData['firstName'][0]+registrationData['lastName'][0])
+        profileCardNumber.setAttribute('data-cardnumber',`ID:${user == undefined?registrationData.cardNumber:user.cardNumber}`)
         closeAuthModals()
     })
 
@@ -389,6 +392,7 @@ function openModal(modal) {
             localStorage.setItem('users',JSON.stringify(users))
             localStorage.setItem('loggedUser',JSON.stringify({cardNumber:user.cardNumber,firstName:user.firstName,lastName:user.lastName}))
             setUserName(user.firstName[0]+user.lastName[0])
+            profileCardNumber.setAttribute('data-cardnumber',`ID:${user.cardNumber}`)
             closeAuthModals()
         }
     })

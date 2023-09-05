@@ -633,8 +633,12 @@ nav > ul > li  {
     position: relative;
 }
 
-.icon-profile > *[data-profileiconVisible="false"]{
+.icon-profile *[data-profileiconVisible="false"]{
     display: none;
+}
+
+.icon-logo {
+    cursor: pointer;
 }
 
 .userName {
@@ -689,6 +693,10 @@ nav > ul > li  {
     margin: 0 auto;
     left: 0;
     right: 0;
+}
+
+.profile-card-number::before{
+    content: attr(data-cardnumber);
 }
 
 .modal-input {
