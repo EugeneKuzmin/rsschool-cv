@@ -13,6 +13,7 @@
     /* font-sizes */
     --fs-40: 40px;
     --fs-30: 30px;
+    --fs-25: 25px;
     --fs-20: 20px;
     --fs-15: 15px;
     --fs-10: 10px;
@@ -233,9 +234,14 @@ ul {
     font-size: var(--fs-30);
 }
 
+.fs-25 {
+    font-size: var(--fs-25);
+}
+
 .fs-20 {
     font-size: var(--fs-20);
 }
+
 .fs-15 {
     font-size: var(--fs-15);
 }
@@ -280,6 +286,9 @@ ul {
 } 
 .letter-spacing-0-6 { 
     letter-spacing: 0.6px; 
+} 
+.letter-spacing-0-8 { 
+    letter-spacing: 0.8px; 
 } 
 
 .letter-spacing-3 { 
@@ -545,6 +554,10 @@ ul {
 /* size */
 .maxwidth100 {
     max-width: 100px;
+}
+
+.h-full {
+    height: 100%;
 }
 
 /* other */
@@ -814,80 +827,7 @@ nav > ul > li  {
     background-color: hsl( var(--clr-warm-veneer) );
 }
 
-.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    z-index: 4500;
-    background-color: white;
-}
 
-.registration-modal {
-    width: 250px;
-    height: 382px;
-}
-  
-.registration-modal.active {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.login-modal {
-    width: 250px;
-    height: 262px;
-  }
-  
-.login-modal.active {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-  .registration-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    
-  }
-
-  .login-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    
-  }
-
-  .modal-close-button {
-    position: absolute;
-    top: 0;
-    right: 5px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 2.45rem;
-  }
-
-#overlay {
-    position: fixed;
-    opacity: 0;
-    transition: 200ms ease-in-out;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, .5);
-    z-index: 3300;
-    pointer-events: none;
-  }
-  
-  #overlay.active {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .text-login {
-    text-decoration: underline;
-    margin-left: 7px;
-  }
 
 @media (min-width:1024px){
 
@@ -1232,3 +1172,112 @@ footer:nth-child(2) {
 .schedule {
     width: 149px;
 }
+
+/* modals */
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 4500;
+    background-color: white;
+}
+
+.registration-modal {
+    width: 250px;
+    height: 382px;
+}
+  
+.registration-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.login-modal {
+    width: 250px;
+    height: 262px;
+  }
+  
+.login-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.myprofile-modal {
+    width: 600px;
+    height: 400px;
+  }
+  
+.myprofile-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+  .registration-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  .login-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  .modal-close-button {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 2.45rem;
+  }
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 3300;
+    pointer-events: none;
+  }
+  
+  #overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .text-login {
+    text-decoration: underline;
+    margin-left: 7px;
+  }
+
+  .profile-name {
+    width: 170px;
+  }
+
+  .short-name{
+    height: 80px;
+    aspect-ratio: 1;
+  }
+
+  .full-name {
+    width: 120px;
+    height: 30px;
+  }
+
+  .profile-name-section {
+    
+  }
+
+  .myprofile-wrapper {
+    height: 100%;
+    flex-grow: 1;
+  }

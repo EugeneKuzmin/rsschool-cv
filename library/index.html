@@ -43,7 +43,7 @@
                             </div>
                             <div class="profilePopup bg-white fs-15 line-height-20 text-black" data-profileAuthenticatedVisible="false">
                                 <div class="fs-10 profile-header profile-card-number" data-cardnumber=""></div>
-                                <div class="mt-20" data-modal-target="#profile-modal">My profile</div>
+                                <div class="mt-20" data-modal-target="#myprofile-modal">My profile</div>
                                 <div class="mt-10" id="logout">Log Out</div>
                             </div>
 
@@ -665,6 +665,41 @@
             <div class=" ml-2 fs-10"> <span> Don't have an account?</span> <span class="fw-700 text-login letter-spacing-1 text-link" data-modal-target="#registration-modal"> Register</span> </div>
             
         </div>
+        
+    </div>
+    <div class="myprofile-modal modal text-black" id="myprofile-modal">
+        <div class="flex flex-column myprofile-wrapper">
+            <div class="flex h-full">
+                <div class="flex flex-column flex-1 h-full justify-content-center align-items-center profile-name-section bg-dark">
+                    
+                        <div class="short-name bg-white flex align-content-center"></div>
+                        <div class="full-name bg-white flex align-items-center"></div>
+
+                </div>
+                <div class="profile-info">
+                    <div class="fs-40 ff-forum letter-spacing-0-8 uppercase text-black">My profile</div>
+                    <div class="flex">
+                        <div class="letter-spacing-0-4 text-black">
+                            Visits
+                            <img src="./img/Union1.svg" alt="visits" >
+                        </div>
+                        <div class="letter-spacing-0-4 text-black">
+                            Bonuses
+                            <img src="./img/Star2.svg" alt="bonuses" >
+                        </div>
+                        <div class="letter-spacing-0-4 text-black">
+                            Books
+                            <img src="./img/book.svg" alt="rented books" >
+                        </div>
+                        
+                        <div class="line-height-20 fs-25">Rented books</div>
+                        <div class="line-height-20">Card number</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
         
     </div>
     <div id="overlay"></div>
