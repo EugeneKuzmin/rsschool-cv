@@ -278,6 +278,9 @@ ul {
     text-transform: uppercase;
 }
 
+.letter-spacing-0-2 { 
+    letter-spacing: 0.2px; 
+} 
 .letter-spacing-0-3 { 
     letter-spacing: 0.3px; 
 } 
@@ -389,6 +392,9 @@ ul {
     margin-top: 0px;
 }
 
+.mt-18 {
+    margin-top: 18px;
+}
 .mt-20 {
     margin-top: 20px;
 }
@@ -416,6 +422,13 @@ ul {
     margin-top: 15px;
 }
 
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
 .mt-60 {
     margin-top: 60px;
 }
@@ -434,10 +447,6 @@ ul {
 
 .mt-3-8 {
     margin-top: 3.8rem;
-}
-
-.mt-5 {
-    margin-top: 2.5rem;
 }
 
 .mt-5 {
@@ -1236,6 +1245,12 @@ footer:nth-child(2) {
     font-size: 2.45rem;
   }
 
+  .myprofile-close-button {
+    top: 10px;
+    right: 15px;
+
+  }
+
 #overlay {
     position: fixed;
     opacity: 0;
@@ -1259,8 +1274,8 @@ footer:nth-child(2) {
     margin-left: 7px;
   }
 
-  .profile-name {
-    width: 170px;
+  .profile-name-section {
+    max-width: 170px;
   }
 
   .short-name{
@@ -1271,13 +1286,54 @@ footer:nth-child(2) {
   .full-name {
     width: 120px;
     height: 30px;
+    text-transform: capitalize;
   }
 
-  .profile-name-section {
-    
+  .myprofile-wrapper,
+  .myprofile-image-visits,
+  .myprofile-image-bonuses,
+  .myprofile-image-books
+   {
+        position: relative;
+   }
+
+
+  .myprofile-image-visits::after {
+    content: attr(data-visits);
+    position: absolute;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
-  .myprofile-wrapper {
-    height: 100%;
-    flex-grow: 1;
+  .myprofile-image-bonuses::after {
+    content: attr(data-bonuses);
+    position: absolute;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .myprofile-image-books::after {
+    content: attr(data-books);
+    position: absolute;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .myprofile-card-number {
+    margin-top: auto;
+    margin-bottom: 40px;
+  }
+
+  .myprofile-card-number > img {
+    cursor: pointer;
+  }
+
+  .user-info-container[data-user-info="false"]{
+    display: none;
   }

@@ -175,6 +175,15 @@ const menuNoAuth = document.querySelector('[data-profileNoAuthVisible]')
 // const menuNoAuth = document.querySelector('.menuProfileNoAuth')
 const menuAuth = document.querySelector('[data-profileAuthenticatedVisible]')
 const profileCardNumber = document.querySelector('[data-cardnumber]')
+const myprofileCardNumber = document.querySelector('[data-myprofilecardnumber]')
+const copyCard = document.getElementById('copy_card_id')
+
+const shortName = document.querySelector('[data-shortname]')
+const fullName = document.querySelector('[data-fullname]')
+
+const buybtns = document.querySelectorAll('[data-buy-book]')
+
+const cardCheck = document.querySelector('[data-card-check]')
 
 const turnonProfileIcon = () => {
     document.querySelector('[icon-no-logo]').setAttribute('data-profileiconVisible','false')
@@ -195,8 +204,10 @@ const getUser = () => {
     return false
 }
 
-const setUserName = (lName) => {
-    document.querySelector('.userName').textContent = lName.toUpperCase()
+const setUserName = (localFirstName,localLastName) => {
+    document.querySelector('.userName').textContent = (localFirstName[0]+localLastName[0]).toUpperCase()
+    shortName.textContent = localFirstName[0] + localLastName[0]
+    fullName.textContent = localFirstName + ' ' + localLastName
     getUser()?turnonProfileIcon():turnoffProfileIcon()
   }
 
@@ -205,8 +216,9 @@ const refreshProfileIcon = () => {
     
     if(user)
     {
-        setUserName(user.firstName[0] + user.lastName[0])
+        setUserName(user.firstName,user.lastName)
         profileCardNumber.setAttribute('data-cardnumber',`ID:${user.cardNumber}`)
+        myprofileCardNumber.textContent = user.cardNumber
     }
 }
 
@@ -259,13 +271,30 @@ function closeAuthPopup(){
     menuAuth.setAttribute('data-profileAuthenticatedVisible','false')
 }
 
+copyCard.addEventListener('click',()=>{
+    navigator.clipboard.writeText(myprofileCardNumber.textContent);
+})
+
+const showUserInfo = () => {
+    cardCheck.style.display = 'block'
+    document.querySelector('.user-info-container').setAttribute('data-user-info','false')
+    
+}
+
+cardCheck.addEventListener('click',()=>{
+    cardCheck.style.display = 'none'
+    document.querySelector('.user-info-container').setAttribute('data-user-info','true')
+    window.setTimeout(showUserInfo, 10000);
+})
+
 // registration and login forms
 
 const modalLinks = document.querySelectorAll('[data-modal-target]')
 const overlay = document.getElementById('overlay')
-const closeModalButtons = document.querySelectorAll('[data-close-modal-button]')
-
-
+const closeModalButtons = document.querySelectorAll('[data-closemodalbutton]')
+const imageVisits = document.querySelector('[data-visits]')
+const imageBonuses = document.querySelector('[data-bonuses]')
+const imageBooks = document.querySelector('[data-books]')
 
 
 modalLinks.forEach(link=>
@@ -322,8 +351,6 @@ function openModal(modal) {
     return true
   }
 
- 
-
   const generateHex = () => [...Array(9)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
 
   const registrationModal = document.querySelector('.registration-modal')
@@ -341,7 +368,8 @@ function openModal(modal) {
         registrationInputs.forEach(e=>{
             registrationData[e.id] = e.value
         })
-        registrationData.visits = 0
+        registrationData.visits = 1
+        imageVisits.setAttribute('data-visits','1')
 
         let users = JSON.parse(localStorage.getItem('users'))
 
@@ -360,8 +388,9 @@ function openModal(modal) {
             localStorage.setItem('loggedUser',JSON.stringify({cardNumber:user.cardNumber,firstName:registrationData.firstName,lastName:registrationData.lastName}))
         }
         localStorage.setItem('users',JSON.stringify(users))
-        setUserName(registrationData['firstName'][0]+registrationData['lastName'][0])
+        setUserName(registrationData['firstName'],registrationData['lastName'])
         profileCardNumber.setAttribute('data-cardnumber',`ID:${user == undefined?registrationData.cardNumber:user.cardNumber}`)
+        myprofileCardNumber.textContent = user == undefined?registrationData.cardNumber:user.cardNumber
         closeAuthModals()
     })
 
@@ -389,10 +418,12 @@ function openModal(modal) {
         let user = users.find(x=>x.email === loginData['loginId'])
         if(user !== undefined&&user.password == loginData.loginPassword){
             user['visits']++
+            imageVisits.setAttribute('data-visits',`${user.visits}`)
             localStorage.setItem('users',JSON.stringify(users))
             localStorage.setItem('loggedUser',JSON.stringify({cardNumber:user.cardNumber,firstName:user.firstName,lastName:user.lastName}))
-            setUserName(user.firstName[0]+user.lastName[0])
+            setUserName(user.firstName,user.lastName)
             profileCardNumber.setAttribute('data-cardnumber',`ID:${user.cardNumber}`)
+            myprofileCardNumber.textContent = user.cardNumber
             closeAuthModals()
         }
     })
@@ -402,9 +433,19 @@ function openModal(modal) {
   const logoutLink = document.getElementById('logout')
   logoutLink.addEventListener('click',()=>{
     localStorage.setItem('loggedUser',JSON.stringify({}))
-    setUserName('')
+    setUserName(' ',' ')
     closeAuthPopup()
     popupTogled = false
   })
+
+  buybtns.forEach(buybtn=>{
+    buybtn.addEventListener('click',()=>{
+        if(getUser()){
+
+        }else{
+            openModal(document.getElementById('login-modal'))
+        }
+    })
+})
 
 
