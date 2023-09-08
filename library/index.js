@@ -440,7 +440,13 @@ function openModal(modal) {
 
   buybtns.forEach(buybtn=>{
     buybtn.addEventListener('click',()=>{
-        if(getUser()){
+        let user = getUser()
+        if(user){
+            if(user?.libraryCard){
+
+            }else{
+                openModal(document.getElementById('cardpurchasemodal'))
+            }
 
         }else{
             openModal(document.getElementById('login-modal'))

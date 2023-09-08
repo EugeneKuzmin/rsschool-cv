@@ -190,6 +190,10 @@ ul {
     margin-bottom: var(--flow-space, 0.6rem);
 }
 
+.flow-buy-card >*:where(:not(:last-child)) {
+    margin-bottom: var(--flow-space, 10px);
+}
+
 /* colors */
 
 .bg-dark {
@@ -367,6 +371,10 @@ ul {
     align-self: center;
 }
 
+.align-self-end {
+    align-self: end;
+}
+
 .place-content-center {
     place-content: center center;
 }
@@ -506,6 +514,10 @@ ul {
     margin-right: 20px;
 }
 
+.mr-28{
+    margin-right: 28px;
+}
+
 .ml-1{
     margin-left:0.5rem;
 }
@@ -519,8 +531,25 @@ ul {
     padding: 0;
 }
 
+
+
+.p-30 {
+    padding: 30px;
+}
+
+.px-10 {
+    padding-inline: 10px;
+}
+
+.pl-33 {
+    padding-left: 33px;
+}
+
 .px-20 {
     padding-inline: 20px;
+}
+.py-30 {
+    padding-block: 30px;
 }
 
 .p-5px {
@@ -727,6 +756,10 @@ nav > ul > li  {
     border: 1px solid hsl( var(--clr-warm-veneer) );
 }
 
+.modal-input-small {
+    width: 45px;
+}
+
 .text-link {
     cursor: pointer;
 }
@@ -918,7 +951,7 @@ input:checked {
     width: 70%;
 }
 
-.grid-favorites  button {
+.btn-buy {
     width: 75px;
     height: 30px;
     background-color: transparent;
@@ -1220,6 +1253,15 @@ footer:nth-child(2) {
     transform: translate(-50%, -50%) scale(1);
 }
 
+.cardPurchase-modal {
+    width: 640px;
+    height: 540px;
+  }
+  
+.cardPurchase-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
   .registration-wrapper {
     position: relative;
     width: 100%;
@@ -1336,4 +1378,18 @@ footer:nth-child(2) {
 
   .user-info-container[data-user-info="false"]{
     display: none;
+  }
+
+  .header-library-card {
+    height: 60px;
+    width: 640px;
+  }
+
+  .cardPurchase-close-button {
+    color: hsl( var(--clr-white) );
+  }
+
+  .cardPurchase-wrapper {
+    max-width: 640px;
+    height: 100%;
   }
