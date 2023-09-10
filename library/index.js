@@ -295,6 +295,10 @@ const closeModalButtons = document.querySelectorAll('[data-closemodalbutton]')
 const imageVisits = document.querySelector('[data-visits]')
 const imageBonuses = document.querySelector('[data-bonuses]')
 const imageBooks = document.querySelector('[data-books]')
+const cardpurchaseInput = document.querySelectorAll("[role='cardpurchase-input']")
+const buycardButton = document.querySelector('[data-buy-card]')
+
+let cardDataValid = true
 
 
 modalLinks.forEach(link=>
@@ -315,6 +319,19 @@ function openModal(modal) {
     closeNoAuthPopup()
   }
 
+  function nullifyVars(mForm) {
+    if(mForm.id === 'cardpurchasemodal'){
+        cardDataValid = true
+        cardpurchaseInput.forEach(inpt=>{
+            inpt.value = ''
+            if([...inpt.classList].includes('input-error')){
+                inpt.classList.remove('input-error')
+            }
+
+        })
+    }
+  }
+
   function closeModal(modal) {
     if (modal == null) return
     modal.classList.remove('active')
@@ -327,6 +344,7 @@ function openModal(modal) {
     button.addEventListener('click', () => {
       const modal = button.closest('.modal')
       closeModal(modal)
+      nullifyVars(modal)
     })
   })
 
@@ -454,4 +472,103 @@ function openModal(modal) {
     })
 })
 
+//inputs
 
+const inputCvc = document.getElementById('cvc')
+inputCvc.addEventListener('input',()=>{
+    inputCvc.value = inputCvc.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1')
+})
+
+const inputPlace = document.getElementById('place')
+inputPlace.addEventListener('input',()=>{
+    inputPlace.value = inputPlace.value.replace(/[^a-zA-Z]/g, '').replace(/(\..*)\./g, '$1')
+})
+
+//inputMask
+
+
+let ccNumberInput = document.querySelector('.cc-number-input'),
+		ccNumberPattern = /^\d{0,16}$/g,
+		ccNumberSeparator = " ",
+		ccNumberInputOldValue,
+		ccNumberInputOldCursor,
+		
+		mask = (value, limit, separator) => {
+			var output = [];
+			for (let i = 0; i < value.length; i++) {
+				if ( i !== 0 && i % limit === 0) {
+					output.push(separator);
+				}
+				
+				output.push(value[i]);
+			}
+			
+			return output.join("");
+		},
+		unmask = (value) => value.replace(/[^\d]/g, ''),
+		checkSeparator = (position, interval) => Math.floor(position / (interval + 1)),
+		ccNumberInputKeyDownHandler = (e) => {
+			let el = e.target;
+			ccNumberInputOldValue = el.value;
+			ccNumberInputOldCursor = el.selectionEnd;
+		},
+		ccNumberInputInputHandler = (e) => {
+			let el = e.target,
+					newValue = unmask(el.value),
+					newCursorPosition;
+			
+			if ( newValue.match(ccNumberPattern) ) {
+				newValue = mask(newValue, 4, ccNumberSeparator);
+				
+				newCursorPosition = 
+					ccNumberInputOldCursor - checkSeparator(ccNumberInputOldCursor, 4) + 
+					checkSeparator(ccNumberInputOldCursor + (newValue.length - ccNumberInputOldValue.length), 4) + 
+					(unmask(newValue).length - unmask(ccNumberInputOldValue).length);
+				
+				el.value = (newValue !== "") ? newValue : "";
+			} else {
+				el.value = ccNumberInputOldValue;
+				newCursorPosition = ccNumberInputOldCursor;
+			}
+			
+			el.setSelectionRange(newCursorPosition, newCursorPosition);
+			
+			highlightCC(el.value);
+		},
+		highlightCC = (ccValue) => {
+			let ccCardType = '',
+					ccCardTypePatterns = {
+						visa: /^4/,
+					};
+			
+			for (const cardType in ccCardTypePatterns) {
+				if ( ccCardTypePatterns[cardType].test(ccValue) ) {
+					ccCardType = cardType;
+					break;
+				}
+			}
+			
+		
+		}
+		
+
+ccNumberInput.addEventListener('keydown', ccNumberInputKeyDownHandler);
+ccNumberInput.addEventListener('input', ccNumberInputInputHandler);
+
+const libraryCardValidation = () => {
+    cardpurchaseInput.forEach(inpt=>{
+        if(!inpt.value.length){
+            cardDataValid = false
+            if(![...inpt.classList].includes('input-error')){
+                inpt.classList.add('input-error')
+            }
+        }else{
+            if([...inpt.classList].includes('input-error')){
+                inpt.classList.remove('input-error')
+            }
+
+        }
+    })
+}
+
+buycardButton.addEventListener('click',libraryCardValidation)

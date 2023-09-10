@@ -178,6 +178,10 @@ ul {
     display: block;
 }
 
+.inline-block {
+    display: inline-block;
+}
+
 .grid {
     display: grid;
 }
@@ -188,10 +192,6 @@ ul {
 
 .flow-auth-form >*:where(:not(:last-child)) {
     margin-bottom: var(--flow-space, 0.6rem);
-}
-
-.flow-buy-card >*:where(:not(:last-child)) {
-    margin-bottom: var(--flow-space, 10px);
 }
 
 /* colors */
@@ -310,6 +310,10 @@ ul {
     letter-spacing: 1px; 
 }
 
+.line-height-0{
+    line-height: 0;
+}
+
 .line-height-20{
     line-height: 20px;
 }
@@ -413,6 +417,10 @@ ul {
 
 .mt-40 {
     margin-top: 40px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
 }
 
 .mb-50 {
@@ -539,6 +547,14 @@ ul {
 
 .px-10 {
     padding-inline: 10px;
+}
+
+.pl-13 {
+    padding-left: 13px;
+}
+
+.pr-10 {
+    padding-right: 10px;
 }
 
 .pl-33 {
@@ -751,13 +767,19 @@ nav > ul > li  {
 }
 
 .modal-input {
+    position: relative;
     width: 200px;
     height: 20px;
     border: 1px solid hsl( var(--clr-warm-veneer) );
 }
 
 .modal-input-small {
+    position: relative;
     width: 45px;
+}
+
+.input-sm-container {
+    position: relative;
 }
 
 .text-link {
@@ -1217,6 +1239,43 @@ footer:nth-child(2) {
 
 /* modals */
 
+.error{
+    position: relative;
+}
+
+.input-error {
+    border:1px solid red
+}
+
+.input-error + .error::after {
+    position: absolute;
+    top: 17px;
+    left: -200px;
+    content: 'fill the field';
+    font-size: var(--fs-10);
+    color: red;
+}
+
+.input-sm-container > .input-error + .error-sm::after {
+    position: absolute;
+    top: 26px;
+    left: 0;
+    content: 'fill the field';
+    font-size: var(--fs-10);
+    color: red;
+    width: 100px;
+}
+
+.input-sm-container > .input-error + .error-sm-cvc::after {
+    position: absolute;
+    top: 46px;
+    left: 0;
+    content: 'fill the field';
+    font-size: var(--fs-10);
+    color: red;
+    width: 100px;
+}
+
 .modal {
     position: fixed;
     top: 50%;
@@ -1287,10 +1346,10 @@ footer:nth-child(2) {
     font-size: 2.45rem;
   }
 
+  
   .myprofile-close-button {
     top: 10px;
     right: 15px;
-
   }
 
 #overlay {
@@ -1387,6 +1446,8 @@ footer:nth-child(2) {
 
   .cardPurchase-close-button {
     color: hsl( var(--clr-white) );
+    top: 10px;
+    right: 10px;
   }
 
   .cardPurchase-wrapper {

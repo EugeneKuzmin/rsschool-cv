@@ -735,25 +735,50 @@
         </div>
         <div class="flex flex-column flex-1 h-full cardPurchase-wrapper px-20 py-30">
             <div class="flex h-full">
-                <div class="flex flex-column flex-1 h-full line-height-20 letter-spacing-0-3 fs-15 flow-buy-card px-10">
-                    <label>Bank card number</label>
-                    <Input type="text" class="modal-input " id='cardNumber' role="cardpurchase-input"></Input>
-                    <label>Expiration code</label>
-                    <div class="flex">
-                        <Input type="text" class="modal-input modal-input-small mr-10" id='expirationcode1' role="cardpurchase-input"></Input>
-                        <Input type="text" class="modal-input modal-input-small" id='expirationcode2' role="cardpurchase-input"></Input>
+                <div class="flex flex-column flex-1 h-full line-height-20 letter-spacing-0-3 fs-15 pl-13 pr-10">
+                    <div >
+                        <label>Bank card number</label>
+                        <Input type="text" class="modal-input cc-number-input my-10" id='cardNumber' maxlength="19" role="cardpurchase-input"></Input>
+                        <span class="error"></span>
+                        
                     </div>
-                    <label>CVC</label>
-                    <Input type="text" class="modal-input modal-input-small" id='cvc' role="cardpurchase-input"></Input>
+                    <div >
+                        <label>Expiration code</label>
+                        <div class="flex">
+                            <div class="input-sm-container">
+                                <Input type="text" class="modal-input modal-input-small block my-10 mr-10" id='expirationcode1' role="cardpurchase-input"></Input>
+                                <span class="error-sm"></span>
+                            </div>
+                            <div class="input-sm-container">
+                                <Input type="text" class="modal-input modal-input-small block my-10" id='expirationcode2' role="cardpurchase-input"></Input>
+                                <span class="error-sm"></span>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <label class="mt-10">Cardholder name</label>
-                    <Input type="text" class="modal-input " id='cardholdeername' role="cardpurchase-input"></Input>
+                    <div class="input-sm-container">
+                        <label class="block">CVC</label>
+                        <Input type="text" class="modal-input modal-input-small block my-10" id='cvc' maxlength="3" role="cardpurchase-input"/></Input>
+                        <span class="error-sm-cvc"></span>
+                    </div>
 
-                    <label>Postal code</label>
-                    <Input type="text" class="modal-input " id='postalcode' role="cardpurchase-input"></Input>
-                    
-                    <label>City / Town</label>
-                    <Input type="text" class="modal-input " id='postalcode' role="cardpurchase-input"></Input>
+                    <div class="mt-10">
+                        <label >Cardholder name</label>
+                        <Input type="text" class="modal-input my-10" id='cardholdeername' role="cardpurchase-input"></Input>
+                        <span class="error"></span>
+                    </div>
+
+                    <div >
+                        <label>Postal code</label>
+                        <Input type="text" class="modal-input my-10" id='postalcode' role="cardpurchase-input"></Input>
+                        <span class="error"></span>
+                    </div>
+
+                    <div >
+                        <label>City / Town</label>
+                        <Input type="text" class="modal-input my-10" id='place' role="cardpurchase-input"></Input>
+                        <span class="error"></span>
+                    </div>
 
                     <div class="flex mt-10">
                         <button class="btn-buy fs-10 fw-600 letter-spacing-1 mr-28" data-buy-card>
