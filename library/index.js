@@ -111,6 +111,10 @@ const buybtns = document.querySelectorAll('[data-buy-book]')
 
 const cardCheck = document.querySelector('[data-card-check]')
 
+const imageVisits = document.querySelectorAll('[data-visits]')
+const imageBonuses = document.querySelector('[data-bonuses]')
+const imageBooks = document.querySelectorAll('[data-books]')
+
 const turnonProfileIcon = () => {
     document.querySelector('[icon-no-logo]').setAttribute('data-profileiconVisible','false')
     document.querySelector('[icon-with-logo]').setAttribute('data-profileiconVisible','true')
@@ -154,7 +158,10 @@ const refreshProfile = () => {
         myprofileCardNumber.textContent = user.cardNumber
         if(user.hasOwnProperty('books')){
             user.books.forEach(l=>setButtonOwn(l))
+            imageBooks.forEach(i=>i.setAttribute('data-books',user.books.length.toString()))
+            
         }
+        imageVisits.forEach(i=>i.setAttribute('data-visits',user.visits))
     }
 }
 
@@ -212,9 +219,17 @@ const showUserInfo = () => {
 }
 
 cardCheck.addEventListener('click',()=>{
-    cardCheck.style.display = 'none'
-    document.querySelector('.user-info-container').setAttribute('data-user-info','true')
-    window.setTimeout(showUserInfo, 10000);
+
+    let user = getUser()
+    if(user){
+        let inputsData = document.querySelectorAll("[role='inputlibrarycardcheck']")
+        if((inputsData[0].value.replaceAll('  ',' ').trim().toUpperCase() == user.firstName.trim().toUpperCase() + ' ' + user.lastName.trim().toUpperCase())&&user.cardNumber.toUpperCase() == inputsData[1].value.toUpperCase()){
+            cardCheck.style.display = 'none'
+            document.querySelector('.user-info-container').setAttribute('data-user-info','true')
+            window.setTimeout(showUserInfo, 10000);
+        }
+    }
+    
 })
 
 // registration and login forms
@@ -222,9 +237,6 @@ cardCheck.addEventListener('click',()=>{
 const modalLinks = document.querySelectorAll('[data-modal-target]')
 const overlay = document.getElementById('overlay')
 const closeModalButtons = document.querySelectorAll('[data-closemodalbutton]')
-const imageVisits = document.querySelector('[data-visits]')
-const imageBonuses = document.querySelector('[data-bonuses]')
-const imageBooks = document.querySelector('[data-books]')
 const cardpurchaseInput = document.querySelectorAll("[role='cardpurchase-input']")
 const buycardButton = document.querySelector('[data-buy-card]')
 const registerFromLoginLink = document.getElementById('registerfromloginlink')
@@ -463,14 +475,15 @@ function closeModal(modal) {
         let user = users.find(x=>x.email === loginData['loginId'])
         if(user !== undefined&&user.password == loginData.loginPassword){
             user['visits']++
-            imageVisits.setAttribute('data-visits',`${user.visits}`)
+            imageVisits.forEach(i=>i.setAttribute('data-visits',`${user.visits}`) ) 
             localStorage.setItem('users',JSON.stringify(users))
             localStorage.setItem('loggedUser',JSON.stringify({
                 cardNumber:user.cardNumber,
                 firstName:user.firstName,
                 lastName:user.lastName,
                 books:user.books,
-                libraryCard:user.libraryCard
+                libraryCard:user.libraryCard,
+                visits:user['visits'],
             }))
             setUserName(user.firstName,user.lastName)
             profileCardNumber.setAttribute('data-cardnumber',`ID:${user.cardNumber}`)
@@ -491,6 +504,7 @@ function closeModal(modal) {
         users.find(x=>x.cardNumber == user.cardNumber).books = [...user.books]
         localStorage.setItem('users',JSON.stringify(users))
         setButtonOwn(indx)
+        imageBooks.forEach(i=>i.setAttribute('data-books',user.books.length.toString()))
     }
 
     const cleanOwnBooks = () => {
