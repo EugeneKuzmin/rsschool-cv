@@ -217,8 +217,8 @@
                                 <p class="line-height-40 text-capitalize mt-9">
                                     A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
                                 </p>
-                                <button class="btn-buy fs-10 fw-600 letter-spacing-1" data-buy-book disabled>
-                                    Own
+                                <button class="btn-buy fs-10 fw-600 letter-spacing-1" data-buy-book>
+                                    Buy
                                 </button>
                                 <img src="./img/book4.png" alt="book 'The Last Queen'">
                             </div>
@@ -286,8 +286,8 @@
                                 <p>
                                     A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
                                 </p>
-                                <button class="btn-buy fs-10 fw-600 letter-spacing-1" data-buy-book disabled>
-                                    Own
+                                <button class="btn-buy fs-10 fw-600 letter-spacing-1" data-buy-book>
+                                    Buy
                                 </button>
                                 <img src="./img/book8.png" alt="book 'Dominicana'">
                             </div>
@@ -356,8 +356,8 @@
                                 <p>
                                     An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.
                                 </p>
-                                <button class="btn-buy fs-10 fw-600 letter-spacing-1" data-buy-book disabled>
-                                    Own
+                                <button class="btn-buy fs-10 fw-600 letter-spacing-1" data-buy-book>
+                                    Buy
                                 </button>
                                 <img src="./img/book12.png" alt="book 'Shark Dialogues: A Novel'">
                             </div>
@@ -394,7 +394,7 @@
                                     The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide
                                 </p>
                                 <button class="btn-buy fs-10 fw-600 letter-spacing-1" data-buy-book>
-                                    Own
+                                    Buy
                                 </button>
                                 <img src="./img/book14.png" alt="book 'Slug: And Other Stories'">
                             </div>
@@ -425,7 +425,7 @@
                                 <p>
                                     Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.
                                 </p>
-                                <button class="btn-buy fs-10 fw-600 letter-spacing-1" data-buy-book disabled>
+                                <button class="btn-buy fs-10 fw-600 letter-spacing-1" data-buy-book>
                                     Buy
                                 </button>
                                 <img src="./img/book16.png" alt="book 'Slug: And Other Stories'">
@@ -545,10 +545,10 @@
                                 <div class="member-card flex-column mt-20 px-20 align-self-center justify-content-evenly">
                                     <span class="fs-30 ff-forum letter-spacing-0-6">Brooklyn Public Library</span>
                                     <div class="flex">
-                                        <input type="text" class="fs-30 ff-forum text-light-dark p-2" placeholder="Reader's name">
+                                        <input type="text" class="fs-30 ff-forum text-dark p-2" placeholder="Reader's name">
                                     </div>
                                     <div class="flex">
-                                        <input type="text" class="fs-30 ff-forum text-light-dark p-2" placeholder="Card number">
+                                        <input type="text" class="fs-30 ff-forum text-dark p-2" placeholder="Card number">
                                     </div>
                                 </div>
                                 <button class="align-self-center mt-2 fs-20 " data-card-check><span class="fw-700 letter-spacing-1">Check the card</span></button>
@@ -634,28 +634,32 @@
             <div class="ff-forum uppercase letter-spacing-0-4 text-center">
                 Register
             </div>
-            <div class="flex flex-column align-items-center line-height-20 flow-auth-form mt-10 ">
-                <div class="fs-15 letter-spacing-0-3">
+            <div class="line-height-20 flow-auth-form mt-10 ">
+                <div class="px-15 fs-15 letter-spacing-0-3">
                     <label>First name</label>
                     <Input type="text" class="modal-input mt-10" id='firstName' role="registration-input"></Input>
+                    <span class="error"></span>
                 </div>
-                <div class="fs-15 letter-spacing-0-3">
+                <div class="px-15 fs-15 letter-spacing-0-3">
                     <label>Last name</label>
                     <Input type="text" class="modal-input mt-10" id='lastName' role="registration-input"></Input>
+                    <span class="error"></span>
                 </div>
-                <div class="fs-15 letter-spacing-0-3">
+                <div class="px-15 fs-15 letter-spacing-0-3">
                     <label>E-mail</label>
                     <Input type="text" class="modal-input mt-10" id="email" role="registration-input"></Input>
+                    <span class="error"></span>
                 </div>
-                <div class="fs-15 letter-spacing-0-3">
+                <div class="px-15 fs-15 letter-spacing-0-3">
                     <label>Password</label>
                     <Input type="text" class="modal-input mt-10" id="password" role="registration-input"></Input>
+                    <span class="error"></span>
                 </div>
             </div>
 
-            <button class="authentification-button fs-10 fw-700 mt-20 ml-2 letter-spacing-1 text-light-dark" role="registration-submit">Sign Up</button>
+            <button class="authentification-button fs-10 fw-700 mt-20 ml-2 letter-spacing-1 text-dark" role="registration-submit">Sign Up</button>
 
-            <div class=" ml-2 fs-10"> <span> Already have an account?</span> <span class="fw-700 text-login letter-spacing-1 text-link" data-modal-target="#login-modal"> Login</span> </div>
+            <div class=" ml-2 fs-10"> <span> Already have an account?</span> <span class="fw-700 text-login letter-spacing-1 text-link" data-modal-target="#login-modal" id="loginfromregisterlink"> Login</span> </div>
             
         </div>
         
@@ -665,22 +669,23 @@
             <button data-closemodalbutton class="modal-close-button">&times;</button>
             <div class="ff-forum uppercase letter-spacing-0-4 text-center">
                 Login
-                
             </div>
-            <div class="flex flex-column align-items-center line-height-20 flow-auth-form mt-10 ">
-                <div class="fs-15 letter-spacing-0-3">
+            <div class=" line-height-20 flow-auth-form mt-10 ">
+                <div class="px-15 fs-15 letter-spacing-0-3">
                     <label>E-mail or readers card</label>
                     <Input type="text" class="modal-input mt-10" id='loginId' role="login-input"></Input>
+                    <span class="error"></span>
                 </div>
-                <div class="fs-15 letter-spacing-0-3">
+                <div class="px-15 fs-15 letter-spacing-0-3">
                     <label>Password</label>
                     <Input type="text" class="modal-input mt-10" id="loginPassword" role="login-input"></Input>
+                    <span class="error"></span>
                 </div>
             </div>
 
-            <button class="authentification-button fs-10 fw-700 mt-20 ml-2 letter-spacing-1 text-light-dark" role="login-submit">Log in</button>
+            <button class="authentification-button fs-10 fw-700 mt-20 ml-2 letter-spacing-1 text-dark" role="login-submit">Log in</button>
 
-            <div class=" ml-2 fs-10"> <span> Don't have an account?</span> <span class="fw-700 text-login letter-spacing-1 text-link" data-modal-target="#registration-modal"> Register</span> </div>
+            <div class=" ml-2 fs-10"> <span> Don't have an account?</span> <span class="fw-700 text-login letter-spacing-1 text-link" data-modal-target="#registration-modal" id="registerfromloginlink"> Register</span> </div>
             
         </div>
         
@@ -746,11 +751,11 @@
                         <label>Expiration code</label>
                         <div class="flex">
                             <div class="input-sm-container">
-                                <Input type="text" class="modal-input modal-input-small block my-10 mr-10" id='expirationcode1' role="cardpurchase-input"></Input>
+                                <Input type="text" class="modal-input modal-input-small block my-10 mr-10" id='expirationcode1' maxlength="2" role="cardpurchase-input"></Input>
                                 <span class="error-sm"></span>
                             </div>
                             <div class="input-sm-container">
-                                <Input type="text" class="modal-input modal-input-small block my-10" id='expirationcode2' role="cardpurchase-input"></Input>
+                                <Input type="text" class="modal-input modal-input-small block my-10" id='expirationcode2' maxlength="2" role="cardpurchase-input"></Input>
                                 <span class="error-sm"></span>
                             </div>
                         </div>

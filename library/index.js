@@ -14,8 +14,6 @@ function switchNavigation(){
 
 }
 
-
-
 //******************************************************/
 const sectionSpring = document.getElementById("spring")
 const sectionSummer = document.getElementById("summer")
@@ -36,78 +34,6 @@ for(const radioButton of radioButtons){
         
     });
 } 
-
-// const btnRight = document.getElementById('btnright')
-// const btnLeft = document.getElementById('btnleft')
-// const itemLeft = document.getElementById('items-left')
-// const itemRight = document.getElementById('items-right')
-
-// const carousel = document.getElementById('carousel')
-
-// const moveRight = () => {
-//     carousel.classList.add('transition-right')
-//     btnRight.removeEventListener('click',moveRight)
-//     btnLeft.removeEventListener('click',moveLeft)
-// }
-
-// btnRight.addEventListener('click',moveRight)
-
-// carousel.addEventListener("animationend",()=>{
-//     carousel.classList.remove("transition-right")
-//     btnRight.addEventListener('click',moveRight)
-// })
-
-// const moveLeft = () => {
-//     carousel.classList.add('transition-left')
-//     btnLeft.removeEventListener('click',moveLeft)
-//     btnRight.removeEventListener('click',moveRight)
-
-// }
-
-// btnLeft.addEventListener('click',moveLeft)
-
-// carousel.addEventListener("animationend",(animation)=>{
-//     if (animation.animationName === "move-left"){
-//         carousel.classList.remove("transition-left")
-//         const leftItems = itemLeft.innerHTML
-//         document.querySelector('#items-active').innerHTML = leftItems
-//         const card1 = document.createElement('div')
-//         card1.classList.add("card")
-
-
-//     }else{
-//         carousel.classList.remove("transition-right")
-//     }
-//     carousel.classList.remove("transition-left")
-//     btnLeft.addEventListener('click',moveLeft)
-// })
-
-
-
-// const picClass = document.querySelectorAll('.card__img')[0]
-// const picWidth = picClass.clientWidth
-
-// const btnLeft = document.querySelector('#btn-left')
-// let btnClicked = btnLeft.id
-// btnLeft.addEventListener('click',()=>{
-//     carousel.scrollLeft -= carousel.scrollWidth
-//     btnClicked = btnLeft.id
-// })
-
-// const btnCenter = document.querySelector('#btn-center')
-// btnCenter.addEventListener('click',()=>{
-//     if(btnClicked === 'btn-left'){
-//         carousel.scrollLeft += picWidth + 25
-//     }else if(btnClicked === 'btn-right'){
-//         carousel.scrollLeft -= picWidth - 25
-//     }
-// })
-
-// const btnRight = document.querySelector('#btn-right')
-// btnRight.addEventListener('click',()=>{
-//     carousel.scrollLeft += carousel.scrollWidth
-//     btnClicked = btnRight.id
-// })
 
 const carousel = document.getElementById('carousel')
 
@@ -205,13 +131,20 @@ const getUser = () => {
 }
 
 const setUserName = (localFirstName,localLastName) => {
+
     document.querySelector('.userName').textContent = (localFirstName[0]+localLastName[0]).toUpperCase()
+
     shortName.textContent = localFirstName[0] + localLastName[0]
     fullName.textContent = localFirstName + ' ' + localLastName
     getUser()?turnonProfileIcon():turnoffProfileIcon()
   }
 
-const refreshProfileIcon = () => {
+const setButtonOwn = (indx) => {
+    buybtns[indx].disabled = true
+    buybtns[indx].textContent = 'Own'
+}
+
+const refreshProfile = () => {
     let user = getUser()
     
     if(user)
@@ -219,10 +152,13 @@ const refreshProfileIcon = () => {
         setUserName(user.firstName,user.lastName)
         profileCardNumber.setAttribute('data-cardnumber',`ID:${user.cardNumber}`)
         myprofileCardNumber.textContent = user.cardNumber
+        if(user.hasOwnProperty('books')){
+            user.books.forEach(l=>setButtonOwn(l))
+        }
     }
 }
 
-refreshProfileIcon()
+refreshProfile()
 
 
 let popupTogled = false
@@ -249,18 +185,12 @@ document.addEventListener('click',(e)=>{
             popupTogled = true
         }
     }
-    // if(menuNoAuth.getAttribute('data-profileAuthenticatedVisible')=='true'&&!e.composedPath().includes(registrationModalModal)&&!e.composedPath().includes(menuAuth)){
-    //     closeAuthPopup()
-    // }
-    // if(!e.composedPath().includes(registrationModal)&&!e.composedPath().includes(authIcon)){menuAuth.setAttribute('data-profileAuthenticatedVisible','true')}
     
 })
 
 
 authIcons.forEach(l=>l.addEventListener('click', ()=>{
-
     getUser()?menuAuth.setAttribute('data-profileAuthenticatedVisible','true'):menuNoAuth.setAttribute('data-profileNoAuthVisible','true')
-    // menuNoAuth.setAttribute('data-profileNoAuthVisible','true')
 }))
 
 function closeNoAuthPopup(){
@@ -297,8 +227,10 @@ const imageBonuses = document.querySelector('[data-bonuses]')
 const imageBooks = document.querySelector('[data-books]')
 const cardpurchaseInput = document.querySelectorAll("[role='cardpurchase-input']")
 const buycardButton = document.querySelector('[data-buy-card]')
+const registerFromLoginLink = document.getElementById('registerfromloginlink')
+const loginFromRegisterLink = document.getElementById('loginfromregisterlink')
 
-let cardDataValid = true
+let clickedBuyButton = null
 
 
 modalLinks.forEach(link=>
@@ -319,26 +251,58 @@ function openModal(modal) {
     closeNoAuthPopup()
   }
 
-  function nullifyVars(mForm) {
+function nullifyVars(mForm) {
     if(mForm.id === 'cardpurchasemodal'){
-        cardDataValid = true
         cardpurchaseInput.forEach(inpt=>{
             inpt.value = ''
             if([...inpt.classList].includes('input-error')){
                 inpt.classList.remove('input-error')
             }
-
         })
     }
-  }
 
-  function closeModal(modal) {
+    if(mForm.id === 'registration-modal'){
+        registrationInputs.forEach(inpt=>{
+            inpt.value = ''
+            if([...inpt.classList].includes('input-error')){
+                inpt.classList.remove('input-error')
+            }
+            if([...inpt.classList].includes('input-mail-error')){
+                inpt.classList.remove('input-mail-error')
+            }
+            if([...inpt.classList].includes('input-pswrd-error')){
+                inpt.classList.remove('input-pswrd-error')
+            }
+        })
+    }
+
+    if(mForm.id === 'login-modal'){
+        loginInputs.forEach(inpt=>{
+            inpt.value = ''
+            if([...inpt.classList].includes('input-error')){
+                inpt.classList.remove('input-error')
+            }
+        })
+    }
+}
+
+const generateHex = () => [...Array(9)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+
+const registrationModal = document.querySelector('.registration-modal')
+const registrationInputs = document.querySelectorAll('[role="registration-input"]')
+
+const registrationButtons = document.querySelectorAll('[role="registration-submit"]')
+
+const loginModal = document.querySelector('.login-modal')
+const loginInputs = document.querySelectorAll('[role="login-input"]')
+const loginButtons = document.querySelectorAll('[role="login-submit"]')
+
+function closeModal(modal) {
     if (modal == null) return
     modal.classList.remove('active')
     overlay.classList.remove('active')
     popupTogled = false
-
-  }
+}
 
   closeModalButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -349,35 +313,98 @@ function openModal(modal) {
   })
 
   function closeAuthModals(){
-    const loginModals = document.querySelectorAll('.login-modal.active')
-    
-    loginModals.forEach(modal => {
+
+    const activeModals = [
+        'login',
+        'registration',
+        'myprofile',
+        'cardPurchase',
+    ]
+    activeModals.forEach(modalName=>{
+        const modal = document.querySelector(`.${modalName}-modal.active`)
         closeModal(modal)
+        
     })
-    
-    const registrationModals = document.querySelectorAll('.registration-modal.active')
-    registrationModals.forEach(modal => {
-      closeModal(modal)
-    })
+    nullifyVars(document.getElementById('cardpurchasemodal'))
+    nullifyVars(registrationModal)
+    nullifyVars(loginModal)
   }
 
   overlay.addEventListener('click', () => {
     closeAuthModals()
   })
 
-  const validation=()=>{
-    return true
-  }
 
-  const generateHex = () => [...Array(9)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
 
-  const registrationModal = document.querySelector('.registration-modal')
-  const registrationInputs = document.querySelectorAll('[role="registration-input"]')
 
-  const registrationButtons = document.querySelectorAll('[role="registration-submit"]')
+  registerFromLoginLink.addEventListener('click',()=>{
+    nullifyVars(loginModal)
+  })
+
+  loginFromRegisterLink.addEventListener('click',()=>{
+    nullifyVars(registrationModal)
+  })
+
+  const validationFields = (inputSet) => {
+    let valid = true;
+    inputSet.forEach(inpt=>{
+        if(!inpt.value.length){
+            valid = false
+            if(![...inpt.classList].includes('input-error')){
+                inpt.classList.add('input-error')
+            }
+        }else{
+            if([...inpt.classList].includes('input-error')){
+                inpt.classList.remove('input-error')
+            }
+        }
+    })
+
+    let validEmail = true
+    let validPassword = true
+
+    if([...inputSet].find(x=>x.id === 'email') != undefined){
+        emailInput = document.getElementById('email')
+        let emailStr = emailInput.value
+        if(emailStr.length){
+            let pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+            validEmail = emailStr.match(pattern)
+            if(!validEmail){
+                if([...emailInput.classList].includes('input-error')){
+                    emailInput.classList.remove('input-error')
+                }
+                emailInput.classList.add('input-mail-error')
+            }else{
+                if([...emailInput.classList].includes('input-mail-error')){
+                    emailInput.classList.remove('input-mail-error')
+                }
+
+            }
+        }
+
+        passwordInput = document.getElementById('password')
+        let passwordStr = passwordInput.value
+        if(passwordStr.length){
+            validPassword = passwordStr.length>=8
+            if(!validPassword){
+                if([...passwordInput.classList].includes('input-error')){
+                    passwordInput.classList.remove('input-error')
+                }
+                passwordInput.classList.add('input-pswrd-error')
+            }else{
+                if([...passwordInput.classList].includes('input-pswrd-error')){
+                    passwordInput.classList.remove('input-pswrd-error')
+                }
+            }
+        }
+
+    }
+    
+    return valid&&validEmail&&validPassword
+}
   registrationButtons.forEach(button => {
     button.addEventListener('click',()=>{
-        if(!validation){
+        if(!validationFields(registrationInputs)){
             return
         }
 
@@ -415,12 +442,12 @@ function openModal(modal) {
   })
 
 
-  const loginModal = document.querySelector('.login-modal')
-  const loginInputs = document.querySelectorAll('[role="login-input"]')
-
-  const loginButtons = document.querySelectorAll('[role="login-submit"]')
   loginButtons.forEach(button => {
     button.addEventListener('click',()=>{
+
+        if(!validationFields(loginInputs)){
+            return
+        }
 
         let loginData = {}
 
@@ -438,34 +465,63 @@ function openModal(modal) {
             user['visits']++
             imageVisits.setAttribute('data-visits',`${user.visits}`)
             localStorage.setItem('users',JSON.stringify(users))
-            localStorage.setItem('loggedUser',JSON.stringify({cardNumber:user.cardNumber,firstName:user.firstName,lastName:user.lastName}))
+            localStorage.setItem('loggedUser',JSON.stringify({
+                cardNumber:user.cardNumber,
+                firstName:user.firstName,
+                lastName:user.lastName,
+                books:user.books,
+                libraryCard:user.libraryCard
+            }))
             setUserName(user.firstName,user.lastName)
             profileCardNumber.setAttribute('data-cardnumber',`ID:${user.cardNumber}`)
             myprofileCardNumber.textContent = user.cardNumber
+            if(user.hasOwnProperty('books')){
+                user.books.forEach(l=>setButtonOwn(l))
+            }
             closeAuthModals()
         }
     })
-
   })
+
+    const buyBook = (indx) => {
+        let user = getUser();
+        user.books.push(indx)
+        localStorage.setItem('loggedUser',JSON.stringify(user))
+        let users = JSON.parse(localStorage.getItem('users'))
+        users.find(x=>x.cardNumber == user.cardNumber).books = [...user.books]
+        localStorage.setItem('users',JSON.stringify(users))
+        setButtonOwn(indx)
+    }
+
+    const cleanOwnBooks = () => {
+        let user = getUser()
+        if(user.hasOwnProperty('books')){
+            user.books.forEach(l=>{
+                buybtns[l].disabled = false
+                buybtns[l].textContent = 'Buy'
+            })
+        }
+    }
 
   const logoutLink = document.getElementById('logout')
   logoutLink.addEventListener('click',()=>{
+    cleanOwnBooks()
     localStorage.setItem('loggedUser',JSON.stringify({}))
     setUserName(' ',' ')
     closeAuthPopup()
     popupTogled = false
   })
 
-  buybtns.forEach(buybtn=>{
+  buybtns.forEach((buybtn,index)=>{
     buybtn.addEventListener('click',()=>{
+        clickedBuyButton = index
         let user = getUser()
         if(user){
-            if(user?.libraryCard){
-
+            if(user.hasOwnProperty('libraryCard')&&user.libraryCard){
+                buyBook(index)
             }else{
                 openModal(document.getElementById('cardpurchasemodal'))
             }
-
         }else{
             openModal(document.getElementById('login-modal'))
         }
@@ -479,6 +535,16 @@ inputCvc.addEventListener('input',()=>{
     inputCvc.value = inputCvc.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1')
 })
 
+const expirationCode1 = document.getElementById('expirationcode1')
+expirationCode1.addEventListener('input',()=>{
+    expirationCode1.value = expirationCode1.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1')
+})
+
+const expirationCode2 = document.getElementById('expirationcode1')
+expirationCode2.addEventListener('input',()=>{
+    expirationCode2.value = expirationCode1.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1')
+})
+
 const inputPlace = document.getElementById('place')
 inputPlace.addEventListener('input',()=>{
     inputPlace.value = inputPlace.value.replace(/[^a-zA-Z]/g, '').replace(/(\..*)\./g, '$1')
@@ -486,12 +552,10 @@ inputPlace.addEventListener('input',()=>{
 
 //inputMask
 
-
-let ccNumberInput = document.querySelector('.cc-number-input'),
-		ccNumberPattern = /^\d{0,16}$/g,
-		ccNumberSeparator = " ",
-		ccNumberInputOldValue,
-		ccNumberInputOldCursor,
+let cardNumber = document.getElementById('cardNumber'),
+		cardNumberPuttern = /^\d{0,16}$/g,
+		numberInputOldValue,
+		numberInputOldCursor,
 		
 		mask = (value, limit, separator) => {
 			var output = [];
@@ -509,26 +573,26 @@ let ccNumberInput = document.querySelector('.cc-number-input'),
 		checkSeparator = (position, interval) => Math.floor(position / (interval + 1)),
 		ccNumberInputKeyDownHandler = (e) => {
 			let el = e.target;
-			ccNumberInputOldValue = el.value;
-			ccNumberInputOldCursor = el.selectionEnd;
+			numberInputOldValue = el.value;
+			numberInputOldCursor = el.selectionEnd;
 		},
 		ccNumberInputInputHandler = (e) => {
 			let el = e.target,
 					newValue = unmask(el.value),
 					newCursorPosition;
 			
-			if ( newValue.match(ccNumberPattern) ) {
-				newValue = mask(newValue, 4, ccNumberSeparator);
+			if ( newValue.match(cardNumberPuttern) ) {
+				newValue = mask(newValue, 4, ' ');
 				
 				newCursorPosition = 
-					ccNumberInputOldCursor - checkSeparator(ccNumberInputOldCursor, 4) + 
-					checkSeparator(ccNumberInputOldCursor + (newValue.length - ccNumberInputOldValue.length), 4) + 
-					(unmask(newValue).length - unmask(ccNumberInputOldValue).length);
+					numberInputOldCursor - checkSeparator(numberInputOldCursor, 4) + 
+					checkSeparator(numberInputOldCursor + (newValue.length - numberInputOldValue.length), 4) + 
+					(unmask(newValue).length - unmask(numberInputOldValue).length);
 				
 				el.value = (newValue !== "") ? newValue : "";
 			} else {
-				el.value = ccNumberInputOldValue;
-				newCursorPosition = ccNumberInputOldCursor;
+				el.value = numberInputOldValue;
+				newCursorPosition = numberInputOldCursor;
 			}
 			
 			el.setSelectionRange(newCursorPosition, newCursorPosition);
@@ -552,23 +616,28 @@ let ccNumberInput = document.querySelector('.cc-number-input'),
 		}
 		
 
-ccNumberInput.addEventListener('keydown', ccNumberInputKeyDownHandler);
-ccNumberInput.addEventListener('input', ccNumberInputInputHandler);
+cardNumber.addEventListener('keydown', ccNumberInputKeyDownHandler);
+cardNumber.addEventListener('input', ccNumberInputInputHandler);
 
-const libraryCardValidation = () => {
-    cardpurchaseInput.forEach(inpt=>{
-        if(!inpt.value.length){
-            cardDataValid = false
-            if(![...inpt.classList].includes('input-error')){
-                inpt.classList.add('input-error')
-            }
-        }else{
-            if([...inpt.classList].includes('input-error')){
-                inpt.classList.remove('input-error')
-            }
+const buyBookFirst = () => {
+    let user = getUser()
+    user.books = []
+    user.libraryCard = true
+    localStorage.setItem('loggedUser',JSON.stringify(user))
+    let users = JSON.parse(localStorage.getItem('users'))
+    let fUser = users.find(x=>x.cardNumber == user.cardNumber)
+    fUser.books = [...user.books]
+    fUser.libraryCard = true
+    localStorage.setItem('users',JSON.stringify(users))
+    buyBook(clickedBuyButton)
 
-        }
-    })
 }
 
-buycardButton.addEventListener('click',libraryCardValidation)
+const buyLibraryCard = () => {
+    if(validationFields(cardpurchaseInput)){
+        closeModal(document.getElementById('cardpurchasemodal'))
+        buyBookFirst()
+    }
+}
+
+buycardButton.addEventListener('click',buyLibraryCard)

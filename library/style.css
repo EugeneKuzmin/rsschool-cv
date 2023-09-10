@@ -384,6 +384,10 @@ ul {
 }
 
 /* Margins */
+.m-0 {
+    margin: 0;
+}
+
 .mx-20 {
     margin-inline: 20px;
 }
@@ -547,6 +551,10 @@ ul {
 
 .px-10 {
     padding-inline: 10px;
+}
+
+.px-15 {
+    padding-inline: 15px;
 }
 
 .pl-13 {
@@ -990,18 +998,17 @@ input:checked {
     height: 300px;
 }
 
-.grid-favorites button:hover:not(:disabled) {
+.btn-buy:hover:not(:disabled),
+button.authentification-button:hover {
     cursor: pointer;
     background-color: hsl( var(--clr-warm-veneer) );
     border: 1px solid hsl( var(--clr-warm-veneer) );
 }
 
-
-
-    .grid-favorites button:disabled {
-        border: 1px solid hsl( var(--clr-warm-veneer) );
-        color: hsl( var(--clr-warm-veneer) );
-    }
+.grid-favorites button:disabled {
+    border: 1px solid hsl( var(--clr-warm-veneer) );
+    color: hsl( var(--clr-warm-veneer) );
+}
 
 .book-description {
     grid-template-rows: 45px 105px 1fr 45px;
@@ -1243,7 +1250,9 @@ footer:nth-child(2) {
     position: relative;
 }
 
-.input-error {
+.input-error,
+.input-mail-error,
+.input-pswrd-error {
     border:1px solid red
 }
 
@@ -1274,6 +1283,24 @@ footer:nth-child(2) {
     font-size: var(--fs-10);
     color: red;
     width: 100px;
+}
+
+.input-mail-error + .error::after {
+    position: absolute;
+    top: 17px;
+    left: -200px;
+    content: 'fill the email correctly';
+    font-size: var(--fs-10);
+    color: red;
+}
+
+.input-pswrd-error + .error::after {
+    position: absolute;
+    top: 17px;
+    left: -200px;
+    content: 'password should be at least 8 symbols';
+    font-size: var(--fs-10);
+    color: red;
 }
 
 .modal {
@@ -1453,4 +1480,9 @@ footer:nth-child(2) {
   .cardPurchase-wrapper {
     max-width: 640px;
     height: 100%;
+  }
+
+  div[data-modal-target]:hover,
+  #logout:hover{
+    color: hsl( var(--clr-warm-veneer) );
   }
