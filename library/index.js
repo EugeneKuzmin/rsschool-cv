@@ -123,7 +123,7 @@ const turnoffProfileIcon = () => {
 const getUser = () => {
     let user = JSON.parse(localStorage.getItem('loggedUser'))
 
-    if(Object.keys(user).length){
+    if(user&&Object.keys(user).length){
         return user
     }
 
