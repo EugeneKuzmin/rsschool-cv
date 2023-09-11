@@ -520,7 +520,7 @@ function closeModal(modal) {
         if(!users){
             return
         }
-        let user = users.find(x=>x.email === loginData['loginId'])
+        let user = users.find(x=>x.email === loginData['loginId'])||users.find(x=>x.cardNumber === loginData['loginId'])
         if(user !== undefined&&user.password == loginData.loginPassword){
             user['visits']++
             imageVisits.forEach(i=>i.setAttribute('data-visits',`${user.visits}`) ) 
@@ -545,6 +545,8 @@ function closeModal(modal) {
             }
             setCardLayoutLoggedin(user)
             closeAuthModals()
+        }else{
+            alert('There is no any user with such email or ID and password.')
         }
     })
   })
