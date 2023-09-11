@@ -926,6 +926,17 @@ nav > ul > li  {
 /* Favorites section */
 /* ***************** */
 
+
+#favorites [role="radioBtnPage"].fadein{
+    opacity: 0;
+    transition: opacity .6s linear;
+}
+
+#favorites [role="radioBtnPage"].fadeout{
+    opacity: 1;
+    transition: opacity .6s linear;
+}
+
 .favorites {
     gap: 80px;
 }

@@ -26,11 +26,22 @@ for(const radioButton of radioButtons){
     radioButton.addEventListener('change', function(e){
         sectionFavorites
         .querySelectorAll('[role="radioBtnPage"]')
-        .forEach((item) => item.setAttribute("hidden", true));
+        .forEach((item) => {
+            item.classList.remove('fadeout')
+            item.classList.add('fadein')
 
-        const s = document.getElementById(e.target.id.slice(0,e.target.id.indexOf('-')))
+            window.setTimeout(function() { 
+                item.setAttribute("hidden", true)
+                    const s = document.getElementById(e.target.id.slice(0,e.target.id.indexOf('-')))
+                    s.removeAttribute('hidden');
+                    window.setTimeout(function() {s.classList.add('fadeout')},100)
+             }, 600);
+        }
+        );
 
-        s.removeAttribute('hidden');
+       
+
+        
         
     });
 } 
