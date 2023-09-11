@@ -188,8 +188,8 @@ const setCardLayoutLoggedout = () => {
     inputsData[0].value = ''
     inputsData[1].value = ''
     cardCheck.setAttribute('data-cardcheckshow','true')
-    document.querySelector('#card-registration-out').setAttribute("hidden",true)
-    document.querySelector('#card-registration-in').removeAttribute("hidden")
+    document.querySelector('#card-registration-out').removeAttribute("hidden")
+    document.querySelector('#card-registration-in').setAttribute("hidden",true)
     document.querySelector('.user-info-container').setAttribute('data-user-info','false')
 }
 
@@ -495,6 +495,7 @@ function closeModal(modal) {
         profileCardNumber.setAttribute('data-cardnumber',`ID:${user == undefined?registrationData.cardNumber:user.cardNumber}`)
         myprofileCardNumber.textContent = user == undefined?registrationData.cardNumber:user.cardNumber
         setCardLayoutLoggedin(registrationData)
+        imageBooks.forEach(i=>i.setAttribute('data-books',0))
         closeAuthModals()
     })
 
@@ -538,6 +539,9 @@ function closeModal(modal) {
             if(user.hasOwnProperty('books')){
                 user.books.forEach(l=>setButtonOwn(l))
                 refreshBookList(user.books)
+                imageBooks.forEach(i=>i.setAttribute('data-books',user.books.length.toString()))
+            }else{
+                imageBooks.forEach(i=>i.setAttribute('data-books',0))
             }
             setCardLayoutLoggedin(user)
             closeAuthModals()
