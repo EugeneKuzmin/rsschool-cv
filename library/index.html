@@ -551,7 +551,7 @@
                                         <input type="text" class="fs-30 ff-forum text-dark p-2" role="inputlibrarycardcheck" placeholder="Card number">
                                     </div>
                                 </div>
-                                <button class="align-self-center mt-2 fs-20 " data-card-check><span class="fw-700 letter-spacing-1">Check the card</span></button>
+                                <button class="align-self-center mt-2 fs-20 " data-card-check data-cardcheckshow = "true"><span class="fw-700 letter-spacing-1">Check the card</span></button>
                                 <div class="align-self-center flex user-info-container" data-user-info="false">
                                     <div class="letter-spacing-0-4 text-black mr-20 flex flex-column align-items-center">
                                         Visits
@@ -574,12 +574,20 @@
                         </div>
                         
                     </div>
-                    <div class="card-registration text-end mt-15 ">
+                    <div class="card-registration text-end mt-15 " id="card-registration-out">
                         <span class="ff-forum fs-30 letter-spacing-0-6">Get a reader card</span>
                         <p class="mt-3 letter-spacing-0-4 pt-12">You will be able to see a reader card after logging into account or you can register a new account</p>
                         <div class="authentification-buttons-layout mt-5">
                             <button class="authentification-button fs-10 fw-600 mr-2" data-modal-target="#registration-modal">Sign Up</button>
                             <button class="authentification-button fs-10 fw-600" data-modal-target="#login-modal">Log in</button>
+                        </div>
+                    </div>
+
+                    <div class="card-registration text-end mt-15" id="card-registration-in" hidden>
+                        <span class="ff-forum fs-30 letter-spacing-0-6">Visit your profile</span>
+                        <p class="mt-3 letter-spacing-0-4 pt-12 line-height-40">With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more</p>
+                        <div class="authentification-buttons-layout mt-5">
+                            <button class="authentification-button fs-10 fw-600 mr-2" data-modal-target="#registration-modal">Profile</button>
                         </div>
                     </div>
 

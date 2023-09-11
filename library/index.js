@@ -119,6 +119,7 @@ const rentedBooks = document.querySelector('[data-rentedbooks]')
 const bookNames = document.querySelectorAll("[role='book-name']")
 const bookAuthors = document.querySelectorAll("[role='book-author']")
 const logoutLink = document.getElementById('logout')
+const inputsData = document.querySelectorAll("[role='inputlibrarycardcheck']")
 
 const turnonProfileIcon = () => {
     document.querySelector('[icon-no-logo]').setAttribute('data-profileiconVisible','false')
@@ -171,6 +172,25 @@ const setButtonOwn = (indx) => {
     buybtns[indx].textContent = 'Own'
 }
 
+const setCardLayoutLoggedin = (user) => {
+    
+    inputsData[0].value = user.firstName.trim()
+    inputsData[1].value = user.lastName.trim()
+    cardCheck.setAttribute('data-cardcheckshow','false')
+    document.querySelector('#card-registration-out').setAttribute('hidden',true)
+    document.querySelector('#card-registration-in').setAttribute('hidden',false)
+    document.querySelector('.user-info-container').setAttribute('data-user-info','true')
+}
+
+const setCardLayoutLoggedout = () => {
+    inputsData[0].value = ''
+    inputsData[1].value = ''
+    cardCheck.setAttribute('data-cardcheckshow','true')
+    document.querySelector('#card-registration-out').setAttribute('hidden',true)
+    document.querySelector('#card-registration-in').setAttribute('hidden',false)
+    document.querySelector('.user-info-container').setAttribute('data-user-info','false')
+}
+
 const refreshProfile = () => {
     let user = getUser()
     
@@ -185,6 +205,7 @@ const refreshProfile = () => {
             refreshBookList(user.books)
         }
         imageVisits.forEach(i=>i.setAttribute('data-visits',user.visits))
+        setCardLayoutLoggedin(user)
     }
 }
 
@@ -243,16 +264,18 @@ const showUserInfo = () => {
 
 cardCheck.addEventListener('click',()=>{
 
-    let user = getUser()
-    if(user){
-        let inputsData = document.querySelectorAll("[role='inputlibrarycardcheck']")
-        if((inputsData[0].value.replaceAll('  ',' ').trim().toUpperCase() == user.firstName.trim().toUpperCase() + ' ' + user.lastName.trim().toUpperCase())&&user.cardNumber.toUpperCase() == inputsData[1].value.toUpperCase()){
+    let users = JSON.parse(localStorage.getItem('users'))
+    let nameStr = inputsData[0].value.replaceAll('  ',' ').trim()
+    nameStr = nameStr.replaceAll('  ',' ')
+    let nameArray = nameStr.split(' ')
+    let user = users.find(x=>(x.firstName == nameArray[0])&&(x.lastName == nameArray[1])&&(x.cardNumber == inputsData[1].value))
+    if (user){
             cardCheck.style.display = 'none'
             document.querySelector('.user-info-container').setAttribute('data-user-info','true')
             window.setTimeout(showUserInfo, 10000);
-        }
     }
     
+        
 })
 
 // registration and login forms
@@ -514,6 +537,7 @@ function closeModal(modal) {
                 user.books.forEach(l=>setButtonOwn(l))
                 refreshBookList(user.books)
             }
+            setCardLayoutLoggedin(user)
             closeAuthModals()
         }
     })
@@ -550,6 +574,7 @@ function closeModal(modal) {
     setUserName(' ',' ')
     closeAuthPopup()
     rentedBooks.innerHTML = ''
+    setCardLayoutLoggedout()
     popupTogled = false
   })
 
