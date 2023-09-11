@@ -115,6 +115,11 @@ const imageVisits = document.querySelectorAll('[data-visits]')
 const imageBonuses = document.querySelector('[data-bonuses]')
 const imageBooks = document.querySelectorAll('[data-books]')
 
+const rentedBooks = document.querySelector('[data-rentedbooks]')
+const bookNames = document.querySelectorAll("[role='book-name']")
+const bookAuthors = document.querySelectorAll("[role='book-author']")
+const logoutLink = document.getElementById('logout')
+
 const turnonProfileIcon = () => {
     document.querySelector('[icon-no-logo]').setAttribute('data-profileiconVisible','false')
     document.querySelector('[icon-with-logo]').setAttribute('data-profileiconVisible','true')
@@ -123,6 +128,24 @@ const turnoffProfileIcon = () => {
     document.querySelector('[icon-no-logo]').setAttribute('data-profileiconVisible','true')
     document.querySelector('[icon-with-logo]').setAttribute('data-profileiconVisible','false')
 }
+
+const refreshBookList = (bookList) => {
+    for (let index = 0; index < bookList.length; index++) {
+        const li = document.createElement('li')
+        const liContent = document.createTextNode(bookNames[bookList[index]].textContent + ', ' + bookAuthors[bookList[index]].textContent.replace('By ',''))
+        li.appendChild(liContent)
+        rentedBooks.appendChild(li)
+    }
+  }
+
+const addBookToList = (indx) => {
+
+    const nBook = document.createElement("li")
+    const bookContent = document.createTextNode(bookNames[indx].textContent + ', ' + bookAuthors[indx].textContent)
+    nBook.appendChild(bookContent)
+    rentedBooks.appendChild(nBook);
+
+  }
 
 const getUser = () => {
     let user = JSON.parse(localStorage.getItem('loggedUser'))
@@ -159,7 +182,7 @@ const refreshProfile = () => {
         if(user.hasOwnProperty('books')){
             user.books.forEach(l=>setButtonOwn(l))
             imageBooks.forEach(i=>i.setAttribute('data-books',user.books.length.toString()))
-            
+            refreshBookList(user.books)
         }
         imageVisits.forEach(i=>i.setAttribute('data-visits',user.visits))
     }
@@ -309,6 +332,7 @@ const loginModal = document.querySelector('.login-modal')
 const loginInputs = document.querySelectorAll('[role="login-input"]')
 const loginButtons = document.querySelectorAll('[role="login-submit"]')
 
+
 function closeModal(modal) {
     if (modal == null) return
     modal.classList.remove('active')
@@ -345,9 +369,6 @@ function closeModal(modal) {
   overlay.addEventListener('click', () => {
     closeAuthModals()
   })
-
-
-
 
   registerFromLoginLink.addEventListener('click',()=>{
     nullifyVars(loginModal)
@@ -426,7 +447,7 @@ function closeModal(modal) {
             registrationData[e.id] = e.value
         })
         registrationData.visits = 1
-        imageVisits.setAttribute('data-visits','1')
+        imageVisits.forEach(l=>l.setAttribute('data-visits','1'))
 
         let users = JSON.parse(localStorage.getItem('users'))
 
@@ -437,12 +458,13 @@ function closeModal(modal) {
         if(user == undefined){
             registrationData.cardNumber = generateHex()
             users.push(registrationData)
-            localStorage.setItem('loggedUser',JSON.stringify({cardNumber:registrationData.cardNumber,firstName:registrationData.firstName,lastName:registrationData.lastName}))
+            localStorage.setItem('loggedUser',JSON.stringify({cardNumber:registrationData.cardNumber,firstName:registrationData.firstName,lastName:registrationData.lastName,visits:registrationData.visits}))
         }else{
-            Object.keys(registrationData).forEach(key=>{
-                user[key] = registrationData[key]
-            })
-            localStorage.setItem('loggedUser',JSON.stringify({cardNumber:user.cardNumber,firstName:registrationData.firstName,lastName:registrationData.lastName}))
+            alert('User with such email already exists! Make up a new one!')
+            // Object.keys(registrationData).forEach(key=>{
+            //     user[key] = registrationData[key]
+            // })
+            // localStorage.setItem('loggedUser',JSON.stringify({cardNumber:user.cardNumber,firstName:registrationData.firstName,lastName:registrationData.lastName}))
         }
         localStorage.setItem('users',JSON.stringify(users))
         setUserName(registrationData['firstName'],registrationData['lastName'])
@@ -490,6 +512,7 @@ function closeModal(modal) {
             myprofileCardNumber.textContent = user.cardNumber
             if(user.hasOwnProperty('books')){
                 user.books.forEach(l=>setButtonOwn(l))
+                refreshBookList(user.books)
             }
             closeAuthModals()
         }
@@ -504,7 +527,11 @@ function closeModal(modal) {
         users.find(x=>x.cardNumber == user.cardNumber).books = [...user.books]
         localStorage.setItem('users',JSON.stringify(users))
         setButtonOwn(indx)
+        //refresh my profile modal
         imageBooks.forEach(i=>i.setAttribute('data-books',user.books.length.toString()))
+
+        addBookToList(indx)
+        
     }
 
     const cleanOwnBooks = () => {
@@ -517,12 +544,12 @@ function closeModal(modal) {
         }
     }
 
-  const logoutLink = document.getElementById('logout')
   logoutLink.addEventListener('click',()=>{
     cleanOwnBooks()
     localStorage.setItem('loggedUser',JSON.stringify({}))
     setUserName(' ',' ')
     closeAuthPopup()
+    rentedBooks.innerHTML = ''
     popupTogled = false
   })
 
@@ -537,7 +564,7 @@ function closeModal(modal) {
                 openModal(document.getElementById('cardpurchasemodal'))
             }
         }else{
-            openModal(document.getElementById('login-modal'))
+            openModal(loginModal)
         }
     })
 })

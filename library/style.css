@@ -155,10 +155,6 @@ button
     transition: 0.3s;
 }
 
-ul {
-    padding: 0;
-}
-
 /* ------------------- */
 /* Utility classes     */
 /* ------------------- */
@@ -636,6 +632,7 @@ ul {
 }
 
 .navigation-bar ul {
+    padding: 0;
     list-style: none;
     gap: 30px;
     line-height: 50px;
@@ -682,7 +679,9 @@ header button {
     margin-right: 40px;
 }
 
-
+nav > ul {
+    padding: 0;
+}
 
 nav > ul > li > a {
     text-decoration: none;
@@ -740,11 +739,6 @@ nav > ul > li  {
     cursor: pointer;
 }
 
-/* .menuProfileAuthenticated {
-    width: 80px;
-    height: 115px;
-
-} */
 
 .profilePopup[data-profileNoAuthVisible="false"]{
     display: none;
@@ -852,11 +846,6 @@ nav > ul > li  {
     .navigation[data-visible="true"]{
         transform: translateX(-100%);
     }
-
-
-    /* nav > ul > li > a {
-        pointer-events: none;
-    } */
     
 }
 
@@ -1460,6 +1449,20 @@ footer:nth-child(2) {
 
   .myprofile-card-number > img {
     cursor: pointer;
+  }
+
+
+  .rented-books-container{
+      max-width: 410px;
+      max-height: 105px;
+      overflow:auto;
+  }
+  .rented-books-list{
+    width: max-content;
+  }
+  .rented-books-list > *:where(:not(:last-child)) {
+    margin-bottom: 10px;
+
   }
 
   .user-info-container[data-user-info="false"]{
