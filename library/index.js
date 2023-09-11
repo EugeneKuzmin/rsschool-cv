@@ -120,14 +120,15 @@ const bookNames = document.querySelectorAll("[role='book-name']")
 const bookAuthors = document.querySelectorAll("[role='book-author']")
 const logoutLink = document.getElementById('logout')
 const inputsData = document.querySelectorAll("[role='inputlibrarycardcheck']")
+const nameLogo = document.querySelector("[icon-with-logo]")
 
 const turnonProfileIcon = () => {
     document.querySelector('[icon-no-logo]').setAttribute('data-profileiconVisible','false')
-    document.querySelector('[icon-with-logo]').setAttribute('data-profileiconVisible','true')
+    nameLogo.setAttribute('data-profileiconVisible','true')
 }
 const turnoffProfileIcon = () => {
     document.querySelector('[icon-no-logo]').setAttribute('data-profileiconVisible','true')
-    document.querySelector('[icon-with-logo]').setAttribute('data-profileiconVisible','false')
+    nameLogo.setAttribute('data-profileiconVisible','false')
 }
 
 const refreshBookList = (bookList) => {
@@ -160,11 +161,12 @@ const getUser = () => {
 
 const setUserName = (localFirstName,localLastName) => {
 
-    document.querySelector('.userName').textContent = (localFirstName[0]+localLastName[0]).toUpperCase()
+    nameLogo.textContent = (localFirstName[0]+localLastName[0]).toUpperCase()
 
     shortName.textContent = localFirstName[0] + localLastName[0]
     fullName.textContent = localFirstName + ' ' + localLastName
     getUser()?turnonProfileIcon():turnoffProfileIcon()
+    nameLogo.setAttribute('title',localFirstName + ' ' + localLastName)
   }
 
 const setButtonOwn = (indx) => {
@@ -177,8 +179,8 @@ const setCardLayoutLoggedin = (user) => {
     inputsData[0].value = user.firstName.trim()
     inputsData[1].value = user.lastName.trim()
     cardCheck.setAttribute('data-cardcheckshow','false')
-    document.querySelector('#card-registration-out').setAttribute('hidden',true)
-    document.querySelector('#card-registration-in').setAttribute('hidden',false)
+    document.querySelector('#card-registration-out').setAttribute("hidden",true)
+    document.querySelector('#card-registration-in').removeAttribute("hidden")
     document.querySelector('.user-info-container').setAttribute('data-user-info','true')
 }
 
@@ -186,8 +188,8 @@ const setCardLayoutLoggedout = () => {
     inputsData[0].value = ''
     inputsData[1].value = ''
     cardCheck.setAttribute('data-cardcheckshow','true')
-    document.querySelector('#card-registration-out').setAttribute('hidden',true)
-    document.querySelector('#card-registration-in').setAttribute('hidden',false)
+    document.querySelector('#card-registration-out').setAttribute("hidden",true)
+    document.querySelector('#card-registration-in').removeAttribute("hidden")
     document.querySelector('.user-info-container').setAttribute('data-user-info','false')
 }
 
@@ -259,6 +261,7 @@ copyCard.addEventListener('click',()=>{
 const showUserInfo = () => {
     cardCheck.style.display = 'block'
     document.querySelector('.user-info-container').setAttribute('data-user-info','false')
+    inputsData.forEach(l=>l.value = '')
     
 }
 
@@ -273,6 +276,7 @@ cardCheck.addEventListener('click',()=>{
             cardCheck.style.display = 'none'
             document.querySelector('.user-info-container').setAttribute('data-user-info','true')
             window.setTimeout(showUserInfo, 10000);
+
     }
     
         
@@ -484,15 +488,13 @@ function closeModal(modal) {
             localStorage.setItem('loggedUser',JSON.stringify({cardNumber:registrationData.cardNumber,firstName:registrationData.firstName,lastName:registrationData.lastName,visits:registrationData.visits}))
         }else{
             alert('User with such email already exists! Make up a new one!')
-            // Object.keys(registrationData).forEach(key=>{
-            //     user[key] = registrationData[key]
-            // })
-            // localStorage.setItem('loggedUser',JSON.stringify({cardNumber:user.cardNumber,firstName:registrationData.firstName,lastName:registrationData.lastName}))
+            return
         }
         localStorage.setItem('users',JSON.stringify(users))
         setUserName(registrationData['firstName'],registrationData['lastName'])
         profileCardNumber.setAttribute('data-cardnumber',`ID:${user == undefined?registrationData.cardNumber:user.cardNumber}`)
         myprofileCardNumber.textContent = user == undefined?registrationData.cardNumber:user.cardNumber
+        setCardLayoutLoggedin(registrationData)
         closeAuthModals()
     })
 
