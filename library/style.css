@@ -888,6 +888,21 @@ nav > ul > li  {
     background-color: hsl( var(--clr-warm-veneer) );
 }
 
+.arrow-button {
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.arrow-button > img {
+    height: 20px;
+    aspect-ratio: 1;
+}
+
+.arrow-response:hover{
+    background-color: rgba(177, 177, 177, 0.595);
+    cursor: pointer;
+}
+
 
 
 @media (min-width:1024px){

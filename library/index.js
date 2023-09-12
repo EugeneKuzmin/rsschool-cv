@@ -14,7 +14,8 @@ function switchNavigation(){
 
 }
 
-//******************************************************/
+//**********************  Favorites  ***********************************/
+
 const sectionSpring = document.getElementById("spring")
 const sectionSummer = document.getElementById("summer")
 const sectionAutumn = document.getElementById("autumn")
@@ -38,74 +39,92 @@ for(const radioButton of radioButtons){
              }, 600);
         }
         );
-
-       
-
-        
-        
     });
 } 
+
+//**********************  About  ***********************************/
 
 const carousel = document.getElementById('carousel')
 
 const picClass = document.querySelectorAll('.card__img')[0]
 const picWidth = picClass.clientWidth
 
+const arrowLeft = document.querySelector('#arrowleft')
+const arrowRight = document.querySelector('#arrowright')
+const arrowBtn = document.querySelector('.arrow-button')
+
+let currScrollPosition = 0
+
 let activeIndex = 0
 
+const scrollWidth = carousel.scrollWidth - carousel.clientWidth
+
 const showHideIcons = () => {
-    let scrollWidth = carousel.scrollWidth - carousel.clientWidth -1 
-    arrowLeft.disabled = carousel.scrollLeft == 0 ? true : false
-    if(carousel.scrollLeft + picWidth + 25 >= scrollWidth){
+    
+    if(currScrollPosition >= scrollWidth){
         arrowRight.disabled = true
+        arrowRight.classList.remove('arrow-response')
         arrowRight.style.opacity = 0.3
     }else{
         arrowRight.disabled = false
         arrowRight.style.opacity = 1
+        arrowRight.classList.add('arrow-response')
     }
+
+    if(currScrollPosition === 0){
+        arrowLeft.disabled = true
+        arrowLeft.classList.remove('arrow-response')
+        arrowLeft.style.opacity = 0.3
+    }else{
+        arrowLeft.disabled = false
+        arrowLeft.style.opacity = 1
+        arrowLeft.classList.add('arrow-response')
+    }
+    
 }
 
-const arrowLeft = document.querySelector('#arrowleft')
+//initial settings
+
+showHideIcons()
+
+
 arrowLeft.addEventListener('click',()=>{
-    carousel.scrollLeft -= (picWidth + 25) 
-    if(activeIndex>0){
+    if(!arrowLeft.disabled){
+        carousel.scrollLeft -= (picWidth + 25)
+        currScrollPosition -= (picWidth + 25)
         dots[activeIndex].classList.remove('active')
         activeIndex --
         dots[activeIndex].classList.add('active')
+        showHideIcons()
     }
 
-    showHideIcons()
 })
 
-const arrowRight = document.querySelector('#arrowright')
+
 arrowRight.addEventListener('click',()=>{
-    // arrowLeft.disabled = carousel.scrollLeft == 0 ? true : false
-    // arrowRight.disabled = carousel.scrollLeft + 25 >= scrollWidth ? true : false
-    
-    carousel.scrollLeft += picWidth + 25
-    let scrollWidth = carousel.scrollWidth - carousel.clientWidth -1 
-    // if(carousel.scrollLeft + 35 <= scrollWidth){
-    if(activeIndex< 5){
+    if(!arrowRight.disabled){
+        carousel.scrollLeft += picWidth + 25
+        currScrollPosition += picWidth + 25
         dots[activeIndex].classList.remove('active')
         activeIndex ++ 
         dots[activeIndex].classList.add('active')
+        showHideIcons()
     }
-
-    showHideIcons()
-    
-    // arrowRight.style.display = (carousel.scrollLeft == (carousel.scrollWidth - carousel.clientWidth))?"none":"block"
 })
 
 const dots = document.querySelectorAll('.dot')
 dots.forEach((dot,index)=>{
     dot.addEventListener('click',()=>{
         carousel.scrollLeft = (picWidth + 25)*index
+        currScrollPosition = (picWidth + 25)*index
         dots[activeIndex].classList.remove('active')
         dot.classList.add('active')
         activeIndex = index
         showHideIcons()
     })
 })
+
+//**********************  Authentification  ***********************************/
 
 const authIcons = document.querySelectorAll('[data-profileiconVisible]')
 const menuNoAuth = document.querySelector('[data-profileNoAuthVisible]')
