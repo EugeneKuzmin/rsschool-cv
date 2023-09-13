@@ -1271,8 +1271,8 @@ footer:nth-child(2) {
 }
 
 .input-error,
-.input-mail-error,
-.input-pswrd-error {
+.input-libcard-error
+ {
     border:1px solid red
 }
 
@@ -1280,47 +1280,27 @@ footer:nth-child(2) {
     position: absolute;
     top: 17px;
     left: -200px;
-    content: 'fill the field';
+    content: attr(data-error-msg);
     font-size: var(--fs-10);
     color: red;
 }
-
-.input-sm-container > .input-error + .error-sm::after {
+.input-libcard-error + .error::after {
     position: absolute;
-    top: 26px;
-    left: 0;
-    content: 'fill the field';
+    top: 17px;
+    left: -200px;
+    content: attr(data-libcard-error-msg);
     font-size: var(--fs-10);
     color: red;
-    width: 100px;
 }
 
 .input-sm-container > .input-error + .error-sm-cvc::after {
     position: absolute;
     top: 46px;
     left: 0;
-    content: 'fill the field';
+    content: attr(data-libcard-error-msg);
     font-size: var(--fs-10);
     color: red;
-    width: 100px;
-}
-
-.input-mail-error + .error::after {
-    position: absolute;
-    top: 17px;
-    left: -200px;
-    content: 'fill the email correctly';
-    font-size: var(--fs-10);
-    color: red;
-}
-
-.input-pswrd-error + .error::after {
-    position: absolute;
-    top: 17px;
-    left: -200px;
-    content: 'password should be at least 8 symbols';
-    font-size: var(--fs-10);
-    color: red;
+    width: 150px;
 }
 
 .modal {

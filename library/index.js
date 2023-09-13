@@ -87,8 +87,7 @@ const showHideIcons = () => {
 
 showHideIcons()
 
-
-arrowLeft.addEventListener('click',()=>{
+const moveLeft = () => {
     if(!arrowLeft.disabled){
         carousel.scrollLeft -= (picWidth + 25)
         currScrollPosition -= (picWidth + 25)
@@ -97,11 +96,11 @@ arrowLeft.addEventListener('click',()=>{
         dots[activeIndex].classList.add('active')
         showHideIcons()
     }
+}
 
-})
+arrowLeft.addEventListener('click',moveLeft)
 
-
-arrowRight.addEventListener('click',()=>{
+const moveRight = () =>{
     if(!arrowRight.disabled){
         carousel.scrollLeft += picWidth + 25
         currScrollPosition += picWidth + 25
@@ -110,9 +109,12 @@ arrowRight.addEventListener('click',()=>{
         dots[activeIndex].classList.add('active')
         showHideIcons()
     }
-})
+}
+
+arrowRight.addEventListener('click',moveRight)
 
 const dots = document.querySelectorAll('.dot')
+
 dots.forEach((dot,index)=>{
     dot.addEventListener('click',()=>{
         carousel.scrollLeft = (picWidth + 25)*index
@@ -121,8 +123,10 @@ dots.forEach((dot,index)=>{
         dot.classList.add('active')
         activeIndex = index
         showHideIcons()
-    })
+    }
+    )
 })
+
 
 //**********************  Authentification  ***********************************/
 
@@ -378,7 +382,7 @@ function nullifyVars(mForm) {
     }
 }
 
-const generateHex = () => [...Array(9)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+const generateHex = () => [...Array(9)].map(() => Math.floor(Math.random() * 16).toString(16)).join('').toUpperCase();
 
 const registrationModal = document.querySelector('.registration-modal')
 const registrationInputs = document.querySelectorAll('[role="registration-input"]')
@@ -388,6 +392,9 @@ const registrationButtons = document.querySelectorAll('[role="registration-submi
 const loginModal = document.querySelector('.login-modal')
 const loginInputs = document.querySelectorAll('[role="login-input"]')
 const loginButtons = document.querySelectorAll('[role="login-submit"]')
+
+const inputCvc = document.getElementById('cvc')
+const cardNumberInput = document.getElementById('cardNumber')
 
 
 function closeModal(modal) {
@@ -440,13 +447,13 @@ function closeModal(modal) {
     inputSet.forEach(inpt=>{
         if(!inpt.value.length){
             valid = false
-            if(![...inpt.classList].includes('input-error')){
+            let spanError = inpt.parentNode.querySelector('[data-error-msg]')
+            if(spanError){
+                spanError.setAttribute('data-error-msg','Fill the field')
                 inpt.classList.add('input-error')
-            }
+            } 
         }else{
-            if([...inpt.classList].includes('input-error')){
-                inpt.classList.remove('input-error')
-            }
+            inpt.classList.remove('input-error')
         }
     })
 
@@ -460,15 +467,10 @@ function closeModal(modal) {
             let pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
             validEmail = emailStr.match(pattern)
             if(!validEmail){
-                if([...emailInput.classList].includes('input-error')){
-                    emailInput.classList.remove('input-error')
-                }
-                emailInput.classList.add('input-mail-error')
+                emailInput.parentNode.querySelector('[data-error-msg]').setAttribute('data-error-msg','Fill the email correctly')
+                emailInput.classList.add('input-error')
             }else{
-                if([...emailInput.classList].includes('input-mail-error')){
-                    emailInput.classList.remove('input-mail-error')
-                }
-
+                emailInput.classList.remove('input-error')
             }
         }
 
@@ -477,21 +479,38 @@ function closeModal(modal) {
         if(passwordStr.length){
             validPassword = passwordStr.length>=8
             if(!validPassword){
-                if([...passwordInput.classList].includes('input-error')){
-                    passwordInput.classList.remove('input-error')
-                }
-                passwordInput.classList.add('input-pswrd-error')
+                
+                passwordInput.parentNode.querySelector('[data-error-msg]').setAttribute('data-error-msg','Password should be at least 8 symbols')
+                passwordInput.classList.add('input-error')
             }else{
-                if([...passwordInput.classList].includes('input-pswrd-error')){
-                    passwordInput.classList.remove('input-pswrd-error')
-                }
+                passwordInput.classList.remove('input-error')
             }
         }
-
     }
-    
+
     return valid&&validEmail&&validPassword
 }
+
+const validationLibCardFields = (inputSet) => {
+    let valid = true;
+    if(inputCvc.value.length<3){
+        valid = false
+        inputCvc.parentNode.querySelector('[data-libcard-error-msg]').setAttribute('data-libcard-error-msg','CVC at least 3 symbols')
+        inputCvc.classList.add('input-error')
+    }else{
+        inputCvc.classList.remove('input-error')
+    }
+    if(cardNumberInput.value.length<19){
+        valid = false
+        cardNumberInput.parentNode.querySelector('[data-libcard-error-msg]').setAttribute('data-libcard-error-msg','Card number at least 16 symbols')
+        cardNumberInput.classList.add('input-libcard-error')
+    }else{
+        cardNumberInput.classList.remove('input-libcard-error')
+    }
+    return valid
+}
+
+
   registrationButtons.forEach(button => {
     button.addEventListener('click',()=>{
         if(!validationFields(registrationInputs)){
@@ -634,22 +653,26 @@ function closeModal(modal) {
 
 //inputs
 
-const inputCvc = document.getElementById('cvc')
+
 inputCvc.addEventListener('input',()=>{
     inputCvc.value = inputCvc.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1')
 })
 
-const expirationCode1 = document.getElementById('expirationcode1')
+
+const expirationCode1 = document.querySelector('#expirationcode1')
+const expirationCode2 = document.querySelector('#expirationcode2')
+const inputPlace = document.querySelector('#place')
+
 expirationCode1.addEventListener('input',()=>{
     expirationCode1.value = expirationCode1.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1')
 })
 
-const expirationCode2 = document.getElementById('expirationcode1')
+
 expirationCode2.addEventListener('input',()=>{
     expirationCode2.value = expirationCode1.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1')
 })
 
-const inputPlace = document.getElementById('place')
+
 inputPlace.addEventListener('input',()=>{
     inputPlace.value = inputPlace.value.replace(/[^a-zA-Z]/g, '').replace(/(\..*)\./g, '$1')
 })
@@ -738,10 +761,24 @@ const buyBookFirst = () => {
 }
 
 const buyLibraryCard = () => {
-    if(validationFields(cardpurchaseInput)){
+    if(validationLibCardFields(cardpurchaseInput)){
         closeModal(document.getElementById('cardpurchasemodal'))
         buyBookFirst()
     }
 }
+
+cardpurchaseInput.forEach(inpt=>{
+    inpt.addEventListener('input',()=>{
+        if(validationFields(cardpurchaseInput)){
+            buycardButton.removeAttribute('disabled')
+        }else{
+            if(!buycardButton.disabled){
+                buycardButton.disabled = true
+            }
+            
+        }
+    })
+
+})
 
 buycardButton.addEventListener('click',buyLibraryCard)

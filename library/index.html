@@ -650,22 +650,22 @@
                 <div class="px-15 fs-15 letter-spacing-0-3">
                     <label>First name</label>
                     <Input type="text" class="modal-input mt-10" id='firstName' role="registration-input"></Input>
-                    <span class="error"></span>
+                    <span class="error" data-error-msg=""></span>
                 </div>
                 <div class="px-15 fs-15 letter-spacing-0-3">
                     <label>Last name</label>
                     <Input type="text" class="modal-input mt-10" id='lastName' role="registration-input"></Input>
-                    <span class="error"></span>
+                    <span class="error" data-error-msg=""></span>
                 </div>
                 <div class="px-15 fs-15 letter-spacing-0-3">
                     <label>E-mail</label>
                     <Input type="text" class="modal-input mt-10" id="email" role="registration-input"></Input>
-                    <span class="error"></span>
+                    <span class="error" data-error-msg=""></span>
                 </div>
                 <div class="px-15 fs-15 letter-spacing-0-3">
                     <label>Password</label>
                     <Input type="password" class="modal-input mt-10" id="password" role="registration-input"></Input>
-                    <span class="error"></span>
+                    <span class="error" data-error-msg=""></span>
                 </div>
             </div>
 
@@ -686,12 +686,12 @@
                 <div class="px-15 fs-15 letter-spacing-0-3">
                     <label>E-mail or readers card</label>
                     <Input type="text" class="modal-input mt-10" id='loginId' role="login-input"></Input>
-                    <span class="error"></span>
+                    <span class="error" data-error-msg=""></span>
                 </div>
                 <div class="px-15 fs-15 letter-spacing-0-3">
                     <label>Password</label>
                     <Input type="password" class="modal-input mt-10" id="loginPassword" role="login-input"></Input>
-                    <span class="error"></span>
+                    <span class="error" data-error-msg=""></span>
                 </div>
             </div>
 
@@ -761,19 +761,17 @@
                     <div >
                         <label>Bank card number</label>
                         <Input type="text" class="modal-input cc-number-input my-10" id='cardNumber' maxlength="19" role="cardpurchase-input"></Input>
-                        <span class="error"></span>
+                        <span class="error" data-libcard-error-msg=""></span>
                         
                     </div>
                     <div >
                         <label>Expiration code</label>
                         <div class="flex">
-                            <div class="input-sm-container">
+                            <div >
                                 <Input type="text" class="modal-input modal-input-small block my-10 mr-10" id='expirationcode1' maxlength="2" role="cardpurchase-input"></Input>
-                                <span class="error-sm"></span>
                             </div>
-                            <div class="input-sm-container">
+                            <div >
                                 <Input type="text" class="modal-input modal-input-small block my-10" id='expirationcode2' maxlength="2" role="cardpurchase-input"></Input>
-                                <span class="error-sm"></span>
                             </div>
                         </div>
                     </div>
@@ -781,29 +779,26 @@
                     <div class="input-sm-container">
                         <label class="block">CVC</label>
                         <Input type="text" class="modal-input modal-input-small block my-10" id='cvc' maxlength="3" role="cardpurchase-input"/></Input>
-                        <span class="error-sm-cvc"></span>
+                        <span class="error-sm-cvc" data-libcard-error-msg=""></span>
                     </div>
 
                     <div class="mt-10">
                         <label >Cardholder name</label>
                         <Input type="text" class="modal-input my-10" id='cardholdeername' role="cardpurchase-input"></Input>
-                        <span class="error"></span>
                     </div>
 
                     <div >
                         <label>Postal code</label>
                         <Input type="text" class="modal-input my-10" id='postalcode' role="cardpurchase-input"></Input>
-                        <span class="error"></span>
                     </div>
 
                     <div >
                         <label>City / Town</label>
                         <Input type="text" class="modal-input my-10" id='place' role="cardpurchase-input"></Input>
-                        <span class="error"></span>
                     </div>
 
                     <div class="flex mt-10">
-                        <button class="btn-buy fs-10 fw-600 letter-spacing-1 mr-28" data-buy-card>
+                        <button class="btn-buy fs-10 fw-600 letter-spacing-1 mr-28" data-buy-card disabled>
                             Buy
                         </button>
                         <span class="flex align-self-end fs-20 fw-700 line-height-20 letter-spacing-2 uppercase">$ 25.00</span>
