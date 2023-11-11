@@ -34,3 +34,11 @@ console.log(doubleNums(numbersString)); // Outputs: "2, 4, 6, 8, 10"
   * [Image gallery](https://eugenekuzmin-image-gallery.netlify.app)
   * [Audio player](https://eugenekuzmin-audio-player.netlify.app)
   * [Library landing](https://eugenekuzmin-library-part3.netlify.app)
+
+  ### Education
+ * Bachelor’s of Education-Maths; V.I.Vernadsky, Tavrida National University; Simferopol 2005
+
+### Languages
+* Russian (native)
+* English (advanced, worked as a teacher)
+* Chinese (intermediate)
