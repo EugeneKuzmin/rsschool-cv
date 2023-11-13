@@ -2,7 +2,6 @@ const nav = document.querySelector("#nav-menu");
 const navToggle = document.querySelector(".hamburger");
 
 navToggle.addEventListener("click", () => {
-    
     const visiblity = nav.getAttribute("data-visible");
     if (visiblity === "false") {
         nav.setAttribute("data-visible", true);
