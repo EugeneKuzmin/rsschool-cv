@@ -1,2 +1,1 @@
-# rsschool-cv
-rsschool-cv
+# __[rsschool-cv](https://eugenekuzmin.github.io/rsschool-cv/cv)__
